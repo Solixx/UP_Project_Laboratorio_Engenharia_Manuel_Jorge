@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="container socials">
-      <div class="col12 colS4 colM8 flexRight">
+      <div class="col12 colS4 colM8 colL12 flexRight">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
           <path

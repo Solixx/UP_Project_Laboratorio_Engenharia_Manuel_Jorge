@@ -87,6 +87,20 @@
           gallery.scrollLeft = scrollLeft - walk;
       });
       </script>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Seletor para todas as setas em todos os arquivos
+    var arrows = $('.arrows');
+
+    arrows.each(function(index) {
+      // Ajusta dinamicamente a posição das setas
+      var topPosition = index * 100 + 95 + '%';
+      $(this).css('top', topPosition);
+    });
+  });
+</script>
 </body>
 
 </html>

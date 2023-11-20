@@ -1,8 +1,8 @@
 <div class="container nav">
-    <div class="logo col3 colS1 colM2">
+    <div class="logo colS1 colM2 colL2 col3">
         <img src="{{ asset('imgs/logo.png') }}" alt="" />
     </div>
-    <div class="mainMenu col4 flexCenter">
+    <div class="mainMenu colL5 col4 flexCenter">
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="categories.php">Categories</a></li>
@@ -10,13 +10,13 @@
             <li><a href="women.php">Women</a></li>
         </ul>
     </div>
-    <div class="accountMenu col4 flexLeft">
+    <div class="accountMenu colL4 col4 flexLeft">
         <ul>
             <li><a href="login.php">Login</a></li>
             <li><a href="register.php">Register</a></li>
         </ul>
     </div>
-    <div class="searchMenu col1">
+    <div class="searchMenu colL1 col1">
         <div class="searchIcon">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                 <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->

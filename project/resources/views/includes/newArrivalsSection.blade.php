@@ -1,7 +1,7 @@
 {{-- @extends('includes.section')
 
 @section('contentTitle')
-    <h1>Brands</h1>
+    <h1>New Arrivals</h1>
 @endsection
 
 @section('contentInfo')
@@ -21,23 +21,21 @@
     </a>
 @endsection --}}
 
-<section id="sectionBrand">
+<section id="sectionNewArrivals">
     <div class="container title">
       <div class="col12 colS4 colM8 colL12">
-        <h1>@yield('brandsTitle', '')</h1>
+        <h1>@yield('newarrivalsTitle', '')</h1>
       </div>
     </div>
-    <div class="container content">
-      <div class="col12 colS4 colM8 colL12">
-        @yield('brandsInfo', '')
-      </div>
+    <div class="content newArrivals">
+        @yield('newarrivalsInfo', '')
     </div>
     <div class="arrows arrow-container">
       <div class="arrowUp">
-        @yield('brandsArrowUp', '')
+        @yield('newarrivalsArrowUp', '')
       </div>
       <div class="arrowDown">
-        @yield('brandsArrowDown', '')
+        @yield('newarrivalsArrowDown', '')
       </div>
     </div>
 </section>
