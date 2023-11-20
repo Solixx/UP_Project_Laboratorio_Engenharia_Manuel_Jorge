@@ -1,8 +1,8 @@
 <div class="container nav">
-    <div class="logo colS1 colM2 colL2 col3">
+    <div class="logo colS1 colM1 colL2 col3">
         <img src="{{ asset('imgs/logo.png') }}" alt="" />
     </div>
-    <div class="mainMenu colL5 col4 flexCenter">
+    <div class="mainMenu colM1 colL5 col4 flexCenter">
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="categories.php">Categories</a></li>
@@ -10,7 +10,7 @@
             <li><a href="women.php">Women</a></li>
         </ul>
     </div>
-    <div class="accountMenu colL4 col4 flexLeft">
+    <div class="accountMenu colM1 colL4 col4 flexLeft">
         <ul>
             <li><a href="login.php">Login</a></li>
             <li><a href="register.php">Register</a></li>
