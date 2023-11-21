@@ -74,8 +74,8 @@ svg {
 
 .circle {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 70vw;
+  height: 70vw;
   border: 15px solid #ffffff; /* Define uma linha de contorno ao redor do círculo */
   border-radius: 50%; /* Torna o elemento um círculo */
   left: 50%;
@@ -103,7 +103,7 @@ svg {
 }
 
 .destaqueImg {
-  width: 200px;
+  width: 70vw;
   object-fit: cover;
   position: absolute;
   left: 50%;
@@ -166,7 +166,7 @@ svg {
 
 .newArrivals img{
   margin-right: 20px;
-  height: 500px;
+  height: 65vh;
   flex-shrink: 0;
   object-fit:cover;
   object-position: 50% 50%;
@@ -209,8 +209,7 @@ svg {
 
   .circle {
     /* position: absolute; */
-    width: 400px;
-    height: 400px;
+  
     border: 25px solid #ffffff;
     /* border-radius: 50%;
     left: 50%;
@@ -238,7 +237,6 @@ svg {
   } */
 
   .destaqueImg {
-    width: 400px;
    /*  object-fit: cover;
     position: absolute;
     left: 50%;
@@ -298,14 +296,6 @@ svg {
 
   .newArrivalsInfo::-webkit-scrollbar {
     display: none;
-  }
-
-  .newArrivals img{
-    margin-right: 20px;
-    height: 500px;
-    flex-shrink: 0;
-    object-fit:cover;
-    object-position: 50% 50%;
   }
 }
 
@@ -398,8 +388,8 @@ svg {
 
   .circle {
    /*  position: absolute; */
-    width: 600px;
-    height: 600px;
+    width: 70vh;
+    height: 70vh;
     /* border: 25px solid #ffffff;
     border-radius: 50%;
     left: 50%;
@@ -427,7 +417,7 @@ svg {
   } */
 
   .destaqueImg {
-    width: 600px;
+    width: 70vh;
     /* object-fit: cover;
     position: absolute;
     left: 50%;
@@ -487,14 +477,6 @@ svg {
 
   .newArrivalsInfo::-webkit-scrollbar {
     display: none;
-  }
-
-  .newArrivals img{
-    margin-right: 20px;
-    height: 500px;
-    flex-shrink: 0;
-    object-fit:cover;
-    object-position: 50% 50%;
   }
 
 }
@@ -645,9 +627,5 @@ svg {
   
   .newArrivalsInfo{
     width: calc((100% - 20px*6));
-  }
-  
-  .newArrivals img{
-    height: 550px;
   }
 }

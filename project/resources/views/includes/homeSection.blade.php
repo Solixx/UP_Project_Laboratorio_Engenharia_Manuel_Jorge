@@ -1,4 +1,5 @@
 <section id="sectionHome">
+  <div class="container" style="height: 10vh"></div>
     <div class="container destaque">
       <div class="col12 colS4 colM8">
         <div class="circle"></div>
