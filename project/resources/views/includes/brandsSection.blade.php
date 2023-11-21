@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="container content">
-      <div class="col12 colS4 colM8 colL12">
+      <div class="brands">
         @yield('brandsInfo', '')
       </div>
     </div>

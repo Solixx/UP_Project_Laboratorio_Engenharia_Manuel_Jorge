@@ -21,6 +21,7 @@ section {
   width: 100%;
   height: 100vh;
   padding: 10px 0 50px 0;
+  overflow: hidden;
 }
 
 svg {
@@ -151,6 +152,22 @@ svg {
   height: 100%;
 }
 
+.brands{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  max-height: 60vh;
+  overflow: hidden;
+}
+
+.brands img{
+  width: 5vw;
+  object-fit: contain;
+  object-position: 50% 50%;
+  margin: 10px 10px;
+  cursor: pointer;
+}
+
 .newArrivalsInfo{
   display: flex;
   flex-direction: row;
@@ -170,6 +187,21 @@ svg {
   flex-shrink: 0;
   object-fit:cover;
   object-position: 50% 50%;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+form input{
+  height: 5vh;
+  margin-bottom: 5vh;
+}
+
+form textarea{
+  height: 25vh;
+  margin-bottom: 5vh;
 }
 
 @media (min-width: 768px) {
@@ -273,15 +305,19 @@ svg {
     padding-bottom: 25px;
   } */
 
+  .brands img{
+    width: 10vw;
+    justify-content: center;
+  
+    object-fit: contain;
+    object-position: 50% 50%;
+  }
+
   .title h1 {
     font-size: 64px;
     /* font-weight: bold;
     text-transform: uppercase;
     text-align: center; */
-  }
-
-  .content{
-    height: 100%;
   }
 
   .newArrivalsInfo{
@@ -461,8 +497,12 @@ svg {
     text-align: center;
   } */
 
-  .content{
-    height: 100%;
+  .brands img{
+    width: 7vw;
+    justify-content: center;
+  
+    object-fit: contain;
+    object-position: 50% 50%;
   }
 
   .newArrivalsInfo{
@@ -620,11 +660,15 @@ svg {
     text-transform: uppercase;
     text-align: center;
   } */
+
+  .brands img{
+    width: 5vw;
+    justify-content: center;
   
-  /* .content{
-    height: 100%;
-  } */
-  
+    object-fit: contain;
+    object-position: 50% 50%;
+  }
+
   .newArrivalsInfo{
     width: calc((100% - 20px*6));
   }

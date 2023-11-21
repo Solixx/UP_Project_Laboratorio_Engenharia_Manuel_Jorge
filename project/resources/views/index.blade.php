@@ -5,6 +5,25 @@
 @endsection
 
 @section('content')
+    {{-- Support - Section --}}
+    @extends('includes.supportSection')
+    @section('supportTitle')
+        <h1>Support</h1>
+    @endsection
+
+    @section('supportInfo')
+        <form action="">
+            <input type="text" placeholder="Email" name="" id="">
+            <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+        </form>
+    @endsection
+
+    @section('supportArrowUp')
+        <a href="#sectionNewArrivals">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>          
+        </a>
+    @endsection
+
     {{-- New Arrivals - Section --}}
     @extends('includes.newArrivalsSection')
     @section('newarrivalsTitle')
@@ -29,7 +48,7 @@
     @endsection
 
     @section('newarrivalsArrowDown')
-        <a href="#sectionNewArrivals">
+        <a href="#sectionSupport">
             <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </a>
     @endsection
@@ -42,19 +61,34 @@
     @endsection
 
     @section('brandsInfo')
-        <img src="{{ asset('imgs/BRANDS-removebg-preview.png') }}" alt="">
         {{-- <img src="{{ asset('imgs/BRANDS-removebg-preview.png') }}" alt=""> --}}
+        @for ($i = 0; $i < 5; $i++)
+            <img src="{{ asset('imgs/ADIDAS.png') }}" alt="">
+            <img src="{{ asset('imgs/JORDAN-MERCH.png') }}" alt="">
+            <img src="{{ asset('imgs/lacoste.png') }}" alt="">
+            <img src="{{ asset('imgs/NIKE.png') }}" alt="">
+            <img src="{{ asset('imgs/vans.png') }}" alt="">
+            <img src="{{ asset('imgs/Champion.png') }}" alt="">
+            <img src="{{ asset('imgs/Louis-Vuitton.png') }}" alt="">
+            <img src="{{ asset('imgs/Chanel.png') }}" alt="">
+            <img src="{{ asset('imgs/Levis.png') }}" alt="">
+            <img src="{{ asset('imgs/Supreme.png') }}" alt="">
+            <img src="{{ asset('imgs/Off-White.png') }}" alt="">
+            <img src="{{ asset('imgs/balenciaga.png') }}" alt="">
+            <img src="{{ asset('imgs/dior.png') }}" alt="">
+        @endfor
+    
     @endsection
 
     @section('brandsArrowUp')
         <a href="#sectionHome">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>          
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>          
         </a>
     @endsection
 
     @section('brandsArrowDown')
         <a href="#sectionNewArrivals">
-            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </a>
     @endsection
 
@@ -62,5 +96,15 @@
     {{-- Home - Section --}}
     @extends('includes.homeSection')
 
+
+
+    {{-- <section id="sectionBrand">
+        @include('includes.brandsSection')
+    </section>
+    <section id="sectionNewArrivals">
+        @include('includes.newArrivalsSection')
+    </section>
+    	 --}}
+    
 @endsection
 

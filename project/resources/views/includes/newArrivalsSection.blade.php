@@ -5,8 +5,14 @@
 @endsection
 
 @section('contentInfo')
-    <img src="{{ asset('imgs/BRANDS-removebg-preview.png') }}" alt="">
-    <img src="{{ asset('imgs/BRANDS-removebg-preview.png') }}" alt="">
+  <div id="newArrivalsImageGallery" class="newArrivalsInfo">
+    <img src="{{ asset('imgs/snekears.jpg') }}" alt="">
+    <img src="{{ asset('imgs/db37e277c3e9b04a677e5e936fe6c497.jpg') }}" alt="">
+    <img src="{{ asset('imgs/snekears3.jpg') }}" alt="">
+    <img src="{{ asset('imgs/snekears4.jpg') }}" alt="">
+    <img src="{{ asset('imgs/snekears2.jpg') }}" alt="">
+    <img src="{{ asset('imgs/snekears5.jpg') }}" alt="">
+  </div>
 @endsection
 
 @section('arrowUp')
