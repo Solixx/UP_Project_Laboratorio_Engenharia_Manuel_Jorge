@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+    {{-- Footer --}}
+    @extends('includes.footer')
+    @section('')
+    @endsection
+
     {{-- Support - Section --}}
     @extends('includes.supportSection')
     @section('supportTitle')

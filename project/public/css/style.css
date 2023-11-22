@@ -32,6 +32,15 @@ svg {
   background-color: #111111;
 }
 
+#sectionSupport{
+  height: 70vh;
+}
+
+#sectionFooter{
+  background-color: #111111;
+  height: 30vh;
+}
+
 .flexLeft {
   display: flex;
   justify-content: flex-start;
@@ -189,19 +198,71 @@ svg {
   object-position: 50% 50%;
 }
 
-form{
+.content form{
   display: flex;
   flex-direction: column;
 }
 
-form input{
+.content form input{
   height: 5vh;
+  margin-bottom: 3vh;
+}
+
+.content form textarea{
+  height: 25vh;
   margin-bottom: 5vh;
 }
 
-form textarea{
-  height: 25vh;
-  margin-bottom: 5vh;
+.content form input::placeholder, .content form textarea::placeholder{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+}
+
+.arrowsWhite{
+  display: none;
+}
+
+.arrowsWhite svg{
+  fill: #f3f3f3 !important;
+}
+
+footer{
+  color: #f3f3f3;
+  height: 100%;
+}
+
+footer .newslleter{
+  width: 100%;
+  height: 15vh;
+}
+
+footer img{
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+footer form{
+  display: flex;
+  flex-direction: row;
+}
+
+footer .socials{
+  height: 5vh;
+  margin-bottom: 4vh;
+}
+
+footer .copyright{
+  height: 5vh;
+  font-size: 12;
+  text-align: center;
+}
+
+footer .copyrigh p{
+  margin-top: 5px;
 }
 
 @media (min-width: 768px) {
@@ -228,10 +289,6 @@ form textarea{
     justify-content: center;
     cursor: pointer;
     margin: 0 15px;
-  }
-  
-  .arrowsHome svg{
-    fill: #f3f3f3;
   }
 
   .destaque {
