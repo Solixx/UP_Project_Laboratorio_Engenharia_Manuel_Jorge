@@ -7,8 +7,6 @@
 @section('content')
     {{-- Footer --}}
     @extends('includes.footer')
-    @section('')
-    @endsection
 
     {{-- Support - Section --}}
     @extends('includes.supportSection')
@@ -20,6 +18,7 @@
         <form action="">
             <input type="text" placeholder="Email" name="" id="">
             <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+            <button>Submit</button>
         </form>
     @endsection
 

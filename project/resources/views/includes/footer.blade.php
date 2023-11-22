@@ -1,14 +1,14 @@
 <section id="sectionFooter">
     <footer>
         <div class="container newslleter">
-            <div class="col10 colL10 colM6 colS2">
+            <div class="col10 colL8 colM4 colS1">
                 <img src="{{ asset('imgs/logo.png') }}" alt="">
             </div>
-            <div class="col2 colL2 colM2 colS2">
-                <h2>Newslleter</h2>
-                <form action="">
-                    <input type="text" placeholder="Digite seu e-mail">
-                    <button type="submit">Enviar</button>
+            <div class="col2 colL2 colM2 colS1">
+                <p>Newslleter</p>
+                <form action="#">
+                    <input type="text" placeholder="Email">
+                    <button type="submit">SIGN UP</button>
                 </form>
             </div>
         </div>
@@ -51,7 +51,7 @@
         <div class="container copyright">
             <div class="col12 colS4 colM8 colL12">
                 <hr>
-              <p>© 2023 UP • Terms & Conditions• Privacy Policy</p>
+                <p>© 2023 UP • <span>Terms & Conditions</span>• <span>Privacy Policy</span></p>
             </div>
         </div>
     </footer>
