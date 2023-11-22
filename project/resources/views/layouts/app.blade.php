@@ -20,73 +20,10 @@
     <main>
         @extends('includes.navbar_visitante')
         @yield('content')
+        @extends('includes.footer')
     </main>
     
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          // Obtém a referência para o elemento .nav
-          var nav = document.querySelector(".nav");
-  
-          // Obtém a posição da <section class="sectionBrand">
-          var sectionBrand = document.querySelector("#sectionBrand");
-          var sectionBrandPosition = sectionBrand.offsetTop;
-  
-            // Obtém a referência para a imagem dentro da .logo
-          var logoImage = document.querySelector(".logo img");
-  
-          // Adiciona um ouvinte de rolagem à janela
-          window.addEventListener("scroll", function () {
-            // Obtém a posição de rolagem atual
-            var scrollPosition = window.scrollY;
-  
-            // Verifica se a posição de rolagem atingiu ou ultrapassou 100vh
-            if (scrollPosition >= sectionBrandPosition) {
-              // Adiciona a classe .navBlue se a posição de rolagem for maior ou igual a 100
-              nav.classList.add("navBlack");
-  
-              // Atualiza a imagem da logo para outra imagem
-              logoImage.src = "{{ asset('imgs/logo-BLACK.png') }}";
-            } else {
-              // Remove a classe .navBlue se a posição de rolagem for menor que 100
-              nav.classList.remove("navBlack");
-  
-              // Restaura a imagem original da logo
-              logoImage.src = "{{ asset('imgs/logo.png') }}";
-            }
-          });
-        });
-  
-        let isMouseDown = false;
-      let startX;
-      let scrollLeft;
-  
-      const gallery = document.getElementById('newArrivalsImageGallery');
-  
-      gallery.addEventListener('mousedown', (e) => {
-          isMouseDown = true;
-          startX = e.pageX - gallery.offsetLeft;
-          scrollLeft = gallery.scrollLeft;
-          gallery.style.cursor = 'grabbing';
-      });
-  
-      gallery.addEventListener('mouseup', () => {
-          isMouseDown = false;
-          gallery.style.cursor = 'grab';
-      });
-  
-      gallery.addEventListener('mouseleave', () => {
-          isMouseDown = false;
-          gallery.style.cursor = 'grab';
-      });
-  
-      gallery.addEventListener('mousemove', (e) => {
-          if (!isMouseDown) return;
-          e.preventDefault();
-          const x = e.pageX - gallery.offsetLeft;
-          const walk = (x - startX) * 3;
-          gallery.scrollLeft = scrollLeft - walk;
-      });
-      </script>
+    
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>

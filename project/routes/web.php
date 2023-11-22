@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [RouterController::class, 'index']);
+Route::get('/products', [RouterController::class, 'products']);
