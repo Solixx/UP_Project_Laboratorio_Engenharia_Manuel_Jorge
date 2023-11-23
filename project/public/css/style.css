@@ -12,9 +12,6 @@ body {
   font-family: Arial, sans-serif;
   font-size: 18px;
   letter-spacing: 5px;
-}
-
-main{
   background-color: #f3f3f3;
 }
 
@@ -26,6 +23,21 @@ section {
   height: 100vh;
   padding: 10px 0 50px 0;
   overflow: hidden;
+}
+
+.flexLeft {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.flexRight {
+  display: flex;
+  justify-content: flex-end;
 }
 
 button{
@@ -54,24 +66,14 @@ svg {
   height: 30vh;
 }
 
-.flexLeft {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.flexCenter {
-  display: flex;
-  justify-content: center;
-}
-
-.flexRight {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .arrows{
   display: none;
 }
+
+/* .navBG{
+  width: 100%;
+  background-color: #f3f3f3;
+} */
 
 .nav{
   display: none;
@@ -211,13 +213,34 @@ svg {
   object-position: 50% 50%;
 }
 
+.paginations select{
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  background-color: #f3f3f3;
+  border: 1px solid #111111;
+  color: #111111;
+}
+
+.paginations select:focus{
+  background-color: #111111;
+  border: 1px solid #f3f3f3;
+  color: #f3f3f3;
+}
+
+.filters{
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
 .products{
-  padding-top: 125px;
+  padding-top: 150px;
 }
 
 .categorias{
   width: 100%;
   height: 10vh;
+  margin-bottom: 50px;
 }
 
 .categoriasList{
@@ -245,6 +268,28 @@ svg {
   user-select: none;
 }
 
+.product{
+  margin-bottom: 30px;
+}
+
+.product img{
+  width: 100%;
+}
+
+.product .productInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product .productInfo h3{
+  margin-top: 10px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .content form{
   display: flex;
   flex-direction: column;
@@ -266,7 +311,6 @@ svg {
 .content form button{
   padding: 10px;
   height: 5vh;
-  margin-bottom: 3vh;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
@@ -430,6 +474,15 @@ footer .copyright p{
     width: calc((100% - 20px*6));
     margin-left: auto;
   }
+
+  .paginations select{
+    height: 30px;
+    margin-bottom: 0;
+  }
+
+  .product .productInfo{
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -437,15 +490,24 @@ footer .copyright p{
     padding: 30px 0 50px 0;
   }
 
-  .nav {
-    display: flex;
+  .navBG{
     position: fixed;
+    width: 100%;
+    background-color: #f3f3f3;
     left: 50%;
     top: 0;
     transform: translateX(-50%);
+    z-index: 100;
+  }
+
+  .navBG-Black{
+    background-color: #111111;
+  }
+
+  .nav {
+    display: flex;
     font-family: "Anton", sans-serif;
     height: 95px;
-    z-index: 100;
     padding-top: 30px;
     justify-content: space-between;
   }

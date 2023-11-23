@@ -2,7 +2,7 @@
     <footer>
         <div class="container newslleter">
             <div class="col10 colL8 colM4 colS1">
-                <img src="{{ asset('imgs/logo.png') }}" alt="">
+                <a href="{{ url('/') }}"><img src="{{ asset('imgs/logo.png') }}" alt=""></a>
             </div>
             <div class="col2 colL2 colM2 colS1">
                 <p>Newslleter</p>

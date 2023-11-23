@@ -113,6 +113,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Obtém a referência para o elemento .nav
+        var navBG = document.querySelector(".navBG");
         var nav = document.querySelector(".nav");
 
         // Obtém a posição da <section class="sectionBrand">
@@ -139,12 +140,14 @@
             if (scrollPosition < sectionBrandPosition) {
                 // Adiciona a classe .navBlack se a posição de rolagem for maior ou igual a 100
                 nav.classList.add("navBlack");
+                navBG.classList.add("navBG-Black");
 
                 // Atualiza a imagem da logo para outra imagem
                 logoImage.src = "{{ asset('imgs/logo.png') }}";
             } else {
                 // Remove a classe .navBlack se a posição de rolagem for menor que 100
                 nav.classList.remove("navBlack");
+                navBG.classList.remove("navBG-Black");
 
                 // Restaura a imagem original da logo
                 logoImage.src = "{{ asset('imgs/logo-BLACK.png') }}";
