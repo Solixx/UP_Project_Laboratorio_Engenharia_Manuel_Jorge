@@ -15,6 +15,10 @@ body {
   background-color: #f3f3f3;
 }
 
+h1, p, h2, h3, h4, h5, h6, a, textarea, option{
+  letter-spacing: 5px;
+}
+
 section {
   display: flex;
   background-color: #f3f3f3;
@@ -62,8 +66,10 @@ svg {
 }
 
 #sectionFooter{
+  position: relative;
   background-color: #111111;
   height: 30vh;
+  z-index: 100;
 }
 
 .arrows{
@@ -408,6 +414,122 @@ footer .copyright p{
   margin-top: 5px;
 }
 
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login form h1{
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 64px;
+  margin-bottom: 60px;
+}
+
+.login form label{
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.login form input{
+  width: 50%;
+  height: 50px;
+  margin-bottom: 35px;	
+  padding: 10px;
+}
+
+.login form button{
+  width: 50%;
+  height: 75px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 32px;
+  background-color: #111111;
+  color: #f3f3f3;
+  border: none;
+  margin-bottom: 30px;
+  letter-spacing: 5px;
+}
+
+.login form .goToSignup{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.login form .goToSignup p{
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #000000;
+  opacity: 70%;
+}
+
+.login form .goToSignup a{
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #111111;
+  cursor: pointer;
+}
+
+.login form .rememberMe{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
+}
+
+.login form .rememberMe input{
+  width: 20%;
+  height: 30px;
+}
+
+.login form .rememberMe label{
+  width: 80%;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.loginExtraOp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 50%;
+}
+
+.registerExtraOp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 50%;
+}
+
+.registerExtraOp p{
+  width: 70%;
+}
+
+.registerExtraOp svg{
+  fill: #111111;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 30px 0 50px 0;
@@ -497,7 +619,7 @@ footer .copyright p{
     left: 50%;
     top: 0;
     transform: translateX(-50%);
-    z-index: 100;
+    z-index: 99;
   }
 
   .navBG-Black{

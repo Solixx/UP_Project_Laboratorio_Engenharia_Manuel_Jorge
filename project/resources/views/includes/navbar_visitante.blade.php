@@ -13,8 +13,8 @@
         </div>
         <div class="accountMenu colM1 colL4 col4 flexLeft">
             <ul>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="register.php">Register</a></li>
+                <li><a href="{{ url('/login') }}">Login</a></li>
+                <li><a href="{{ url('/register') }}">Register</a></li>
             </ul>
         </div>
         <div class="searchMenu colL1 col1">

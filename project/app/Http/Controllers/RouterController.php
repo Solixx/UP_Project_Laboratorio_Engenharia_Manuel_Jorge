@@ -16,4 +16,14 @@ class RouterController extends Controller
     {
         return view('products');
     }
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function register()
+    {
+        return view('register');
+    }
 }
