@@ -1,7 +1,7 @@
 <section id="sectionFooter">
     <footer>
         <div class="container newslleter">
-            <div class="col10 colL8 colM4 colS1">
+            <div class="col10 colL10 colM4 colS1">
                 <a href="{{ url('/') }}"><img src="{{ asset('imgs/logo.png') }}" alt=""></a>
             </div>
             <div class="col2 colL2 colM2 colS1">
