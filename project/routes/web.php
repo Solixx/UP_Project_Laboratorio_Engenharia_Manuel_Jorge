@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [RouterController::class, 'index'])->name('index');
 Route::get('/products', [RouterController::class, 'products'])->name('products');
+Route::get('/product', [RouterController::class, 'product'])->name('product');
 Route::get('/login', [RouterController::class, 'login'])->name('login');
 Route::get('/register', [RouterController::class, 'register'])->name('register');
