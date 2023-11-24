@@ -6,7 +6,6 @@
         <div class="mainMenu colM1 colL5 col4 flexCenter">
             <ul>
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="categories.php">Categories</a></li>
                 <li><a href="men.php">Men</a></li>
                 <li><a href="women.php">Women</a></li>
             </ul>
