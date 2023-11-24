@@ -30,3 +30,18 @@
         </div>
     </div> 
 </div>
+<div class="navbarPhone">
+    <div class="nav-container">
+        <input class="navPhoneCheckbox" type="checkbox" name="" id="" />
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </div>  
+      <div class="menu-items">
+        <li><a href="{{ url('/') }}">Home</a></li>
+        <li><a href="men.php">Men</a></li>
+        <li><a href="women.php">Women</a></li>
+      </div>
+    </div>
+  </div>
