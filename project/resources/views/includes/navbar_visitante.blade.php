@@ -32,6 +32,9 @@
 
 @extends('includes.navbar_phone')
 @section('phoneMenu')
+    <form action="">
+        <input id="searchInputID" class="searchInput" type="text" placeholder="Search...">
+    </form>
     <li><a href="{{ url('/') }}">Home</a></li>
     <li><a href="men.php">Men</a></li>
     <li><a href="women.php">Women</a></li>

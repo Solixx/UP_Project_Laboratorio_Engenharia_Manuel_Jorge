@@ -121,6 +121,7 @@ svg {
 
 .navbarPhone .menu-items {
   display: flex;
+  overflow: scroll;
 }
 
 .navbarPhone .nav-container li {
@@ -238,6 +239,26 @@ svg {
 
 .nav-container input[type="checkbox"]:checked ~ .logo{
   display: none;
+}
+
+.nav-container form{
+  margin-bottom:5vh;
+}
+
+.nav-container .searchInput{
+  display: block;
+  width: 90%;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  background-color: #f3f3f3;
+  color: #111111;
+  margin: auto;
+}
+
+.nav-container .searchInput-white{
+  background-color: #f3f3f3;
+  color: #111111;
 }
 
 .destaque {
@@ -996,7 +1017,7 @@ footer .copyright p{
     margin-right: 15px;
   }
 
-  .nav .searchMenu .searchInput{
+  .searchInput{
     display: none;
     width: 100%;
     height: 40px;
@@ -1006,7 +1027,7 @@ footer .copyright p{
     color: #f3f3f3;
   }
 
-  .nav .searchMenu .searchInput-white{
+  .searchInput-white{
     background-color: #f3f3f3;
     color: #111111;
   }
