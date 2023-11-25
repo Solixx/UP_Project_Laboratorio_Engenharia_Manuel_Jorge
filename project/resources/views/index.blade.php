@@ -7,7 +7,7 @@
 @section('content')
 
     {{-- Support - Section --}}
-    @extends('includes.supportSection')
+    
     @section('supportTitle')
         <h1>Support</h1>
     @endsection
@@ -27,7 +27,7 @@
     @endsection
 
     {{-- New Arrivals - Section --}}
-    @extends('includes.newArrivalsSection')
+    
     @section('newarrivalsTitle')
         <h1>New Arrivals</h1>
     @endsection
@@ -57,7 +57,7 @@
 
 
     {{-- Brands - Section --}}
-    @extends('includes.brandsSection')
+    
     @section('brandsTitle')
         <h1>Brands</h1>
     @endsection
@@ -95,18 +95,11 @@
     @endsection
 
     
-    {{-- Home - Section --}}
-    @extends('includes.homeSection')
-
-
-
-    {{-- <section id="sectionBrand">
-        @include('includes.brandsSection')
-    </section>
-    <section id="sectionNewArrivals">
-        @include('includes.newArrivalsSection')
-    </section>
-    	 --}}
+    {{-- Includes --}}
+    @include('includes.homeSection')
+    @include('includes.brandsSection')
+    @include('includes.newArrivalsSection')
+    @include('includes.supportSection')
     
 @endsection
 

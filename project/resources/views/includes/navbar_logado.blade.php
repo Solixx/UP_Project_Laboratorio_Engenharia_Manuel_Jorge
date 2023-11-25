@@ -44,9 +44,8 @@
  </div>
 
 
-@extends('includes.navbar_phone')
 @section('phoneMenu')
-    <form action="">
+    <form action="{{ route('products') }}" method="GET">
         <input id="searchInputID" class="searchInput" type="text" placeholder="Search...">
     </form>
     <li><a href="{{ url('/') }}">Home</a></li>
@@ -58,24 +57,5 @@
     <li><a href="{{ url('/') }}">Settings</a></li>
     <li><a href="{{ url('/') }}">Log Out</a></li>
 @endsection
-{{--  <div class="navbarPhone">
-     <div class="nav-container">
-         <input class="navPhoneCheckbox" type="checkbox" name="" id="" />
-         <div class="hamburger-lines">
-           <span class="line line1"></span>
-           <span class="line line2"></span>
-           <span class="line line3"></span>
-         </div>  
-       <div class="menu-items">
-         <li><a href="{{ url('/') }}">Home</a></li>
-         <li><a href="{{ url('/') }}">Men</a></li>
-         <li><a href="{{ url('/') }}">Women</a></li>
-         <h1>Account</h1>
-         <li><a href="{{ url('/') }}">Profile</a></li>
-         <li><a href="{{ url('/') }}">Cart</a></li>
-         <li><a href="{{ url('/') }}">Settings</a></li>
-         <li><a href="{{ url('/') }}">Log Out</a></li>
-       </div>
-     </div>
-   </div> --}}
+@include('includes.navbar_phone')
  
