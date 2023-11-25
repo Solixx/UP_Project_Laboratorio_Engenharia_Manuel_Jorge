@@ -20,7 +20,6 @@
                             <hr>
                             <ul>
                                 <li><a href="{{ url('/') }}">Profile</a></li>
-                                <li><a href="{{ url('/') }}">Cart</a></li>
                                 <li><a href="{{ url('/') }}">Settings</a></li>
                                 <li><a href="{{ url('/') }}">Log Out</a></li>
                             </ul>
