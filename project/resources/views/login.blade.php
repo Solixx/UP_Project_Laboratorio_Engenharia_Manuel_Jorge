@@ -24,7 +24,7 @@
                         <button type="submit">Login</button>
                         <div class="loginExtraOp">
                             <div class="goToSignup">
-                                <p>New User?</p><a {{-- href="{{ route('register') }}" --}}> Sign UP</a>
+                                <p>New User?</p><a href="{{ route('register') }}"> Sign UP</a>
                             </div>
                             <a href="">Forget Password</a>
                         </div>

@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cols.css') }}">
     
@@ -18,9 +17,9 @@
 
 <body>
     <main>
-        {{-- @include('includes.navbar_visitante') --}}
+        @include('includes.navbar_visitante')
         {{-- @include('includes.navbar_logado') --}}
-        @include('includes.navbar_adm')
+        {{-- @include('includes.navbar_adm') --}}
         @yield('content')
         @include('includes.footer')
     </main>
@@ -28,39 +27,9 @@
     
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-  $(document).ready(function() {
-    // Seletor para todas as setas em todos os arquivos
-    var arrows = $('.arrows');
+<script src="{{ asset('js/navbarScript.js') }}"></script>
+<script src="{{ asset('js/arrowsScript.js') }}"></script>
 
-    arrows.each(function(index) {
-      // Ajusta dinamicamente a posição das setas
-      var topPosition = index * 100 + 95 + '%';
-      $(this).css('top', topPosition);
-
-      if (index === arrows.length - 1) {
-        $(this).addClass("arrowsWhite");
-      }
-    });
-  });
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-      var avatar = document.getElementById('avatarImage');
-      var accountMenu = document.getElementById('accountMenu');
-
-      // Adiciona um ouvinte de eventos para o clique no avatar
-      avatar.addEventListener('click', function () {
-          // Alternar a visibilidade do menu
-          if (accountMenu.style.display === 'block') {
-              accountMenu.style.display = 'none';
-          } else {
-              accountMenu.style.display = 'block';
-          }
-      });
-  });
-</script>
 </body>
 
 </html>

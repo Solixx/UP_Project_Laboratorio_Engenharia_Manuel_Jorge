@@ -112,10 +112,6 @@ svg {
   left: 0;
 }
 
-.nav-container .hamburger-lines .line-white {
-  background: #111111 !important;
-}
-
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -180,12 +176,16 @@ svg {
   justify-content: space-between;
 }
 
+.nav-container .hamburger-lines .line-white {
+  background: #f3f3f3 !important;
+}
+
 .nav-container .hamburger-lines .line {
   display: block;
   height: 4px;
   width: 100%;
   border-radius: 10px;
-  background: #f3f3f3;
+  background: #111111;
 }
 
 .nav-container .hamburger-lines .line1 {

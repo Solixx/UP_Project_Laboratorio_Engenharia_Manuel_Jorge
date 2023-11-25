@@ -59,6 +59,11 @@
                                     </div>
                                 </div>
                         </div>
+                        <div class="loginExtraOp">
+                          <div class="goToSignup">
+                              <p>Already have an account?</p><a href="{{ route('login') }}"> Login</a>
+                          </div>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -6,8 +6,8 @@
         <div class="mainMenu colM1 colL5 col4 flexCenter">
             <ul>
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="men.php">Men</a></li>
-                <li><a href="women.php">Women</a></li>
+                <li><a href="{{ url('/') }}">Men</a></li>
+                <li><a href="{{ url('/') }}p">Women</a></li>
             </ul>
         </div>
         <div class="accountMenu colM1 colL4 col4 flexLeft">
@@ -29,7 +29,14 @@
         </div>
     </div> 
 </div>
-<div class="navbarPhone">
+
+@extends('includes.navbar_phone')
+@section('phoneMenu')
+    <li><a href="{{ url('/') }}">Home</a></li>
+    <li><a href="men.php">Men</a></li>
+    <li><a href="women.php">Women</a></li>
+@endsection
+{{-- <div class="navbarPhone">
     <div class="nav-container">
         <input class="navPhoneCheckbox" type="checkbox" name="" id="" />
         <div class="hamburger-lines">
@@ -43,4 +50,4 @@
         <li><a href="women.php">Women</a></li>
       </div>
     </div>
-  </div>
+  </div> --}}
