@@ -17,9 +17,9 @@
 
 <body>
     <main>
-        @include('includes.navbar_visitante')
+        {{-- @include('includes.navbar_visitante') --}}
         {{-- @include('includes.navbar_logado') --}}
-        {{-- @include('includes.navbar_adm') --}}
+        @include('includes.navbar_adm')
         @yield('content')
         @include('includes.footer')
     </main>

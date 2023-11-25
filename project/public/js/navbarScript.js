@@ -14,6 +14,18 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
+    var searchIcon = document.getElementById('searchIconID');
+    var searchInput = document.getElementById('searchInputID');
+  
+    searchIcon.addEventListener('click', function () {
+        // Alternar a visibilidade do menu
+        if (searchInput.style.display === 'block') {
+            searchInput.style.display = 'none';
+        } else {
+            searchInput.style.display = 'block';
+        }
+    });
+
 
     // Obtém a referência para o elemento .nav
     var navBG = document.querySelector(".navBG");
@@ -53,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
                   accountMenu.classList.remove("myAccountMenu-white");
               }
 
+              searchInput.classList.add("searchInput-white");
+
               // Atualiza a imagem da logo para outra imagem
               logoImage.src = "../imgs/logo.png";
           } else {
@@ -70,7 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
               }
               if(document.getElementById('avatarImage') != null){
                   accountMenu.classList.add("myAccountMenu-white");
-              }                
+              }             
+              
+              searchInput.classList.remove("searchInput-white");
 
               // Restaura a imagem original da logo
               logoImage.src = "../imgs/logo-BLACK.png";
