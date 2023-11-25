@@ -116,6 +116,7 @@
         var navBG = document.querySelector(".navBG");
         var nav = document.querySelector(".nav");
         var navPhoneLines = document.getElementsByClassName("line");
+        var accountMenu = document.getElementById('accountMenu');
 
         // Obtém a posição da <section class="sectionBrand">
         var sectionBrand = document.querySelector("#sectionBrand");
@@ -145,6 +146,7 @@
                 for (let i = 0; i < navPhoneLines.length; i++) {
                     navPhoneLines[i].classList.remove("line-white");
                 }
+                accountMenu.classList.remove("myAccountMenu-white");
 
                 // Atualiza a imagem da logo para outra imagem
                 logoImage.src = "{{ asset('imgs/logo.png') }}";
@@ -154,9 +156,10 @@
                 navBG.classList.remove("navBG-Black");
                 if(!document.querySelector('.navPhoneCheckbox').checked){
                     for (let i = 0; i < navPhoneLines.length; i++) {
-                    navPhoneLines[i].classList.add("line-white");
+                        navPhoneLines[i].classList.add("line-white");
+                    }
                 }
-                }
+                accountMenu.classList.add("myAccountMenu-white");
                 
 
                 // Restaura a imagem original da logo

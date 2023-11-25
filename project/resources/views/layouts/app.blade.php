@@ -44,6 +44,23 @@
     });
   });
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var avatar = document.getElementById('avatarImage');
+      var accountMenu = document.getElementById('accountMenu');
+
+      // Adiciona um ouvinte de eventos para o clique no avatar
+      avatar.addEventListener('click', function () {
+          // Alternar a visibilidade do menu
+          if (accountMenu.style.display === 'block') {
+              accountMenu.style.display = 'none';
+          } else {
+              accountMenu.style.display = 'block';
+          }
+      });
+  });
+</script>
 </body>
 
 </html>
