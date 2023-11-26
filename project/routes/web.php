@@ -20,3 +20,4 @@ Route::get('/product', [RouterController::class, 'product'])->name('product');
 Route::get('/login', [RouterController::class, 'login'])->name('login');
 Route::get('/register', [RouterController::class, 'register'])->name('register');
 Route::get('/profile', [RouterController::class, 'profile'])->name('profile');
+Route::get('/settings/edit-profile', [RouterController::class, 'editProfile'])->name('editProfile');

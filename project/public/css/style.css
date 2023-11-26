@@ -885,6 +885,7 @@ footer .copyright p{
   width: 200px;
   height: 200px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .userInfo .userAvatar img{
@@ -1054,6 +1055,139 @@ footer .copyright p{
 .orderBox .orderFooter .orderFooterBtn button:hover{
   border: 1px solid #ED2939;
   background-color: #ED2939;
+}
+
+
+/* Edit Profile - Editar Perfil */
+
+.editProfile{
+  padding-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.settingsMenu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.settingsOption{
+  margin-bottom: 30px;
+}
+
+.settingsOption a{
+  text-decoration: none;
+  color: #111111;
+}
+
+.settingsOption h1{
+  font-size: 18px;
+  font-weight: bold;
+  max-width: 100%;
+}
+
+.optionActive {
+  position: relative;
+  display: inline-block;
+}
+
+.optionActive::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px; /* ajuste conforme necessário */
+  width: 100%;
+  height: 3px;
+  background-color: currentColor; /* usa a cor do texto como cor de fundo */
+  border-radius: 10px; /* ajuste conforme necessário */
+}
+
+.editProfileForm{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editProfileForm h1{
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.editProfileForm .editProfileImg{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.editProfileForm .editProfileImg input{
+  display: none;
+}
+
+.editProfileForm .editProfileImg img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.editProfileForm  .editProfileInfos{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;	
+}
+
+.editProfileForm  .editProfileInfos label{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.editProfileForm  .editProfileInfos input{
+  width: 100%;
+  height: 50px;
+  border: 1px solid #111111;
+  background-color: #f3f3f3;
+  padding: 10px;
+}
+
+.accountSettingsBtnBox{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 100;
+
+  background: #F3F3F3;
+  box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.accountSettingsBtnBox .accountSettingsBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.accountSettingsBtnBox .accountSettingsBtn button{
+  margin: 25px 0px;
+  margin-right: 30px;
+  height: 50px;
+  width: 150px;
+  background-color: #111111;
+  color: #f3f3f3;
+  border: none;
 }
 
 @media (min-width: 768px) {
@@ -1290,6 +1424,15 @@ footer .copyright p{
     border: 1px solid #ED2939;
     background-color: #ED2939;
   }
+
+  .settingsMenu{
+    position: fixed;
+    height: 50vh;
+  }
+
+  .settingsOption h1{
+    max-width: 80%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1465,6 +1608,12 @@ footer .copyright p{
     margin-right: 20px;
     margin-bottom: 20px;
     width: 45%;
+  }
+
+  .editProfile{
+    padding-top: 15vh;
+    display: flex;
+    flex-direction: row;
   }
 }
 

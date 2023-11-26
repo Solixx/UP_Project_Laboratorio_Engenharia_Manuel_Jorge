@@ -9,7 +9,7 @@
     <div class="container">
         <div class="col12 colL12 colM8 colS4 userInfo">
             <div class="userAvatar">
-                <img src="{{ asset('imgs/snekears.jpg') }}" alt="">
+                <a href="{{ url('settings/edit-profile') }}"><img src="{{ asset('imgs/snekears.jpg') }}" alt=""></a>
             </div>
             <div class="userName">
                 <h1>Manuel Gonçalves</h1>

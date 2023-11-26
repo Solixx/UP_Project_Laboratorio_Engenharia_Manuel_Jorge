@@ -50,7 +50,7 @@
     }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
     .container {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -102,7 +102,7 @@
 }
 
 /* For tablet (768px) */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .container {
         grid-template-columns: repeat(8, 1fr);
     }
@@ -135,7 +135,7 @@
 }
 
 /* For phone (480px) */
-@media (max-width: 480px) {
+@media (max-width: 479px) {
     .container {
         grid-template-columns: repeat(4, 1fr);
     }

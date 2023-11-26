@@ -36,4 +36,9 @@ class RouterController extends Controller
     {
         return view('profile');
     }
+
+    public function editProfile()
+    {
+        return view('editProfile');
+    }
 }
