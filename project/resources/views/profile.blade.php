@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="container">
-        <div class="col12 userInfo">
+        <div class="col12 colL12 colM8 colS4 userInfo">
             <div class="userAvatar">
                 <img src="{{ asset('imgs/snekears.jpg') }}" alt="">
             </div>
@@ -22,7 +22,7 @@
 
 
         <div class="container favorites">
-            <div class="col12">
+            <div class="col12 colL12 colM8 colS4">
                 <hr>
                 <h1>Favorites</h1>
             </div>
@@ -39,7 +39,7 @@
         </div>
 
     <div class="container">
-        <div class="col12 orders">
+        <div class="col12 colL12 colM8 colS4 orders">
             <h1>Orders</h1>
             <div class="orderList">
                 <div class="orderBox">

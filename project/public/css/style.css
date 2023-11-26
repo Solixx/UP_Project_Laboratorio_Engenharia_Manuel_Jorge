@@ -924,7 +924,7 @@ footer .copyright p{
   font-size: 32px;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 30px;
+  margin-bottom: 1vh;
 }
 
 .orders .orderList{
@@ -932,21 +932,21 @@ footer .copyright p{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 1vh;
 }
 
 .orders .orderList .orderBox{
   width: 100%;
   border: 1px solid #111111;
-  margin-bottom: 30px;
+  margin-bottom: 1vh;
 }
 
 .orders .orderList .orderBox .orderBoxStats{
   width: 100%;
-  height: 100px;
+  height: 15vh;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   background-color: #111111;
   color: #f3f3f3;
@@ -955,26 +955,30 @@ footer .copyright p{
 .orders .orderList .orderBox .orderBoxStats h3, .orders .orderList .orderBox .orderBoxStats p{
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 24px;
-  margin: 30px;
+  font-size: 18px;
+  margin: 1vh;
 }
 
 .orders .orderList .orderBox .orderBoxStats p{
   color: #DCD7D3;
 }
 
+.orders .orderList .orderBox .orderBoxContent{
+  height: 100vh;
+}
+
 .orders .orderList .orderBox .orderBoxContent .orderProds{
   width: 100%;
-  height: 35vh;
+  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
-  padding: 30px;
+  padding: 15px;
 }
 
 .orders .orderList .orderBox .orderBoxContent .orderBoxContentImage{
-  margin-right: 30px;
-  width: 20%;
+  margin-right: 0;
+  width: 100%;
   height: 100%;
 }
 
@@ -986,8 +990,8 @@ footer .copyright p{
 }
 
 .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo{
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1006,7 +1010,7 @@ footer .copyright p{
 .orderBox .orderFooter{
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(222, 217, 214, 0.2);
@@ -1028,7 +1032,7 @@ footer .copyright p{
 
 
 .orderBox .orderFooter .orderFooterBtn{
-  width: 15%;
+  width: 100%;
   height: 50px;
 }
 
@@ -1148,6 +1152,143 @@ footer .copyright p{
 
   footer .newslleter p{
     font-size: 18px;
+  }
+
+  .orders h1{
+    margin-top: 70px;
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  
+  .orders .orderList{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .orders .orderList .orderBox{
+    width: 100%;
+    border: 1px solid #111111;
+    margin-bottom: 30px;
+  }
+  
+  .orders .orderList .orderBox .orderBoxStats{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111111;
+    color: #f3f3f3;
+  }
+  
+  .orders .orderList .orderBox .orderBoxStats h3, .orders .orderList .orderBox .orderBoxStats p{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 30px;
+  }
+  
+  .orders .orderList .orderBox .orderBoxStats p{
+    color: #DCD7D3;
+  }
+
+  .orders .orderList .orderBox .orderBoxContent{
+    height: auto;
+  }
+  
+  .orders .orderList .orderBox .orderBoxContent .orderProds{
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 30px;
+  }
+  
+  .orders .orderList .orderBox .orderBoxContent .orderBoxContentImage{
+    margin-right: 30px;
+    width: 20%;
+    height: 100%;
+  }
+  
+  .orders .orderList .orderBox .orderBoxContent .orderBoxContentImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+  
+  .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo .orderProdInfos{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo h3,
+  .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo p{
+    margin-bottom: 15px;
+  }
+  
+  .orderBox .orderFooter{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(222, 217, 214, 0.2);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    color: #111111;
+    text-align: right;
+    padding: 10px 30px;
+  }
+  
+  .orderBox .orderFooter .orderFooterInfo p{
+    font-size: 16px;
+  }
+  
+  .orderBox .orderFooter .orderFooterInfo h3{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  
+  .orderBox .orderFooter .orderFooterBtn{
+    width: 15%;
+    height: 50px;
+  }
+  
+  .orderBox .orderFooter .orderFooterBtn button{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    background-color: #111111;
+    color: #f3f3f3;
+    border: 1px solid #111111;
+    letter-spacing: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .orderBox .orderFooter .orderFooterBtn button:hover{
+    border: 1px solid #ED2939;
+    background-color: #ED2939;
   }
 }
 
