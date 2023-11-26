@@ -31,4 +31,9 @@ class RouterController extends Controller
     {
         return view('register');
     }
+
+    public function profile()
+    {
+        return view('profile');
+    }
 }

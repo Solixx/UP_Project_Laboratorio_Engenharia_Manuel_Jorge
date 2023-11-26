@@ -32,7 +32,7 @@
         </div>
         <div class="searchMenu colL2 col2">
             <form action="">
-                <input id="searchInputID" class="searchInput" type="text">
+                <input id="searchInputID" class="searchInput" type="text" placeholder="Search...">
             </form>
                 <div class="searchIcon">
                     <svg id="searchIconID" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
