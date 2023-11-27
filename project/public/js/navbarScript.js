@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   navPhoneLines[i].classList.add("line-white");
               }
               if(document.getElementById('avatarImage') != null){
-                  accountMenu.classList.remove("myAccountMenu-white");
+                  accountMenu.classList.add("myAccountMenu-white");
               }
 
               searchInput.classList.add("searchInput-white");
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
                   }
               }
               if(document.getElementById('avatarImage') != null){
-                  accountMenu.classList.add("myAccountMenu-white");
+                  accountMenu.classList.remove("myAccountMenu-white");
               }             
               
               searchInput.classList.remove("searchInput-white");

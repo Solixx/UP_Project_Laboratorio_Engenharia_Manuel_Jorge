@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cols.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sidebars.css') }}">
     
     <title>@yield('title', 'UP')</title>
 </head>
@@ -20,6 +21,7 @@
         @include('includes.navbar_visitante')
         {{-- @include('includes.navbar_logado') --}}
         {{-- @include('includes.navbar_adm') --}}
+        @include('includes.cartSidebar')
         @yield('content')
         @include('includes.footer')
     </main>
@@ -27,6 +29,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="{{ asset('js/navbarScript.js') }}"></script>
     <script src="{{ asset('js/arrowsScript.js') }}"></script>
+    <script src="{{ asset('js/cartSideBarScript.js') }}"></script>
 </body>
 
 </html>

@@ -6,8 +6,8 @@
         <div class="mainMenu colM1 colL5 col4 flexCenter">
             <ul>
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ url('/') }}">Men</a></li>
-                <li><a href="{{ url('/') }}p">Women</a></li>
+                <li><a href="{{ url('/products') }}">Men</a></li>
+                <li><a href="{{ url('/products') }}">Women</a></li>
             </ul>
         </div>
         <div class="accountMenu colM1 colL3 col3 flexLeft">
@@ -17,7 +17,7 @@
             </ul>
         </div>
         <div class="searchMenu colL2 col2">
-            <form action="">
+            <form action="{{ route('products') }}" method="GET">
                 <input id="searchInputID" class="searchInput" type="text" placeholder="Search...">
             </form>
                 <div class="searchIcon">
@@ -36,7 +36,7 @@
         <input id="searchInputID" class="searchInput" type="text" placeholder="Search...">
     </form>
     <li><a href="{{ url('/') }}">Home</a></li>
-    <li><a href="men.php">Men</a></li>
-    <li><a href="women.php">Women</a></li>
+    <li><a href="{{ url('/products') }}">Men</a></li>
+    <li><a href="{{ url('/products') }}">Women</a></li>
 @endsection
 @include('includes.navbar_phone')

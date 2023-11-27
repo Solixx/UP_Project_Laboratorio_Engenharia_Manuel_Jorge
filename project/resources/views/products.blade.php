@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    <div class="products">
+    @include('includes.filtersSideBar')
+    <div id="products" class="products">
         <div class="content categorias">
             <div id="categoriesGallery" class="categoriasList">
                 <p class="active">All</p>
@@ -31,7 +32,7 @@
                 </select>
             </div>
             <div class="col9 colS4 colM4 colL9 filters flexRight">
-                <h3>Filters +</h3>
+                <h3 class="filtersOpenbtn" onclick="openFiltersNav()">Filters +</h3>
             </div>
         </div>
         <div class="container">
@@ -53,3 +54,4 @@
 @endsection
 
 <script src="{{ asset('js/categoriesScrollX.js') }}"></script>
+<script src="{{ asset('js/filtersSideBarScript.js') }}"></script>

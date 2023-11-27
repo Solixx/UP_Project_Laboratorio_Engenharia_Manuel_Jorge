@@ -126,6 +126,10 @@ svg {
 
 .navbarPhone .nav-container li {
   list-style: none;
+  font-weight: 500;
+  font-size: 32px !important;
+  padding: 0.7rem;
+  color: #f3f3f3;
 }
 
 .navbarPhone .nav-container h1{
@@ -415,6 +419,10 @@ svg {
 .filters{
   text-transform: uppercase;
   margin-bottom: 20px;
+}
+
+.filtersOpenbtn{
+  cursor: pointer;
 }
 
 .products{
@@ -1618,15 +1626,19 @@ footer .copyright p{
   }
 
   .myAccountMenu-white{
-    background-color: #f3f3f3 !important;
+    background-color: #111111 !important;
   }
 
   .myAccountMenu-white h2{
-    color: #111111 !important;
+    color: #f3f3f3 !important;
+  }
+
+  .myAccountMenu-white a{
+    color: #f3f3f3 !important;
   }
 
   .myAccountMenu{
-    background-color: #111111;
+    background-color: #f3f3f3;
     margin-top: 1vh;
     position: absolute;
     padding: .5vh;
@@ -1635,7 +1647,7 @@ footer .copyright p{
 
   .myAccountMenu h2{
     text-align: center;
-    color: #f3f3f3;
+    color: #111111;
   }
 
   .myAccountMenu ul{
@@ -1646,6 +1658,10 @@ footer .copyright p{
   .myAccountMenu ul li{
     margin-top: .5vh;
     padding-left: 30px;
+  }
+
+  .myAccountMenu ul li a{
+    color: #111111;
   }
 
   .circle {
