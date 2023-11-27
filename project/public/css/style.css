@@ -1114,7 +1114,7 @@ footer .copyright p{
 }
 
 .editProfileForm h1{
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 30px;
@@ -1160,6 +1160,15 @@ footer .copyright p{
   border: 1px solid #111111;
   background-color: #f3f3f3;
   padding: 10px;
+  margin-bottom: 30px;
+}
+
+.editProfileForm h2{
+  margin-bottom: 10px;
+}
+
+.editProfileForm  .editProfileInfos p{
+  margin-bottom: 10px;
 }
 
 .accountSettingsBtnBox{
@@ -1188,6 +1197,49 @@ footer .copyright p{
   background-color: #111111;
   color: #f3f3f3;
   border: none;
+  transition: all 0.2s ease;
+}
+
+.accountSettingsBtnBox .accountSettingsBtn button:hover{
+  background-color: #252525;
+}
+
+.genders{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.genders .gMan , .genders .gWomen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.genders .gMan input, .genders .gWomen input{
+  width: 100px;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.genders .gMan label, .genders .gWomen label{
+  margin: 0;
+  margin-right: 30px;
+}
+
+.editProfileForm button{
+  height: 50px;
+  width: 150px;
+  background-color: #111111;
+  color: #f3f3f3;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.editProfileForm button:hover{
+  background-color: #252525;
 }
 
 @media (min-width: 768px) {
@@ -1432,6 +1484,23 @@ footer .copyright p{
 
   .settingsOption h1{
     max-width: 80%;
+  }
+
+  .genders{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .editProfileForm button{
+    height: 50px;
+    width: 200px;
+    background-color: #111111;
+    color: #f3f3f3;
+    border: none;
+    transition: all 0.2s ease;
   }
 }
 

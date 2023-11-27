@@ -41,4 +41,14 @@ class RouterController extends Controller
     {
         return view('editProfile');
     }
+
+    public function accountManagement()
+    {
+        return view('accountManagement');
+    }
+
+    public function changePassword()
+    {
+        return view('changePass');
+    }
 }

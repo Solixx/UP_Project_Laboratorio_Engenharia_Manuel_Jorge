@@ -1,0 +1,1 @@
+$('#OpenImgUpload').click(function(){ $('#profileImgInput').trigger('click'); });
