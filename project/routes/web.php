@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\RouterController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +21,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [RouterController::class, 'index'])->name('index');
 Route::get('/products', [RouterController::class, 'products'])->name('products');
 Route::get('/product', [RouterController::class, 'product'])->name('product');
-Route::get('/login', [RouterController::class, 'login'])->name('login');
-Route::get('/register', [RouterController::class, 'register'])->name('register');
-Route::get('/profile', [RouterController::class, 'profile'])->name('profile');
-Route::get('/settings/edit-profile', [RouterController::class, 'editProfile'])->name('editProfile');
-Route::get('/settings/account-management', [RouterController::class, 'accountManagement'])->name('accountManagement');
-Route::get('/settings/change-password', [RouterController::class, 'changePassword'])->name('changePassword');
+/* Route::post('/login', [RouterController::class, 'login'])->name('login');
+Route::post('/register', [RouterController::class, 'register'])->name('register'); */
+Route::get('/profile', [SettingsController::class, 'index'])->name('profile');
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+Route::get('/settings/edit-profile', [SettingsController::class, 'editProfile'])->name('settings.editProfile');
+Route::post('/settings/edit-profile/{user}', [SettingsController::class, 'editProfilePost'])->name('settings.editProfilePost');
+Route::get('/settings/account-management', [SettingsController::class, 'accountManagement'])->name('settings.accountManagement');
+Route::get('/settings/change-password', [SettingsController::class, 'changePassword'])->name('settings.changePassword');
+
+/* Route::post('save', [SettingsController::class, 'editProfilePost'])->name('settings.editProfilePost'); */
+
+Auth::routes(['verify' => true]);
+
+Route::get('admin/home', [AdminController::class, 'adminHome'])->name('admin.home')->middleware('isAdmin');

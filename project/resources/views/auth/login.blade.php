@@ -10,15 +10,13 @@
         <div class="container">
             <div class="col12 colS4 colM8 colL12">
                 <div class="loginForm">
-                    <form {{-- action="{{ route('login') }}" --}} method="POST">
+                    <form action="{{ route('login') }}" method="POST">
                         @csrf
                         <h1>Login</h1>
-                        {{-- <label for="email">Email</label> --}}
-                        <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
-                        {{-- <label for="password">Password</label> --}}
-                        <input type="password" name="password" placeholder="Password" id="password">
+                        <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
+                        <input type="password" name="password" placeholder="Password" id="password" required>
                         <div class="rememberMe">
-                            <input type="checkbox" name="remember">
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                             <label for="remember">Remember Me</label>
                         </div>
                         <button type="submit">Login</button>
