@@ -10,15 +10,14 @@
         <div class="container">
             <div class="col12 colS4 colM8 colL12">
                 <div class="loginForm">
-                    <form {{-- action="{{ route('login') }}" --}} method="POST">
+                    <form action="{{ route('register') }}" method="POST">
                         @csrf
+
                         <h1>Register</h1>
-                        {{-- <label for="name">Name</label> --}}
-                        <input type="name" name="name" id="name" placeholder="Name" value="{{ old('name') }}">
-                        {{-- <label for="email">Email</label> --}}
-                        <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
-                        {{-- <label for="password">Password</label> --}}
-                        <input type="password" name="password" placeholder="Password" id="password">
+                        <input type="name" name="name" id="name" placeholder="Name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
+                        <input type="password" name="password" placeholder="Password" id="password" required autocomplete="new-password">
+                        <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
                         <button type="submit">Register</button>
                         <div class="registerExtraOp">
                                 <p>Create account with</p>

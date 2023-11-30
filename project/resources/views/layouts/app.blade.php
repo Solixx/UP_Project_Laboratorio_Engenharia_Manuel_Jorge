@@ -18,11 +18,16 @@
 
 <body>
     <main>
-        @include('includes.navbar_visitante')
-        {{-- @include('includes.navbar_logado') --}}
-        {{-- @include('includes.navbar_adm') --}}
-        @include('includes.cartSidebar')
+        @guest
+            @include('includes.navbar_visitante')
+        @elseif(Auth::user()->isAdmin && Auth::user()->email_verified_at != null)
+            @include('includes.navbar_adm')
+        @else
+            @include('includes.navbar_logado')
+        @endguest
+        
         @yield('content')
+        @include('includes.cartSideBar')
         @include('includes.footer')
     </main>
 

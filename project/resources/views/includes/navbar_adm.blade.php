@@ -1,13 +1,13 @@
 <div class="navBG">
     <div class="container nav">
          <div class="logo colS1 colM1 colL2 col3">
-             <a href="{{ url('/') }}"><img src="{{ asset('imgs/logo-BLACK.png') }}" alt="" /></a>
+             <a href="{{ Route('index') }}"><img src="{{ asset('imgs/logo-BLACK.png') }}" alt="" /></a>
          </div>
          <div class="mainMenu colM1 colL5 col4 flexCenter">
              <ul>
-                 <li><a href="{{ url('/') }}">Home</a></li>
-                 <li><a href="{{ url('/products') }}">Men</a></li>
-                 <li><a href="{{ url('/products') }}">Women</a></li>
+                 <li><a href="{{ Route('index') }}">Home</a></li>
+                 <li><a href="{{ Route('products') }}">Men</a></li>
+                 <li><a href="{{ Route('products') }}">Women</a></li>
              </ul>
          </div>
          <div class="accountMenu colM1 colL3 col3 flexLeft">
@@ -15,14 +15,20 @@
                 <li><a href="{{ url('/') }}">ADM PANEL</a></li>
                 <li class="liAccount">
                    <div>
-                       <img id="avatarImage" class="avatar" src="{{ asset('imgs/snekears.jpg') }}" alt="avatar" />
+                       <img id="avatarImage" class="avatar" src="{{asset(Auth::user()->imgPath)}}"  alt="avatar" />
                        <div class="myAccountMenu" id="accountMenu" style="display: none">
                            <h2 class="accountMenuTitle">Account</h2>
                            <hr>
                            <ul>
-                               <li><a href="{{ url('/profile') }}">Profile</a></li>
-                               <li><a href="{{ url('/settings/account-management') }}">Settings</a></li>
-                               <li><a href="{{ url('/') }}">Log Out</a></li>
+                               <li><a href="{{ Route('profile') }}">Profile</a></li>
+                               <li><a href="{{ Route('settings.accountManagement') }}">Settings</a></li>
+                               <li><a 
+                                    href="{{ route('logout') }}" 
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                            Log Out
+                                    </a>
+                                </li>
                            </ul>
                        </div>
                    </div>
@@ -49,16 +55,25 @@
     <form action="{{ route('products') }}" method="GET">
         <input id="searchInputID" class="searchInput" type="text" placeholder="Search...">
     </form>
-    <li><a href="{{ url('/') }}">Home</a></li>
-    <li><a href="{{ url('/products') }}">Men</a></li>
-    <li><a href="{{ url('/products') }}">Women</a></li>
+    <li><a href="{{ Route('index') }}">Home</a></li>
+    <li><a href="{{ Route('products') }}">Men</a></li>
+    <li><a href="{{ Route('products') }}">Women</a></li>
     <h1>Account</h1>
-    <li><a href="{{ url('/profile') }}">Profile</a></li>
+    <li><a href="{{ Route('profile') }}">Profile</a></li>
     <li class="cartOpenbtn" onclick="openCartNav()">Cart</li>
-    <li><a href="{{ url('/settings/account-management') }}">Settings</a></li>
-    <li><a href="{{ url('/') }}">Log Out</a></li>
+    <li><a href="{{ Route('settings.accountManagement') }}">Settings</a></li>
+    <li><a 
+        href="{{ route('logout') }}" 
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+                Log Out
+        </a>
+    </li>
     <h1>Admin Panel</h1>
     <li><a href="{{ url('/') }}">Admin</a></li>
  @endsection
  @include('includes.navbar_phone')
- 
+
+ <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>

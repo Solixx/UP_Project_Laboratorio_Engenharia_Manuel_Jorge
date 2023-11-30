@@ -31,24 +31,4 @@ class RouterController extends Controller
     {
         return view('register');
     }
-
-    public function profile()
-    {
-        return view('profile');
-    }
-
-    public function editProfile()
-    {
-        return view('editProfile');
-    }
-
-    public function accountManagement()
-    {
-        return view('accountManagement');
-    }
-
-    public function changePassword()
-    {
-        return view('changePass');
-    }
 }
