@@ -23,3 +23,6 @@ Route::get('/profile', [RouterController::class, 'profile'])->name('profile');
 Route::get('/settings/edit-profile', [RouterController::class, 'editProfile'])->name('editProfile');
 Route::get('/settings/account-management', [RouterController::class, 'accountManagement'])->name('accountManagement');
 Route::get('/settings/change-password', [RouterController::class, 'changePassword'])->name('changePassword');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
