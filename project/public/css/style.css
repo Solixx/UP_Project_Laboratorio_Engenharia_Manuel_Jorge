@@ -595,6 +595,9 @@ footer .copyright p{
   margin-top: 5px;
 }
 
+
+/* Login */
+
 .login{
   margin-top: 100px;
   display: flex;
@@ -627,14 +630,14 @@ footer .copyright p{
 }
 
 .login form input{
-  width: 50%;
+  width: 100%;
   height: 50px;
   margin-bottom: 35px;	
   padding: 10px;
 }
 
 .login form button{
-  width: 50%;
+  width: 100%;
   height: 75px;
   text-align: center;
   font-weight: bold;
@@ -674,7 +677,7 @@ footer .copyright p{
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 60%;
+  width: 100%;
 }
 
 .login form .rememberMe input{
@@ -690,17 +693,17 @@ footer .copyright p{
 
 .loginExtraOp{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
-  width: 50%;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .registerExtraOp{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   width: 50%;
 }
 
@@ -1250,6 +1253,43 @@ footer .copyright p{
   background-color: #252525;
 }
 
+
+/* Verify Email - Verifica Email */
+.verifyBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.verifyBox .card div{
+  margin: 20px 0px;
+}
+
+.verifyBox .card-body div, 
+.verifyBox .card-body form{
+  margin: 20px 0px;
+}
+
+.verifyBox button{
+  background-color: #111111;
+  color: #f3f3f3;
+  border: none;
+  width: 100%;
+  height: 50px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+
+  transition: all 0.2s ease;
+}
+
+.verifyBox button:hover{
+  background-color: #252525;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 30px 0 50px 0;
@@ -1510,6 +1550,25 @@ footer .copyright p{
     border: none;
     transition: all 0.2s ease;
   }
+
+  /* Login */
+
+  .login form input{
+    width: 50%;
+  }
+  
+  .login form button{
+    width: 50%;
+  }
+
+  .login form .rememberMe{
+    width: 60%;
+  }
+
+  /* Verify Email - Verifica Email */
+  .verifyBox button{
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1699,6 +1758,19 @@ footer .copyright p{
     padding-top: 15vh;
     display: flex;
     flex-direction: row;
+  }
+
+  /* Login */
+  .loginExtraOp{
+    flex-direction: row;
+    align-items: flex-end;
+    width: 50%;
+  }
+
+  .registerExtraOp{
+    flex-direction: row;
+    align-items: flex-end;
+    width: 50%;
   }
 }
 

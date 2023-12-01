@@ -3,10 +3,10 @@
 @section('content')
 <section>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+        <div class="col3 colL3 colM1"></div>
+        <div class="col6 colL6 colM6 colS4 verifyBox">
                 <div class="card">
-                    <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                    <div class="card-header"><h1>{{ __('Verify Your Email Address') }}</h1></div>
     
                     <div class="card-body">
                         @if (session('resent'))
@@ -23,8 +23,8 @@
                         </form>
                     </div>
                 </div>
-            </div>
         </div>
+        <div class="col3 colL3 colM1"></div>
     </div>
 </section>
 
