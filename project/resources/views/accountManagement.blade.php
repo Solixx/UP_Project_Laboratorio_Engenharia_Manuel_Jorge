@@ -12,19 +12,20 @@
             <div class="col6 colL6 colM8 colS4 editProfileForm">
                 <h1>Account Management</h1>
                 <h2>Your Account</h2>
-                <form action="">
+                <form method="POST" action="{{ route('settings.accountManagementPost',Auth::user()->id) }}">
+                    @csrf
                     <div class="editProfileInfos">
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email" placeholder="Email" value="exemple@gmail.com">
+                        <input type="text" name="email" id="email" placeholder="Email" value="{{ Auth::user()->email }}">
                         <p>Gender</p>
                         <div class="genders">
                             <div class="gMan">
-                                <input type="radio" id="man" name="gender">
+                                <input value="m" type="radio" id="man" name="gender" @if(Auth::user()->gender == 'm') checked @endif>
                                 <label for="man">Man</label>
                             </div>
                             <div class="gWomen">
-                                <input type="radio" name="gender" id="">
-                                <label for="gender">female</label>
+                                <input value="f" type="radio" name="gender" id="women" @if(Auth::user()->gender == 'f') checked @endif>
+                                <label for="women">female</label>
                             </div>
                         </div>
                     </div>

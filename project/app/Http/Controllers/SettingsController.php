@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class SettingsController extends Controller
 {
@@ -47,6 +48,18 @@ class SettingsController extends Controller
     public function accountManagement()
     {
         return view('accountManagement');
+    }
+
+    public function accountManagementPost(Request $request, User $user)
+    {
+        $request->validate([
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id),],
+            'gender' => 'required|max:1',
+        ]);
+
+        $user->update($request->all());
+
+        return redirect()->route('settings.accountManagement')->with('status', 'User Has been uploaded');
     }
 
     public function changePassword()

@@ -28,6 +28,7 @@ Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::get('/settings/edit-profile', [SettingsController::class, 'editProfile'])->name('settings.editProfile');
 Route::post('/settings/edit-profile/{user}', [SettingsController::class, 'editProfilePost'])->name('settings.editProfilePost');
 Route::get('/settings/account-management', [SettingsController::class, 'accountManagement'])->name('settings.accountManagement');
+Route::post('/settings/account-management/{user}', [SettingsController::class, 'accountManagementPost'])->name('settings.accountManagementPost');
 Route::get('/settings/change-password', [SettingsController::class, 'changePassword'])->name('settings.changePassword');
 
 /* Route::post('save', [SettingsController::class, 'editProfilePost'])->name('settings.editProfilePost'); */

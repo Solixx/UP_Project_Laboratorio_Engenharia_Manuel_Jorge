@@ -12,6 +12,7 @@
             <div class="col6 colL6 colM8 colS4 editProfileForm">
                 <h1>Change Password</h1>
                 <form action="">
+                    @csrf
                     <div class="editProfileInfos">
                         <label for="curPass">Current Password</label>
                         <input type="text" name="curPass" id="curPass" placeholder="Current Password">

@@ -17,7 +17,7 @@
                         <input type="name" name="name" id="name" placeholder="Name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
                         <input type="password" name="password" placeholder="Password" id="password" required autocomplete="new-password">
-                        <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
+                        <input id="password-confirm" type="password" placeholder="Repeat Password" name="password_confirmation" required autocomplete="new-password">
                         <button type="submit">Register</button>
                         <div class="registerExtraOp">
                                 <p>Create account with</p>
