@@ -1,6 +1,6 @@
 <div class="accountSettingsBtnBox">
     <div class="accountSettingsBtn">
-        <button>Reset</button>
+        <input type="reset" value="Reset">
         <button>Save</button>
     </div>
 </div>
