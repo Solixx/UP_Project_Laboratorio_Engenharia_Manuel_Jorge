@@ -350,19 +350,41 @@ svg {
 } */
 
 .brands{
-  position: absolute;
-  left: 0;
+  height: 60vh;
+}
+
+.brandscolumns{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  white-space: nowrap;
+
+  height: 100%;
   width: 100%;
-  max-height: 60vh;
-  overflow: hidden;
+}
+
+.brandsRow{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  cursor: grab;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .brands img{
-  width: 5vw;
+  width: 100%;
+  height: 10vh;
   object-fit: contain;
   object-position: 50% 50%;
-  margin: 10px 10px;
   cursor: pointer;
+
+  margin-right: 10vh;
 }
 
 .newArrivals, .favProducts{
@@ -379,7 +401,8 @@ svg {
   height: 100%;
 }
 
-.newArrivalsInfo::-webkit-scrollbar, .favProductsInfo::-webkit-scrollbar, .categoriasList::-webkit-scrollbar {
+.newArrivalsInfo::-webkit-scrollbar, .favProductsInfo::-webkit-scrollbar, .categoriasList::-webkit-scrollbar,
+ .brandscolumns::-webkit-scrollbar, .brandsRow::-webkit-scrollbar {
   display: none;
 }
 
@@ -1325,14 +1348,6 @@ footer .copyright p{
     border: 25px solid #ffffff;
   }
 
-  .brands img{
-    width: 10vw;
-    justify-content: center;
-  
-    object-fit: contain;
-    object-position: 50% 50%;
-  }
-
   .title h1 {
     font-size: 64px;
   }
@@ -1732,14 +1747,6 @@ footer .copyright p{
     width: 70vh;
   }
 
-  .brands img{
-    width: 7vw;
-    justify-content: center;
-  
-    object-fit: contain;
-    object-position: 50% 50%;
-  }
-
   .newArrivalsInfo, .favProductsInfo{
     width: calc((100% - 20px*4));
   }
@@ -1779,19 +1786,21 @@ footer .copyright p{
     padding: 30px 0 50px 0;
   }
 
-  .brands img{
-    width: 5vw;
-    justify-content: center;
-  
-    object-fit: contain;
-    object-position: 50% 50%;
-  }
-
   .newArrivalsInfo, .favProductsInfo{
     width: calc((100% - 20px*12));
   }
 
   .categoriasList{
     width: calc((100% - 20px*12));
+  }
+
+  .brands img{
+    width: 100%;
+    height: 15vh;
+    object-fit: contain;
+    object-position: 50% 50%;
+    cursor: pointer;
+  
+    margin-right: 15vh;
   }
 }

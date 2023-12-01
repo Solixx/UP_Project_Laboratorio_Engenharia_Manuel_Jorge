@@ -63,23 +63,23 @@
     @endsection
 
     @section('brandsInfo')
-        {{-- <img src="{{ asset('imgs/BRANDS-removebg-preview.png') }}" alt=""> --}}
-        @for ($i = 0; $i < 5; $i++)
-            <img src="{{ asset('imgs/ADIDAS.png') }}" alt="">
-            <img src="{{ asset('imgs/JORDAN-MERCH.png') }}" alt="">
-            <img src="{{ asset('imgs/lacoste.png') }}" alt="">
-            <img src="{{ asset('imgs/NIKE.png') }}" alt="">
-            <img src="{{ asset('imgs/vans.png') }}" alt="">
-            <img src="{{ asset('imgs/Champion.png') }}" alt="">
-            <img src="{{ asset('imgs/Louis-Vuitton.png') }}" alt="">
-            <img src="{{ asset('imgs/Chanel.png') }}" alt="">
-            <img src="{{ asset('imgs/Levis.png') }}" alt="">
-            <img src="{{ asset('imgs/Supreme.png') }}" alt="">
-            <img src="{{ asset('imgs/Off-White.png') }}" alt="">
-            <img src="{{ asset('imgs/balenciaga.png') }}" alt="">
-            <img src="{{ asset('imgs/dior.png') }}" alt="">
-        @endfor
-    
+        <div class="brandscolumns">
+            <div id="brandsR1" class="brandsRow">
+                @for ($i = 0; $i < $brandsLength/3; $i++)
+                    <img src="{{ asset($brands[$i]->imgPath) }}" alt="">
+                @endfor
+            </div>
+            <div id="brandsR2" class="brandsRow">
+                @for ($i = $brandsLength/3+1; $i < ($brandsLength/3)*2; $i++)
+                    <img src="{{ asset($brands[$i]->imgPath) }}" alt="">
+                @endfor
+            </div>
+            <div id="brandsR3" class="brandsRow">
+                @for ($i = ($brandsLength/3)*2+1; $i < ($brandsLength/3)*3; $i++)
+                    <img src="{{ asset($brands[$i]->imgPath) }}" alt="">
+                @endfor
+            </div>
+        </div>
     @endsection
 
     @section('brandsArrowUp')
@@ -104,3 +104,5 @@
 @endsection
 
 <script src="{{ asset('js/newArrivalsScrollX.js') }}"></script>
+<script src="{{ asset('js/brandsScrollX.js') }}"></script>
+<script src="{{ asset('js/brandsAutoScrollX.js') }}"></script>

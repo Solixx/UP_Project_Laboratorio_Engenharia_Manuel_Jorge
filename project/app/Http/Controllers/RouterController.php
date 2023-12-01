@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Brand;
 
 class RouterController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $brands = Brand::all();
+        $brandsLength = count($brands);
+        return view('index', compact('brands', 'brandsLength'));
+        /* return view('index'); */
     }
 
     public function products()

@@ -27,10 +27,8 @@
         <h1>@yield('brandsTitle', '')</h1>
       </div>
     </div>
-    <div class="container content">
-      <div class="brands">
+    <div class="content brands">
         @yield('brandsInfo', '')
-      </div>
     </div>
     <div class="arrows arrow-container">
       <div class="arrowUp">
