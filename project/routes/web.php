@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductBrandController;
+use App\Http\Controllers\StockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,5 @@ Route::get('admin/home', [AdminController::class, 'adminHome'])->name('admin.hom
 
 
 /* Testes */
-Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes');
+/* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */
+Route::get('/testes', [StockController::class, 'index'])->name('testes');
