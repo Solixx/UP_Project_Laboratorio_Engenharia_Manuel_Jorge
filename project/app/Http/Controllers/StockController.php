@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Stock;
 use App\Http\Controllers\Controller;
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -14,7 +15,9 @@ class StockController extends Controller
     public function index()
     {
         $stocks = Stock::all();
-        return view('welcome', compact('stocks'));
+        $categories = Categorie::all();
+        /* return view('welcome', compact('stocks')); */
+        return view('products', compact('stocks', 'categories'));
     }
 
     /**

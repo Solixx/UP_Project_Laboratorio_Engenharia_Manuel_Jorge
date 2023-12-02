@@ -27,13 +27,13 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesSeeder::class);
 
         Color::factory(30)->create();
-        Product::factory(30)->create();
+        Product::factory(100)->create();
         User::factory(30)->create();
 
         Product_Categorie::factory(30)->create();
         Product_Brand::factory(30)->create();
         Product_Color::factory(30)->create();
-        Photo::factory(30)->create();
-        Stock::factory(30)->create();
+        Photo::factory(100)->create();
+        Stock::factory(100)->create();
     }
 }

@@ -21,7 +21,7 @@ use App\Http\Controllers\StockController;
 */
 
 Route::get('/', [RouterController::class, 'index'])->name('index');
-Route::get('/products', [RouterController::class, 'products'])->name('products');
+Route::get('/products', [StockController::class, 'index'])->name('products');
 Route::get('/product', [RouterController::class, 'product'])->name('product');
 /* Route::post('/login', [RouterController::class, 'login'])->name('login');
 Route::post('/register', [RouterController::class, 'register'])->name('register'); */
@@ -43,4 +43,4 @@ Route::get('admin/home', [AdminController::class, 'adminHome'])->name('admin.hom
 
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */
-Route::get('/testes', [StockController::class, 'index'])->name('testes');
+/* Route::get('/testes', [StockController::class, 'index'])->name('testes'); */

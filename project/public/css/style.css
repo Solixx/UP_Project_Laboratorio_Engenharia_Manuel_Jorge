@@ -484,7 +484,10 @@ svg {
 }
 
 .product img{
+  height: 50vh;
   width: 100%;
+  object-fit: cover;	
+  object-position: 50% 50%;
 }
 
 .product .productInfo{
