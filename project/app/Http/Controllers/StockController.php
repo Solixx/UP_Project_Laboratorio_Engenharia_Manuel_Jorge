@@ -13,7 +13,8 @@ class StockController extends Controller
      */
     public function index()
     {
-        //
+        $stocks = Stock::all();
+        return view('welcome', compact('stocks'));
     }
 
     /**
