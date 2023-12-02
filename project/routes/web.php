@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductBrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,8 @@ Route::get('/settings/change-password', [SettingsController::class, 'changePassw
 Auth::routes(['verify' => true]);
 
 Route::get('admin/home', [AdminController::class, 'adminHome'])->name('admin.home')->middleware('isAdmin');
+
+
+
+/* Testes */
+Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes');

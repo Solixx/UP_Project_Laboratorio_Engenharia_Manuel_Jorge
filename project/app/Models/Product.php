@@ -7,17 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Product_Brand;
 
-class Brand extends Model
+class Product extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'img',
-        'imgPath',
+        'description',
     ];
 
-    public function products(){
-        return $this->hasMany(Product_Brand::class, 'brand_id', 'id');
+    public function brands(){
+        return $this->hasMany(Product_Brand::class, 'product_id', 'id');
     }
 }
