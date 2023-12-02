@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use App\Models\Product;
+use App\Models\Product_Color;
 
 class RouterController extends Controller
 {
@@ -12,7 +14,17 @@ class RouterController extends Controller
     {
         $brands = Brand::all();
         $brandsLength = count($brands);
-        return view('index', compact('brands', 'brandsLength'));
+        /* $products = Product::latest()
+            ->whereHas('colors', function ($query) {
+                $query->whereHas('photos');
+            })
+            ->take(5)
+            ->get(); */
+        $products = Product_Color::latest()
+            ->whereHas('photos')
+            ->take(5)
+            ->get();
+        return view('index', compact('brands', 'brandsLength', 'products'));
         /* return view('index'); */
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Product_Brand;
 use App\Models\Product_Categorie;
+use App\Models\Product_Color;
 
 class Product extends Model
 {
@@ -23,5 +24,9 @@ class Product extends Model
 
     public function categories(){
         return $this->hasMany(Product_Categorie::class, 'product_id', 'id');
+    }
+
+    public function colors(){
+        return $this->hasMany(Product_Color::class, 'product_id', 'id');
     }
 }
