@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\Photo;
+use App\Models\Stock;
 
 class Product_Color extends Model
 {
@@ -28,5 +29,9 @@ class Product_Color extends Model
 
     public function photos(){
         return $this->hasMany(Photo::class, 'product_color_id', 'id');
+    }
+
+    public function stock(){
+        return $this->hasMany(Stock::class, 'product_color_id', 'id');
     }
 }
