@@ -8,6 +8,10 @@ use App\Models\Product;
 use App\Models\Product_Brand;
 use Illuminate\Database\Seeder;
 use \App\Models\User;
+use \App\Models\Photo;
+use App\Models\Product_Color;
+use App\Models\Color;
+use App\Models\Stock;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,9 +21,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(BrandsSeeder::class);
+        $this->call(SizeSeeder::class);
 
+        Color::factory(10)->create();
         Product::factory(10)->create();
         Product_Brand::factory(10)->create();
         User::factory(10)->create();
+        Product_Color::factory(10)->create();
+        Photo::factory(10)->create();
+        Stock::factory(10)->create();
     }
 }
