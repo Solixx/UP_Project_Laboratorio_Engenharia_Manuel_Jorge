@@ -37,7 +37,10 @@
             @foreach ($products as $product)
                 @foreach ($product->photos as $photo)
                     @if (strlen($photo->imgPath) > 0)
-                        <img src="{{ asset($photo->imgPath) }}" alt="{{ $photo->img }}">
+                        <div class="newArrivalsBox">
+                            <img src="{{ asset($photo->imgPath) }}" alt="{{ $photo->img }}">
+                            <a href="{{ route('product',$product->stock->first()->id) }}"><p>Go To ></p></a>
+                        </div>
                         @break
                     @endif
                 @endforeach

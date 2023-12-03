@@ -22,6 +22,7 @@ class RouterController extends Controller
             ->get(); */
         $products = Product_Color::latest()
             ->whereHas('photos')
+            ->whereHas('stock')
             ->take(5)
             ->get();
         return view('index', compact('brands', 'brandsLength', 'products'));
