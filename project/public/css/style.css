@@ -955,13 +955,23 @@ footer .copyright p{
   border: 1px solid #ED2939 !important;
 }
 
-.prodInfo .prodButtons .favBtn{
+.prodInfo .prodButtons .favForm{
   width: 30%;
   height: 75px;
+}
+
+.prodInfo .prodButtons .favBtn{
+  width: 100%;
+  height: 100%;
   background-color: #f3f3f3;
   border: 1px solid #111111;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.prodInfo .prodButtons .favBtnActive{
+  border: 1px solid #ED2939;
+  background-color: #ED2939 !important;
 }
 
 .prodInfo .prodButtons .favBtn svg{
