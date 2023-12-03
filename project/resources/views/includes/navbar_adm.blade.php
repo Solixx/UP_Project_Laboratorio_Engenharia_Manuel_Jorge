@@ -37,8 +37,8 @@
             </ul>
         </div>
         <div class="searchMenu colL2 col2">
-            <form action="">
-                <input id="searchInputID" class="searchInput" type="text" placeholder="Search...">
+            <form action="{{ route('search.products') }}" method="GET">
+                <input id="searchInputID" class="searchInput" name="searchName" type="text" placeholder="Search...">
             </form>
                 <div class="searchIcon">
                     <svg id="searchIconID" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
@@ -52,8 +52,8 @@
 
 
  @section('phoneMenu')
-    <form action="{{ route('products') }}" method="GET">
-        <input id="searchInputID" class="searchInput" type="text" placeholder="Search...">
+    <form action="{{ route('search.products') }}" method="GET">
+        <input id="searchInputID" class="searchInput" name="searchName" type="text" placeholder="Search...">
     </form>
     <li><a href="{{ Route('index') }}">Home</a></li>
     <li><a href="{{ Route('products') }}">Men</a></li>

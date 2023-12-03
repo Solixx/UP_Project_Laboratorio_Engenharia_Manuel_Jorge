@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Stock;
 use App\Http\Controllers\Controller;
 use App\Models\Categorie;
+use App\Models\Product;
+use App\Models\Product_Color;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -65,5 +67,23 @@ class StockController extends Controller
     public function destroy(Stock $stock)
     {
         //
+    }
+
+
+    public function serachName(Request $request)
+    {
+        $request->validate([
+            'searchName' => 'required|string|max:255',
+        ]);
+
+        $stocks = Stock::whereIn(
+            'product_color_id',
+            Product_Color::whereHas('product', function ($query) use ($request) {
+                $query->where('name', 'like', '%' . $request->searchName . '%');
+            })->pluck('id')
+        )->get();
+        $categories = Categorie::all();
+        
+        return view('products', compact('stocks', 'categories'));
     }
 }
