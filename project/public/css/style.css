@@ -490,6 +490,11 @@ svg {
   object-position: 50% 50%;
 }
 
+.productLink a{
+  text-decoration: none;
+  color: #111111;
+}
+
 .product .productInfo{
   display: flex;
   flex-direction: column;
@@ -756,6 +761,7 @@ footer .copyright p{
   margin-right: 20px;
   margin-bottom: 20px;
   width: 100%;
+  height: 65vh;
   object-fit: cover;
   object-position: 50% 50%;
 }
@@ -765,6 +771,10 @@ footer .copyright p{
   font-weight: bold;
   font-size: 32px;
   margin-bottom: 50px;
+}
+
+.prodInfoTitle{
+  width: 80%;
 }
 
 .prodInfo p{
@@ -859,6 +869,15 @@ footer .copyright p{
   background-color: #111111;
 }
 
+.sizeOut{
+  border: 2px solid #ED2939 !important;
+  cursor: default !important;
+}
+
+.sizeOut:hover{
+  background-color: #ED2939 !important;
+}
+
 .prodInfo .prodButtons{
   display: flex;
   flex-direction: row;
@@ -884,6 +903,11 @@ footer .copyright p{
 .prodInfo .prodButtons .addCartBtn:hover{
   border: 1px solid #3BB143;
   background-color: #3BB143;
+}
+
+.prodInfo .prodButtons .addCartBtnDisabled{
+  background-color: #ED2939 !important;
+  border: 1px solid #ED2939 !important;
 }
 
 .prodInfo .prodButtons .favBtn{

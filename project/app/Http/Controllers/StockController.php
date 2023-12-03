@@ -14,9 +14,8 @@ class StockController extends Controller
      */
     public function index()
     {
-        $stocks = Stock::all();
+        $stocks =  Stock::orderBy('updated_at', 'desc')->get();
         $categories = Categorie::all();
-        /* return view('welcome', compact('stocks')); */
         return view('products', compact('stocks', 'categories'));
     }
 
@@ -41,7 +40,7 @@ class StockController extends Controller
      */
     public function show(Stock $stock)
     {
-        //
+        return view('product', compact('stock'));
     }
 
     /**
