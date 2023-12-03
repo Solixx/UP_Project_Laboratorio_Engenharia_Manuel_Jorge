@@ -22,7 +22,7 @@ use App\Http\Controllers\StockController;
 
 Route::get('/', [RouterController::class, 'index'])->name('index');
 Route::get('/products', [StockController::class, 'index'])->name('products');
-Route::get('/products/search', [StockController::class, 'serachName'])->name('search.products');
+Route::get('/products&search', [StockController::class, 'serachName'])->name('search.products');
 /* Route::get('/product', [RouterController::class, 'product'])->name('product'); */
 Route::get('/product/{stock}', [StockController::class, 'show'])->name('product');
 /* Route::post('/login', [RouterController::class, 'login'])->name('login');

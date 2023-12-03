@@ -17,7 +17,7 @@ class StockController extends Controller
     public function index()
     {
         /* $stocks =  Stock::orderBy('updated_at', 'desc')->get(); */
-        $stocks =  Stock::orderBy('updated_at', 'desc')->paginate(25);
+        $stocks =  Stock::orderBy('updated_at', 'desc')->paginate(20);
         $categories = Categorie::all();
         return view('products', compact('stocks', 'categories'));
     }
@@ -82,7 +82,7 @@ class StockController extends Controller
             Product_Color::whereHas('product', function ($query) use ($request) {
                 $query->where('name', 'like', '%' . $request->searchName . '%');
             })->pluck('id')
-        )->get();
+        )->paginate(20);
         $categories = Categorie::all();
         
         return view('products', compact('stocks', 'categories'));
