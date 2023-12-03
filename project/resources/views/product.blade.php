@@ -39,11 +39,13 @@
                     <div class="color">
                         @php $thisProduct = $stock->product_color->product; @endphp
                         @foreach ($thisProduct->colors as $color)
+                        @if ($color->stock->isNotEmpty()) 
                             @if ($color->color->id == $stock->product_color->color_id)
                                 <div class="colorBox colorActive" style="background-color: {{ $color->color->color }};"></div>
                             @else
-                                <div class="colorBox" style="background-color: {{ $color->color->color }};"></div>
+                                <a href="{{ route('product',$color->stock->first()->id) }}"><div class="colorBox" style="background-color: {{ $color->color->color }};"></div></a>
                             @endif
+                        @endif
                         @endforeach
                     </div>
                 @endsection
@@ -63,15 +65,23 @@
                                 @php $thisSize = Size::where('id', $sizeID)->get()->first(); @endphp
                                 @if ($thisSize->id == $stock->size_id)
                                     @if($stock->stock == 0)
-                                        <div class="sizeBox sizeActive sizeOut">{{ $thisSize->size }}</div>
+                                        <a href="{{ route('product',Stock::where('product_color_id', $stock->product_color_id)->where('size_id', $thisSize->id)->get()->first()->id) }}">
+                                            <div class="sizeBox sizeActive sizeOut">{{ $thisSize->size }}</div>
+                                        </a>
                                     @else
-                                        <div class="sizeBox sizeActive">{{ $thisSize->size }}</div>
+                                        <a href="{{ route('product',Stock::where('product_color_id', $stock->product_color_id)->where('size_id', $thisSize->id)->get()->first()->id) }}">
+                                            <div class="sizeBox sizeActive">{{ $thisSize->size }}</div>
+                                        </a>
                                     @endif
                                 @else
                                     @if(Stock::where('size_id', $thisSize->id)->get()->first()->stock == 0)
-                                        <div class="sizeBox sizeOut">{{ $thisSize->size }}</div>
+                                        <a href="{{ route('product',Stock::where('product_color_id', $stock->product_color_id)->where('size_id', $thisSize->id)->get()->first()->id) }}">
+                                            <div class="sizeBox sizeOut">{{ $thisSize->size }}</div>
+                                        </a>
                                     @else
-                                        <div class="sizeBox">{{ $thisSize->size }}</div>
+                                        <a href="{{ route('product',Stock::where('product_color_id', $stock->product_color_id)->where('size_id', $thisSize->id)->get()->first()->id) }}">
+                                            <div class="sizeBox">{{ $thisSize->size }}</div>
+                                        </a>
                                     @endif
                                 @endif
                             </div>

@@ -845,6 +845,11 @@ footer .copyright p{
   padding: 0 5%;
 }
 
+.prodInfo .sizes .sizeBoxSpace a{
+  color: #111111;
+  text-decoration: none;
+}
+
 .prodInfo .sizes .size .sizeBox{
   width: 40px;
   height: 40px;
