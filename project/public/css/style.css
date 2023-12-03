@@ -29,6 +29,11 @@ section {
   overflow: hidden;
 }
 
+#sectionLogin{
+  height: auto !important;
+  min-height: 100vh !important;
+}
+
 .flexLeft {
   display: flex;
   justify-content: flex-start;
@@ -438,10 +443,31 @@ svg {
   object-position: 50% 50%;
 }
 
-.paginations select{
+.paginations form{
+  display: flex;
+  flex-direction: row;
+
   width: 100%;
   height: 60px;
   margin-bottom: 20px;
+  background-color: #f3f3f3;
+  border: none;
+  color: #111111;
+}
+
+.paginations button{
+  width: 30%;
+  height: 100%;
+  background-color: #111111;
+  border: none;
+  color: #f3f3f3;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.paginations select{
+  width: 70%;
+  height: 100%;
   background-color: #f3f3f3;
   border: 1px solid #111111;
   color: #111111;
@@ -644,7 +670,7 @@ footer .copyright p{
 /* Login */
 
 .login{
-  margin-top: 100px;
+  margin-top: 2.5vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1359,6 +1385,11 @@ footer .copyright p{
   background-color: #252525;
 }
 
+.paginations {
+  text-align: center;
+  font-size: 16px;
+}
+
 @media (min-width: 768px) {
   section {
     padding: 30px 0 50px 0;
@@ -1427,7 +1458,7 @@ footer .copyright p{
     margin-left: auto;
   }
 
-  .paginations select{
+  .paginations form{
     height: 30px;
     margin-bottom: 0;
   }
@@ -1619,6 +1650,11 @@ footer .copyright p{
 
   /* Verify Email - Verifica Email */
   .verifyBox button{
+    font-size: 18px;
+  }
+
+  .paginations {
+    text-align: center;
     font-size: 18px;
   }
 }

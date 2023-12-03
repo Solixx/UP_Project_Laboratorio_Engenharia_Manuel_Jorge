@@ -16,14 +16,21 @@
             </div>
         </div>
         <div class="container">
-            <div class="col3 colS4 colM4 colL3 paginations flexLeft">
-                <select name="" id="">
-                    <option value="25">25</option>
-                    <option value="25">50</option>
-                    <option value="25">100</option>
-                </select>
+            {{-- <div class="col3 colS4 colM4 colL3 paginations flexLeft">
+                <form action="{{ Route('products') }}" method="GET">
+                    <select name="pages" id="">
+                        <option value="" disabled selected>Default</option>
+                        <option value="20">20</option>
+                        <option value="40">40</option>
+                        <option value="80">80</option>
+                    </select>
+                    <button type="submit">Apply</button>
+                </form>
             </div>
             <div class="col9 colS4 colM4 colL9 filters flexRight">
+                <h3 class="filtersOpenbtn" onclick="openFiltersNav()">Filters +</h3>
+            </div> --}}
+            <div class="col12 colS4 colM8 colL12 filters flexRight">
                 <h3 class="filtersOpenbtn" onclick="openFiltersNav()">Filters +</h3>
             </div>
         </div>
@@ -46,6 +53,11 @@
                 </div>
             @endforeach
         </div>
+        {{-- <div class="container"> --}}
+            <div class="col12 colS4 colM8 colL12 paginations flexCenter">
+                {{ $stocks->links() }}
+            </div>
+        {{-- </div> --}}
     </div>
     
 @endsection
