@@ -344,7 +344,7 @@ svg {
 }
 
 .title h1 {
-  font-size: 40px;
+  font-size: 28px;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
@@ -1426,7 +1426,7 @@ footer .copyright p{
   }
 
   .title h1 {
-    font-size: 64px;
+    font-size: 40px;
   }
 
   .newArrivalsInfo, .favProductsInfo{
@@ -1820,6 +1820,13 @@ footer .copyright p{
     width: 70vh;
   }
 
+  .title h1 {
+    font-size: 52px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
   .newArrivalsInfo, .favProductsInfo{
     width: calc((100% - 20px*4));
   }
@@ -1859,6 +1866,13 @@ footer .copyright p{
     padding: 30px 0 50px 0;
   }
 
+  .title h1 {
+    font-size: 64px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
   .newArrivalsInfo, .favProductsInfo{
     width: calc((100% - 20px*12));
   }
@@ -1874,6 +1888,6 @@ footer .copyright p{
     object-position: 50% 50%;
     cursor: pointer;
   
-    margin-right: 15vh;
+    margin-right: 17vh;
   }
 }

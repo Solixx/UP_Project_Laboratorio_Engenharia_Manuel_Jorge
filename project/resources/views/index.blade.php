@@ -9,7 +9,7 @@
     {{-- Support - Section --}}
     
     @section('supportTitle')
-        <h1>Support</h1>
+        Support
     @endsection
 
     @section('supportInfo')
@@ -29,7 +29,7 @@
     {{-- New Arrivals - Section --}}
     
     @section('newarrivalsTitle')
-        <h1>New Arrivals</h1>
+        New Arrivals
     @endsection
 
     @section('newarrivalsInfo')
@@ -64,7 +64,7 @@
     {{-- Brands - Section --}}
     
     @section('brandsTitle')
-        <h1>Brands</h1>
+        Brands
     @endsection
 
     @section('brandsInfo')
