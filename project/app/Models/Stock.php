@@ -26,4 +26,8 @@ class Stock extends Model
     public function size(){
         return $this->belongsTo(Size::class, 'size_id', 'id');
     }
+
+    public function favorites(){
+        return $this->hasMany(Favorite::class, 'stock_id', 'id');
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProductBrandController;
 use App\Http\Controllers\StockController;
 
@@ -34,6 +35,8 @@ Route::post('/settings/edit-profile/{user}', [SettingsController::class, 'editPr
 Route::get('/settings/account-management', [SettingsController::class, 'accountManagement'])->name('settings.accountManagement');
 Route::post('/settings/account-management/{user}', [SettingsController::class, 'accountManagementPost'])->name('settings.accountManagementPost');
 Route::get('/settings/change-password', [SettingsController::class, 'changePassword'])->name('settings.changePassword');
+Route::post('/favorite/{stock}', [FavoriteController::class, 'store'])->name('favorite.store');
+Route::delete('/favorite/{favorite}', [FavoriteController::class, 'destroy'])->name('favorite.delete');
 
 /* Route::post('save', [SettingsController::class, 'editProfilePost'])->name('settings.editProfilePost'); */
 
