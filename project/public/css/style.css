@@ -436,7 +436,7 @@ svg {
 
 .favProducts img{
   margin-right: 20px;
-  width: 100%;
+  width: auto;
   height: 95%;
   flex-shrink: 0;
   object-fit: cover;
