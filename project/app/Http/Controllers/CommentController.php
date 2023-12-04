@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Favorite;
+use App\Models\Comment;
 use App\Http\Controllers\Controller;
-use App\Models\Stock;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class FavoriteController extends Controller
+class CommentController extends Controller
 {
     public function __construct()
     {
@@ -34,20 +33,25 @@ class FavoriteController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Stock $stock)
+    public function store(Request $request, Product $product)
     {
-        $fav = new Favorite();
-        $fav->user_id = Auth::user()->id;
-        $fav->stock_id = $stock->id;
-        $fav->save();
+        $request->validate([
+            'comment' => 'required|string|max:255',
+        ]);
 
-        return redirect()->route('product', $stock);
+        $comment = new Comment();
+        $comment->user_id = auth()->user()->id;
+        $comment->product_id = $product->id;
+        $comment->comment = $request->comment;
+        $comment->save();
+
+        return back();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Favorite $favorite)
+    public function show(Comment $comment)
     {
         //
     }
@@ -55,7 +59,7 @@ class FavoriteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Favorite $favorite)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -63,7 +67,7 @@ class FavoriteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Favorite $favorite)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -71,9 +75,9 @@ class FavoriteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Favorite $favorite)
+    public function destroy(Comment $comment)
     {
-        $favorite->delete();
+        $comment->delete();
 
         return back();
     }

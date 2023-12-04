@@ -8,6 +8,7 @@ use App\Models\Categorie;
 use App\Models\Product;
 use App\Models\Product_Color;
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class StockController extends Controller
 {
@@ -43,7 +44,8 @@ class StockController extends Controller
      */
     public function show(Stock $stock)
     {
-        return view('product', compact('stock'));
+        $comments = Comment::where('product_id', $stock->product_color->product_id)->orderBy('updated_at', 'desc')->get();
+        return view('product', compact('stock', 'comments'));
     }
 
     /**

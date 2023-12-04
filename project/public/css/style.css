@@ -791,11 +791,11 @@ footer .copyright p{
   margin-bottom: 5vh;
 }
 
-.prodImgs{
+/* .prodImgs{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+} */
 
 .prodImgs img{
   margin-right: 20px;
@@ -833,6 +833,7 @@ footer .copyright p{
 
 .prodInfo .prodDescript{
   margin-bottom: 20px;
+  text-align: justify;
 }
 
 .prodInfo .colors{
@@ -985,6 +986,110 @@ footer .copyright p{
 
 .prodInfo .prodButtons .favBtn:hover svg{
   fill: #f3f3f3;
+}
+
+.prodComments{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.prodComments hr{
+  width: 100%;
+}
+
+.commentCreate{
+  margin-top: 30px;
+  width: 100%;
+}
+
+.commentCreate form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.commentCreate form textarea{
+  width: 100%;
+  height: 100px;
+  margin-bottom: 0;
+  padding: 10px;
+  letter-spacing: 1px;
+  resize: none;
+}
+
+.commentCreate form button{
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: #111111;
+  color: #f3f3f3;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.commentCreate form button:hover{
+  background-color: #252525;
+}
+
+.commentBox{
+  width: 100%;
+  height: auto;
+  margin: 10px 0px;
+}
+
+.commentUserInfo{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.commentUserInfo img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.commentUserInfo h3{
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.commentBox p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+.commentDelete{
+  margin-left: auto;
+}
+
+.commentDelete svg{
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.commentDelete button{
+  border: none;
 }
 
 /* Profile - Style */

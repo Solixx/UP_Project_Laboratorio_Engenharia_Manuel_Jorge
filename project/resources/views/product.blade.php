@@ -119,6 +119,45 @@
                         </form>
                     @endif
                 </div>
+
+                <div class="prodComments">
+
+                    <hr>
+                    <div class="commentCreate">
+                        <form action="{{ Route('comment.store',$stock->product_color->product_id) }}" method="POST">
+                            @csrf
+                            <textarea name="comment" cols="30" rows="10" placeholder="Comment"></textarea>
+                            <button>Submit</button>
+                        </form>
+                    </div>
+                    @foreach ($comments as $comment)
+                        <div class="commentBox">
+                            <div class="commentUserInfo">
+                                <img src="{{ asset($comment->user->imgPath) }}" alt="User">
+                                <h3>{{ $comment->user->name }}</h3>
+                                @if(Auth::user() && Auth::user()->id == $comment->user->id)
+                                    <div class="commentDelete">
+                                        <form method="POST" action="{{ Route('comment.delete',$comment->id) }}">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                @endif
+                            </div>
+                            <p>{{ $comment->comment }}</p>
+                        </div>
+                    @endforeach
+                    {{-- <div class="commentBox">
+                        <div class="commentUserInfo">
+                                <img src="{{ asset('imgs/logo.png') }}" alt="User">
+                                <h3>Name</h3>
+                            </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+                    </div> --}}
+                </div>
             </div>
         </div>
     </div>
