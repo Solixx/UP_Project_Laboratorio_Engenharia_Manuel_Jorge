@@ -29,12 +29,21 @@
         </div>
         <div class="content favProducts">
             <div id="favProductsImageGallery" class="favProductsInfo">
-                <img src="{{ asset('imgs/snekears.jpg') }}" alt="">
+                @forelse ($favorites as $fav)
+                    <div class="newArrivalsBox">
+                        <img src="{{ asset($fav->stock->product_color->photos->first()->imgPath) }}" alt="{{ $fav->stock->product_color->photos->first()->img }}">
+                        <a href="{{ route('product',$fav->stock->id) }}"><p>Go To ></p></a>    
+                    </div>
+                @empty
+                    
+                @endforelse
+
+                {{-- <img src="{{ asset('imgs/snekears.jpg') }}" alt="">
                 <img src="{{ asset('imgs/db37e277c3e9b04a677e5e936fe6c497.jpg') }}" alt="">
                 <img src="{{ asset('imgs/snekears3.jpg') }}" alt="">
                 <img src="{{ asset('imgs/snekears4.jpg') }}" alt="">
                 <img src="{{ asset('imgs/snekears2.jpg') }}" alt="">
-                <img src="{{ asset('imgs/snekears5.jpg') }}" alt="">
+                <img src="{{ asset('imgs/snekears5.jpg') }}" alt=""> --}}
             </div>
         </div>
 
