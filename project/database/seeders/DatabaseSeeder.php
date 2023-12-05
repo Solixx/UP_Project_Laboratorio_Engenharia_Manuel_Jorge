@@ -32,8 +32,11 @@ class DatabaseSeeder extends Seeder
 
         Product_Categorie::factory(50)->create();
         Product_Brand::factory(30)->create();
-        Product_Color::factory(30)->create();
+
+        $this->call(Product_ColorSeeder::class);
+        /* Product_Color::factory(30)->create(); */
         Photo::factory(100)->create();
-        Stock::factory(100)->create();
+        /* Stock::factory(100)->create(); */
+        $this->call(StockSeeder::class);
     }
 }
