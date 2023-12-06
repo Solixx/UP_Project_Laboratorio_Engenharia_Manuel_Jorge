@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('stock');
             $table->float('price');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('product_color_id')
                 ->references('id')
@@ -38,6 +39,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('stocks', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('stocks');
     }
 };

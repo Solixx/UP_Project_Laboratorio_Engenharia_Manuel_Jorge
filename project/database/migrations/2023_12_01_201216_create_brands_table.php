@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('img');
             $table->string('imgPath');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -25,6 +26,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('brands', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('brands');
     }
 };

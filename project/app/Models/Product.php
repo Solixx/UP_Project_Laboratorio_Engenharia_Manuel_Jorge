@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Product_Brand;
 use App\Models\Product_Categorie;
 use App\Models\Product_Color;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name',

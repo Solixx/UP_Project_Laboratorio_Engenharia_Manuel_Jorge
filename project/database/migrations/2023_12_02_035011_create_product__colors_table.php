@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('color_id');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('product_id')
                 ->references('id')
@@ -35,6 +36,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('product__colors', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('product__colors');
     }
 };
