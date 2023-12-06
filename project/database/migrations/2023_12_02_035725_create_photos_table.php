@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('imgPath');
             $table->unsignedBigInteger('product_color_id');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('product_color_id')
                 ->references('id')
@@ -31,6 +32,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('photos', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('photos');
     }
 };

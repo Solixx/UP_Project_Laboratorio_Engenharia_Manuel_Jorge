@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Product_Color;
 use App\Models\Size;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Stock extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'product_color_id',

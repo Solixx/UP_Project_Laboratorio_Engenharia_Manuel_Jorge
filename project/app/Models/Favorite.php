@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -7,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Stock;
 use App\Models\User;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Favorite extends Model
 {

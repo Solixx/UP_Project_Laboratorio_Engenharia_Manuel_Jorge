@@ -9,10 +9,11 @@ use App\Models\Color;
 use App\Models\Product;
 use App\Models\Photo;
 use App\Models\Stock;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product_Color extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     
     protected $fillable = [
         'product_id',

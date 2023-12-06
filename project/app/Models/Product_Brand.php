@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Brand;
 use App\Models\Product;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product_Brand extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'product_id',
