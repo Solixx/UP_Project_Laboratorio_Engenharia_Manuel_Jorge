@@ -1,0 +1,156 @@
+Utilziador:
+01: Criar conta
+(Utilizador visitante pode criar uma nova conta)
+
+02: Login
+(Utilizador pode entrar na sua conta)
+
+40: Desativar Conta
+(Utilizador pode desativar a sua conta)
+
+03: Favoritos
+(Utilizador Logado pode adicionar produtos aos seus favoritos)
+
+04: Cargo
+(Existem vários cargos para utilizadores como: Utilizador Normal, Administrador, possivel Premium)
+
+05: Historico
+(Utilizador logado pode ver os seus historicos de encomendas)
+
+06: Lista de Utilizadores
+(Utilizador Administrador pode ver uma lista de utilizadores)
+
+07: Editar Utilizadot
+(Utilizador pode editar as suas informações)
+
+
+Produtos:
+08: Add produto
+(Utilizador Administrador pode adicionar produtos)
+
+09: Editar Produto
+(Utilizador Administrador pode editar os produtos)
+
+10: Desativar Produto
+(Utilizador Administrador pode desativar produtos)
+
+11: Galeria de Imagens
+(Produtos podem ter uma/várias imagens)
+
+12: Stock
+(Produtos têm stock)
+
+13: Lista de Produtos
+(Listar todos os produtos existentes (Utilizador -> vê apenas produtos ativados / Administrador -> vê todos os produtos))
+
+
+Categorias:
+14: Add categorias
+(Administrador pode adicionar categorias para os produtos)
+
+15: Ediatr Categorias
+(Administrador pode editar as categorias)
+
+16: Desativar categorias
+(Administrador pode desativar as categorias)
+
+17: Listar Categorias
+(Listar todas as categorias (usado por exemplo em selects no add product))
+
+
+Comentarios:
+18: Add Comentarios
+(Utilizadores podem escrever comentarios nos produtos)
+
+19: Editar comentario
+(Utilizadores podem editar os seus proprios comentarios)
+
+20: Desativar cometarios
+(Utilizador podem desativar os seus proprios comentarios / Administrador podem desativar todos os comentarios)
+
+21: lista de comentarios
+(Lista os comentarios do produto)
+
+
+Pesquisas:
+22: Pesquisa por topicos
+(Possivel pesquisar produtos por tópicos como palavras chave, titulo, categorias, etc...)
+
+23: Pesquisa por filtros
+(Possivel pesquisar produtos por filtros como categoria, marca, etc...)
+
+
+Carrinho:
+24: Adicionar produto ao carrinho
+(Utilizador pode adicionar produtos ao seu carrinho de compra)
+
+25: Remover Produto
+(Utilizador pode remover produtos do ser carrinho de compra)
+
+26: Lista de produtos do carrinho
+(Utilizador pode ver uma lista dos produtos do seu carrinho)
+
+
+Compras:
+27: Ecomendar
+(Utilizador pode encomendar a sua compra)
+
+29: fatura
+(Criar faturas com as informações da compra)
+
+30: Devoluções
+(Utilizador pode pedir devolução de uma compra)
+
+
+Encomenda:
+31: Lista de encomendas
+(Utilizador pode listar as suas encomendas)
+
+32: Estado da encomenda
+(Encomenda pode estar no estado de Entregue, por entregar, iniciada, etc...)
+
+33: Cancelar Encomenda
+(Utilizador pode cancelar a sua encomenda enquanta esta não esta entregue)
+
+
+Marcas:
+34: Adicionar Marcas
+(Administrador pode adicionar marcas)
+
+35: Editar Marca
+(Administrador pode editar informações das marcas)
+
+36: Desativar Marcas
+(Administrador pode desativar marcas)
+
+37: Lista de marcas
+(Administrador pode listar as marcas existentes (usado por exemplo no add product para adicionar as marcas do produto))
+
+
+Cores:
+34: Adicionar Cores
+(Administrador pode adicionar cores)
+
+35: Editar Cores
+(Administrador pode editar informações das cores)
+
+36: Desativar Cores
+(Administrador pode desativar cores)
+
+37: Lista de Cores
+(Administrador pode listar as cores existentes (usado por exemplo no add product para adicionar as cores do produto))
+
+
+Suporte:
+38: Contacto por email
+(Utilizadores tanto logados como visitantes podem enviar emails de suporte à empresa(loja))
+
+
+39: Newsletter
+(Utilizadores podem subscrever a newsletter para receber emails com novidades)
+
+Tamanhos:
+41: Add Tamanhos
+42: Desativar Tamanhos
+43: Editar Tamanhos
+44: Listar Tamanhos

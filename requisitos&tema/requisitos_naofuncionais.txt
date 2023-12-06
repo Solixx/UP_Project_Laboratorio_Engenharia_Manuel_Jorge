@@ -1,0 +1,26 @@
+01: Validar email
+(O sistema verifica se o utilizador logado tem o seu email verificado)
+
+02: Confirmar password
+(O sistema verifica se quando o utilizador está a criar conta/mudar password se ele confirma a password e se ambas são iguais)
+
+03: Enviar email de verificação
+(O sistema envia um email de verificação de conta quando o utilizador cria nova conta)
+
+04: Newsletter
+(O sistema envia emails com novidades aos utilizadores)
+
+05: Calculo do preço total do carrinho e encomendas
+(O sistema calcula o preço total do carrinho e das encomendas)
+
+06: Responsivo
+(O projeto vai ser responsivo)
+
+07: Seguro
+(O projeto vai ser seguro)
+
+08: Rápido
+(O projeto vai ser rápido mesmo com uma grande quantidade de utilizadores)
+
+09: Design agradável
+(O projeto vai ter um design de fácil utilização e agradável)

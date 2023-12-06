@@ -1,0 +1,6 @@
+Tema: Loja de Revenda
+
+Exemplos como: StockX, Goat, rotation
+
+Este tema consiste na criação de uma loja online com produtos de revenda como sapatilhas, roupa ou até peças de arte.
+Muitas destas lojas são conhecidas pelos seus artigos limitados como colaborações entre grandes empresas com um numero muito reduzido de stock.
