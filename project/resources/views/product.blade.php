@@ -96,7 +96,10 @@
                     @if ($stock->stock == 0)
                         <button class="addCartBtn addCartBtnDisabled" disabled>Out Of Stock</button>
                     @else
-                        <button class="addCartBtn">Add to cart</button>
+                        <form action="{{ Route('cart.store',$stock->id) }}" method="POST">
+                            @csrf
+                            <button class="addCartBtn">Add to cart</button>
+                        </form>
                     @endif
                     @if (Auth::user() && Favorite::where('user_id', Auth::user()->id)->where('stock_id', $stock->id)->get()->first() != null)
                         <form method="POST" class="favForm" action="{{ Route('favorite.delete',Favorite::where('user_id', Auth::user()->id)->where('stock_id', $stock->id)->get()->first()->id) }}">
@@ -121,7 +124,6 @@
                 </div>
 
                 <div class="prodComments">
-
                     <hr>
                     <div class="commentCreate">
                         <form action="{{ Route('comment.store',$stock->product_color->product_id) }}" method="POST">

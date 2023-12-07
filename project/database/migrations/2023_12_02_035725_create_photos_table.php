@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreign('product_color_id')
                 ->references('id')
                 ->on('product__colors')
-                ->opUpdate('cascade')
+                ->onUpdate('cascade')
                 ->onDelete('restrict');
         });
     }

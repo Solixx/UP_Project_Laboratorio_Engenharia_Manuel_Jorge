@@ -10,6 +10,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ProductBrandController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\CartController;	
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,10 @@ Route::post('/favorite/{stock}', [FavoriteController::class, 'store'])->name('fa
 Route::delete('/favorite/{favorite}', [FavoriteController::class, 'destroy'])->name('favorite.delete');
 Route::post('/comment/{product}', [CommentController::class, 'store'])->name('comment.store');
 Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])->name('comment.delete');
+Route::post('/cart/{stock}', [CartController::class, 'store'])->name('cart.store');
+Route::post('/cart/decrease/{stock}', [CartController::class, 'decreaseQty'])->name('cart.decrease');
+Route::post('/cart/increase/{stock}', [CartController::class, 'increaseQty'])->name('cart.increase');
+Route::post('/cart/remove/{stock}', [CartController::class, 'remove'])->name('cart.remove');
 
 /* Route::post('save', [SettingsController::class, 'editProfilePost'])->name('settings.editProfilePost'); */
 

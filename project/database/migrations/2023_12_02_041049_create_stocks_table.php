@@ -23,13 +23,13 @@ return new class extends Migration
             $table->foreign('product_color_id')
                 ->references('id')
                 ->on('product__colors')
-                ->opUpdate('cascade')
+                ->onUpdate('cascade')
                 ->onDelete('restrict');
             
             $table->foreign('size_id')
                 ->references('id')
                 ->on('sizes')
-                ->opUpdate('cascade')
+                ->onUpdate('cascade')
                 ->onDelete('restrict');
         });
     }
