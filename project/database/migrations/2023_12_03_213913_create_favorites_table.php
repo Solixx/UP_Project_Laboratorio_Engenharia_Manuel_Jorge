@@ -20,13 +20,13 @@ return new class extends Migration
             $table->foreign('stock_id')
                 ->references('id')
                 ->on('stocks')
-                ->opUpdate('cascade')
+                ->onUpdate('cascade')
                 ->onDelete('restrict');
 
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->opUpdate('cascade')
+                ->onUpdate('cascade')
                 ->onDelete('restrict');
         });
     }

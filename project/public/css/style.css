@@ -77,6 +77,14 @@ svg {
   z-index: 99;
 }
 
+.no-right-border{
+  border-right: none !important;
+}
+
+.no-left-border{
+  border-left: none !important;
+}
+
 .arrows{
   z-index: 100;
   display: none;
@@ -931,9 +939,15 @@ footer .copyright p{
   align-items: center;
 }
 
-.prodInfo .prodButtons .addCartBtn{
+.prodInfo .prodButtons form{
   width: 60%;
   height: 75px;
+  border: none;
+}
+
+.prodInfo .prodButtons .addCartBtn{
+  width: 100%;
+  height: 100%;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
