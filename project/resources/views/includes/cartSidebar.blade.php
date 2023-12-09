@@ -11,13 +11,12 @@
     
     <div class="cartProds">
         @forelse (Cart::instance('shopping')->content() as $item)
+            @if(!Stock::where('id', (int)$item->id)->exists()) 
+                @continue
+            @endif	
             <div class="cartProdBox">
                 <div class="cartProdImg">
-                    @if(Stock::where('id', (int)$item->id)->exists())
-                        <img src="{{ asset(Stock::where('id', $item->id)->first()->product_color->photos->first()->imgPath) }}" alt="Product Image">
-                    @else
-                        <img src="https://via.placeholder.com/100" alt="Product Image">
-                    @endif
+                    <img src="{{ asset(Stock::where('id', $item->id)->first()->product_color->photos->first()->imgPath) }}" alt="Product Image">
                 </div>
                 <div class="cartProdTitleQuant">
                     <h3>{{ $item->name }}</h3>
@@ -85,7 +84,10 @@
             </div>
         </div>
         <div class="cartBtn">
-            <button>Checkout</button>
+            <form action="{{ Route('order.store') }}" method="POST">
+                @csrf
+                <button>Checkout</button>
+            </form>
         </div>
     </div>
 </div>

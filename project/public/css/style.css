@@ -1433,6 +1433,7 @@ footer .copyright p{
   color: #f3f3f3;
   border: none;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .accountSettingsBtnBox .accountSettingsBtn button:hover, .accountSettingsBtnBox .accountSettingsBtn input:hover{
