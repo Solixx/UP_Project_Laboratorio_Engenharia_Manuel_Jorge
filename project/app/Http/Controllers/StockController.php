@@ -18,7 +18,8 @@ class StockController extends Controller
     public function index()
     {
         /* $stocks =  Stock::orderBy('updated_at', 'desc')->get(); */
-        $stocks =  Stock::orderBy('updated_at', 'desc')->paginate(20);
+        $stocks =  Stock::orderBy('updated_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+        /* $stocks =  Stock::paginate(20);  */
         $categories = Categorie::all();
         return view('products', compact('stocks', 'categories'));
     }
