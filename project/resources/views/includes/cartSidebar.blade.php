@@ -22,12 +22,16 @@
                 <div class="cartProdTitleQuant">
                     <h3>{{ $item->name }}</h3>
                     <div class="cartProdQuant">
-                        <form action="{{ Route('cart.decrease', Stock::where('id', $item->id)->first()->id) }}" method="POST">
+                        <form class="formBtn" action="{{ Route('cart.decrease', Stock::where('id', $item->id)->first()->id) }}" method="POST">
                             @csrf
                             <button class="no-right-border">-</button>
                         </form>
-                        <input type="text" value="{{ $item->qty }}">
-                        <form action="{{ Route('cart.increase', Stock::where('id', $item->id)->first()->id) }}" method="POST">
+                        <form class="formInput" action="{{ Route('cart.setQty', Stock::where('id', $item->id)->first()->id) }}" method="POST">
+                            @csrf
+                            <input name="qty" type="text" value="{{ $item->qty }}">
+                            <button style="display: none"></button>
+                        </form>
+                        <form class="formBtn" action="{{ Route('cart.increase', Stock::where('id', $item->id)->first()->id) }}" method="POST">
                             @csrf
                             <button class="no-left-border">+</button>
                         </form>

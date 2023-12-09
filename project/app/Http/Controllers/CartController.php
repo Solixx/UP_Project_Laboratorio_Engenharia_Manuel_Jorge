@@ -54,6 +54,24 @@ class CartController extends Controller
         return back();
     }
 
+    public function setQty(Request $request, Stock $stock)
+    {
+        $request->validate([
+            'qty' => 'required|numeric|min:1'
+        ]);
+
+        $stockId = $stock->id;
+        $item = Cart::instance('shopping')->search(function ($cartItem, $rowId) use ($stockId) {
+            return $cartItem->id === $stockId;
+        });
+
+        if($item->isNotEmpty()) {
+            Cart::instance('shopping')->update($item->first()->rowId, $request->qty);
+        }
+
+        return back();
+    }
+
     public function remove(Stock $stock)
     {
         $stockId = $stock->id;
