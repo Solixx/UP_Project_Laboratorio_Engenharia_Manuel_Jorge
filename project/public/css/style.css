@@ -1216,6 +1216,7 @@ footer .copyright p{
   margin-right: 0;
   width: 100%;
   height: 100%;
+  max-height: 40vh;
 }
 
 .orders .orderList .orderBox .orderBoxContent .orderBoxContentImage img{
@@ -1240,7 +1241,11 @@ footer .copyright p{
 
 .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo h3,
 .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo p{
+  max-height: 40vh;
   margin-bottom: 15px;
+  text-overflow: ellipsis;
+  overflow: scroll;
+  word-wrap: break-word;
 }
 
 .orderBox .orderFooter{
@@ -1268,13 +1273,15 @@ footer .copyright p{
 
 
 .orderBox .orderFooter .orderFooterBtn{
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 50px;
+  height: auto;
 }
 
 .orderBox .orderFooter .orderFooterBtn button{
   width: 100%;
-  height: 100%;
+  height: 50px;
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
@@ -1285,6 +1292,7 @@ footer .copyright p{
   letter-spacing: 5px;
   cursor: pointer;
   transition: all 0.2s ease;
+  margin-bottom: 20px;
 }
 
 .orderBox .orderFooter .orderFooterBtn button:hover{
@@ -1646,7 +1654,7 @@ footer .copyright p{
   
   .orders .orderList .orderBox .orderBoxContent .orderProds{
     width: 100%;
-    height: 35vh;
+    height: 45vh;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -1681,6 +1689,11 @@ footer .copyright p{
   
   .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo h3,
   .orders .orderList .orderBox .orderBoxContent .orderBoxContentInfo p{
+    max-height: 100vh;
+    margin-bottom: 15px;
+    text-overflow:unset;
+    overflow:unset;
+    word-wrap: normal;
     margin-bottom: 15px;
   }
   
@@ -1709,12 +1722,14 @@ footer .copyright p{
   
   
   .orderBox .orderFooter .orderFooterBtn{
-    width: 15%;
+    display: flex;
+    flex-direction: row;
+    width: auto;
     height: 50px;
   }
   
   .orderBox .orderFooter .orderFooterBtn button{
-    width: 100%;
+    width: 15vw;
     height: 100%;
     text-align: center;
     font-weight: bold;
@@ -1726,6 +1741,8 @@ footer .copyright p{
     letter-spacing: 5px;
     cursor: pointer;
     transition: all 0.2s ease;
+    margin-bottom: 0;
+    margin-right: 20px;
   }
   
   .orderBox .orderFooter .orderFooterBtn button:hover{
