@@ -78,6 +78,7 @@
                                         </div>
                                         <div class="orderProdPrice">
                                             <h3>{{ $item->price }}€</h3>
+                                            <p>x{{ $item->quantity }}</p>
                                         </div>
                                     </div>
                                 </div>

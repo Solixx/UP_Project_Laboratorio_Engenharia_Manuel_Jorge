@@ -1248,6 +1248,16 @@ footer .copyright p{
   word-wrap: break-word;
 }
 
+.orderProdPrice{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.orderProdPrice p{
+  letter-spacing: 1px;
+}
+
 .orderBox .orderFooter{
   width: 100%;
   display: flex;
