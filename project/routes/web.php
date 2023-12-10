@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductBrandController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,8 @@ Route::post('/cart/setQty/{stock}', [CartController::class, 'setQty'])->name('ca
 Route::post('/cart/remove/{stock}', [CartController::class, 'remove'])->name('cart.remove');
 
 Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+
+Route::get('invoice/{order}', [InvoiceController::class, 'generateInvoice'])->name('invoice');
 
 /* Route::post('save', [SettingsController::class, 'editProfilePost'])->name('settings.editProfilePost'); */
 
