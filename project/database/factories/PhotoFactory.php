@@ -25,6 +25,10 @@ class PhotoFactory extends Factory
         $randomImage = $this->faker->randomElement($images);
 
         $destinationPath = public_path('storage/images');
+        if (!File::exists($destinationPath)) {
+            File::makeDirectory($destinationPath, 0755, true);
+        }
+        
         File::copy($randomImage->getRealPath(), $destinationPath . '/' . $randomImage->getFilename());
 
         return [
