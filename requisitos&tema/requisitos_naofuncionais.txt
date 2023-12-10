@@ -2,7 +2,7 @@
 (O sistema verifica se o utilizador logado tem o seu email verificado)
 
 02: Confirmar password
-(O sistema verifica se quando o utilizador está a criar conta/mudar password se ele confirma a password e se ambas são iguais)
+(O sistema verifica se o utilizador confirmou a password quando o mesmo está a criar conta/mudar password e se ambas são iguais.)
 
 03: Enviar email de verificação
 (O sistema envia um email de verificação de conta quando o utilizador cria nova conta)
@@ -14,13 +14,13 @@
 (O sistema calcula o preço total do carrinho e das encomendas)
 
 06: Responsivo
-(O projeto vai ser responsivo)
+(O website é responsivo)
 
 07: Seguro
-(O projeto vai ser seguro)
+(O website é seguro.)
 
 08: Rápido
-(O projeto vai ser rápido mesmo com uma grande quantidade de utilizadores)
+(O website vai ser rápido mesmo com uma grande quantidade de utilizadores simultaneidade)
 
 09: Design agradável
-(O projeto vai ter um design de fácil utilização e agradável)
+(O website tem um design de fácil utilização e é agradável.)

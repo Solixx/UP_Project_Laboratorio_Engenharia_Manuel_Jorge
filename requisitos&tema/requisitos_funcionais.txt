@@ -5,94 +5,94 @@ Utilziador:
 02: Login
 (Utilizador pode entrar na sua conta)
 
-40: Desativar Conta
+03: Desativar Conta
 (Utilizador pode desativar a sua conta)
 
-03: Favoritos
+04: Favoritos
 (Utilizador Logado pode adicionar produtos aos seus favoritos)
 
-04: Cargo
+05: Cargo
 (Existem vários cargos para utilizadores como: Utilizador Normal, Administrador, possivel Premium)
 
-05: Historico
+06: Historico
 (Utilizador logado pode ver os seus historicos de encomendas)
 
-06: Lista de Utilizadores
+07: Lista de Utilizadores
 (Utilizador Administrador pode ver uma lista de utilizadores)
 
-07: Editar Utilizadot
+08: Editar Utilizadot
 (Utilizador pode editar as suas informações)
 
 
 Produtos:
-08: Add produto
+09: Add produto
 (Utilizador Administrador pode adicionar produtos)
 
-09: Editar Produto
+10: Editar Produto
 (Utilizador Administrador pode editar os produtos)
 
-10: Desativar Produto
+11: Desativar Produto
 (Utilizador Administrador pode desativar produtos)
 
-11: Galeria de Imagens
+12: Galeria de Imagens
 (Produtos podem ter uma/várias imagens)
 
-12: Stock
+13: Stock
 (Produtos têm stock)
 
-13: Lista de Produtos
+14: Lista de Produtos
 (Listar todos os produtos existentes (Utilizador -> vê apenas produtos ativados / Administrador -> vê todos os produtos))
 
 
 Categorias:
-14: Add categorias
+15: Add categorias
 (Administrador pode adicionar categorias para os produtos)
 
-15: Ediatr Categorias
+16: Ediatr Categorias
 (Administrador pode editar as categorias)
 
-16: Desativar categorias
+17: Desativar categorias
 (Administrador pode desativar as categorias)
 
-17: Listar Categorias
+18: Listar Categorias
 (Listar todas as categorias (usado por exemplo em selects no add product))
 
 
 Comentarios:
-18: Add Comentarios
+19: Add Comentarios
 (Utilizadores podem escrever comentarios nos produtos)
 
-19: Editar comentario
+20: Editar comentario
 (Utilizadores podem editar os seus proprios comentarios)
 
-20: Desativar cometarios
+21: Desativar cometarios
 (Utilizador podem desativar os seus proprios comentarios / Administrador podem desativar todos os comentarios)
 
-21: lista de comentarios
+22: lista de comentarios
 (Lista os comentarios do produto)
 
 
 Pesquisas:
-22: Pesquisa por topicos
+23: Pesquisa por topicos
 (Possivel pesquisar produtos por tópicos como palavras chave, titulo, categorias, etc...)
 
-23: Pesquisa por filtros
+24: Pesquisa por filtros
 (Possivel pesquisar produtos por filtros como categoria, marca, etc...)
 
 
 Carrinho:
-24: Adicionar produto ao carrinho
+25: Adicionar produto ao carrinho
 (Utilizador pode adicionar produtos ao seu carrinho de compra)
 
-25: Remover Produto
+26: Remover Produto
 (Utilizador pode remover produtos do ser carrinho de compra)
 
-26: Lista de produtos do carrinho
+27: Lista de produtos do carrinho
 (Utilizador pode ver uma lista dos produtos do seu carrinho)
 
 
 Compras:
-27: Ecomendar
+28: Ecomendar
 (Utilizador pode encomendar a sua compra)
 
 29: fatura
@@ -128,29 +128,33 @@ Marcas:
 
 
 Cores:
-34: Adicionar Cores
+38: Adicionar Cores
 (Administrador pode adicionar cores)
 
-35: Editar Cores
+39: Editar Cores
 (Administrador pode editar informações das cores)
 
-36: Desativar Cores
+40: Desativar Cores
 (Administrador pode desativar cores)
 
-37: Lista de Cores
+41: Lista de Cores
 (Administrador pode listar as cores existentes (usado por exemplo no add product para adicionar as cores do produto))
 
 
 Suporte:
-38: Contacto por email
+42: Contacto por email
 (Utilizadores tanto logados como visitantes podem enviar emails de suporte à empresa(loja))
 
 
-39: Newsletter
+43: Newsletter
 (Utilizadores podem subscrever a newsletter para receber emails com novidades)
 
 Tamanhos:
-41: Add Tamanhos
-42: Desativar Tamanhos
-43: Editar Tamanhos
-44: Listar Tamanhos
+44: Add Tamanhos
+(Administrador pode adicionar tamanhos)
+45: Desativar Tamanhos
+(Administrador pode desativar tamanhos)
+46: Editar Tamanhos
+(Administrador pode editar informações dos tamanhos)
+47: Listar Tamanhos
+(Administrador pode listar os tamanhos existentes (usado por exemplo no add product para adicionar os tamanhos do produto))
