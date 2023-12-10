@@ -90,7 +90,10 @@
 
                         <div class="orderFooter">
                             <div class="orderFooterBtn">
-                                <button type="submit">PDF</button>
+                                <form action="{{ Route('invoice', $order->id) }}" method="GET">
+                                    @csrf
+                                    <button type="submit">Invoice</button>
+                                </form>
                                 @if (strtolower($order->status) == 'pending' || strtolower($order->status) == 'processing')
                                     {{-- <form action="{{ route('order.cancel', $order->id) }}" method="POST">
                                         @csrf
