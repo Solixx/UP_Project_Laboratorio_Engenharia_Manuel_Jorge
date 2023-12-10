@@ -18,8 +18,9 @@ class SettingsController extends Controller
     public function index()
     {
         $favorites = Auth::user()->favorites;
+        $orders = Auth::user()->orders;
 
-        return view('profile', compact('favorites'));
+        return view('profile', compact('favorites', 'orders'));
         /* return view('profile'); */
     }
 

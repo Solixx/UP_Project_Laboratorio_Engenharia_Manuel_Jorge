@@ -23,7 +23,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'description' => $this->faker->text(500),
+            'description' => $this->faker->text(250),
         ];
     }
 }

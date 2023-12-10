@@ -50,7 +50,70 @@
     <div class="container">
         <div class="col12 colL12 colM8 colS4 orders">
             <h1>Orders</h1>
-            <div class="orderList">
+            @forelse ($orders as $order)
+                <div class="orderList">
+                    <div class="orderBox">
+                        <div class="orderBoxStats">
+                            <h3>Order: #{{ $order->id }}</h3>
+                            <p>{{ $order->status }}</p>
+                        </div>
+                        @forelse ($order->order_items as $item)
+                            <div class="orderBoxContent">
+                                <div class="orderProds">
+                                    <div class="orderBoxContentImage">
+                                        <a href="{{ Route('product', $item->stock->id) }}">
+                                            @if($item->stock->Product_Color->photos->first()->exists()) 
+                                                <img src="{{ asset($item->stock->Product_Color->photos->first()->imgPath) }}" alt="{{ $item->stock->Product_Color->photos->first()->img }}">
+                                            @else
+                                                <img src="https://via.placeholder.com/100" alt="">
+                                            @endif
+                                        </a>
+                                    </div>
+                                    <div class="orderBoxContentInfo">
+                                        <div class="orderProdInfos">
+                                            <h3>{{ $item->stock->Product_Color->product->name }}</h3>
+                                            <p>{{ $item->stock->Product_Color->product->description }}</p>
+                                            <h3>{{ $item->stock->size->size }}</h3>
+                                            <div class="colorBox colorActive" style="background-color: {{ $item->stock->Product_Color->color->color }};"></div>
+                                        </div>
+                                        <div class="orderProdPrice">
+                                            <h3>{{ $item->price }}€</h3>
+                                            <p>x{{ $item->quantity }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            
+                        @endforelse
+                        
+
+                        <div class="orderFooter">
+                            <div class="orderFooterBtn">
+                                <form action="{{ Route('invoice', $order->id) }}" method="GET">
+                                    @csrf
+                                    <button type="submit">Invoice</button>
+                                </form>
+                                @if (strtolower($order->status) == 'pending' || strtolower($order->status) == 'processing')
+                                    {{-- <form action="{{ route('order.cancel', $order->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT') --}}
+                                        <button type="submit">Cancel</button>
+                                    {{-- </form> --}}
+                                @endif
+                            </div>
+                            <div class="orderFooterInfo">
+                                <p>Processed Date: {{ $order->processed_date }}</p>
+                                <p>Delivery Date: {{ $order->delivery_date }}</p>
+                                <h3>Total: {{ $order->total_price }}€</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                
+            @endforelse
+            {{-- <div class="orderList">
                 <div class="orderBox">
                     <div class="orderBoxStats">
                         <h3>Order: #1</h3>
@@ -139,7 +202,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     
