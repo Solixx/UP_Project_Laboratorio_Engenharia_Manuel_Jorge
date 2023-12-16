@@ -13,6 +13,8 @@ use App\Http\Controllers\StockController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,12 +59,27 @@ Route::get('invoice/{order}', [InvoiceController::class, 'generateInvoice'])->na
 
 Auth::routes(['verify' => true]);
 
+Route::get('admin/', [AdminController::class, 'adminHome'])->name('admin.home')->middleware('isAdmin');
 Route::get('admin/home', [AdminController::class, 'adminHome'])->name('admin.home')->middleware('isAdmin');
 Route::get('admin/users', [AdminController::class, 'listUsers'])->name('admin.listUsers')->middleware('isAdmin');
 Route::get('admin/products', [AdminController::class, 'listProducts'])->name('admin.listProducts')->middleware('isAdmin');
 Route::get('admin/categories', [AdminController::class, 'listCategories'])->name('admin.listCategories')->middleware('isAdmin');
 Route::get('admin/brands', [AdminController::class, 'listBrands'])->name('admin.listBrands')->middleware('isAdmin');
 Route::get('admin/orders', [AdminController::class, 'listOrders'])->name('admin.listOrders')->middleware('isAdmin');
+
+Route::get('admin/product/create', [StockController::class, 'create'])->name('admin.addProduct')->middleware('isAdmin')
+                                                                                            ->middleware('auth')
+                                                                                            ->middleware('verified');
+
+Route::get('admin/categorie/create', [CategorieController::class, 'create'])->name('admin.addCategorie')->middleware('isAdmin')
+                                                                                            ->middleware('auth')
+                                                                                            ->middleware('verified');
+Route::post('admin/categorie/store', [CategorieController::class, 'store'])->name('admin.storeCategorie');
+
+Route::get('admin/brand/create', [BrandController::class, 'create'])->name('admin.addBrand')->middleware('isAdmin')
+                                                                                            ->middleware('auth')
+                                                                                            ->middleware('verified');
+Route::post('admin/brand/store', [BrandController::class, 'store'])->name('admin.storeBrand');
 
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */

@@ -30,6 +30,7 @@ class StockController extends Controller
     public function create()
     {
         //
+        return view('includes.addProduct');
     }
 
     /**

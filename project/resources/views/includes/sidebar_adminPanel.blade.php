@@ -72,7 +72,7 @@
           <span class="hide-menu">Add</span>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+          <a class="sidebar-link" href="{{ Route('admin.addProduct') }}" aria-expanded="false">
             <span>
               <i class="ti ti-hanger"></i>
             </span>
@@ -80,7 +80,7 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+          <a class="sidebar-link" href="{{ Route('admin.addCategorie') }}" aria-expanded="false">
             <span>
               <i class="ti ti-category"></i>
             </span>
@@ -88,7 +88,7 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+          <a class="sidebar-link" href="{{ Route('admin.addBrand') }}" aria-expanded="false">
             <span>
               <i class="ti ti-affiliate"></i>
             </span>

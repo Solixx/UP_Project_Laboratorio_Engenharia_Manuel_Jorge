@@ -22,6 +22,7 @@ class CategorieController extends Controller
     public function create()
     {
         //
+        return view('includes.addCategorie');
     }
 
     /**
@@ -30,6 +31,14 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        Categorie::create($request->all());
+
+        return redirect()->back()
+            ->with('success', 'Categorie created successfully.');
     }
 
     /**

@@ -22,7 +22,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('index');
+        return view('includes.addBrand');
     }
 
     /**
@@ -30,7 +30,25 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        return view('index');
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'name' => 'required',
+        ]);
+
+        $brand = new Brand();
+
+        if($request->hasFile('image')){
+            $imgName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->store('public/images');
+            $brand->img = $imgName;
+            $brand->imgPath = 'storage/images/'.$request->file('image')->hashName();
+        }
+
+        $brand->name = $request->name;
+        $brand->save();
+
+        return redirect()->back()
+            ->with('success', 'Brand created successfully.');
     }
 
     /**
