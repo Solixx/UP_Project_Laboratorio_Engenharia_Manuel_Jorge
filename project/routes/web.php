@@ -58,8 +58,11 @@ Route::get('invoice/{order}', [InvoiceController::class, 'generateInvoice'])->na
 Auth::routes(['verify' => true]);
 
 Route::get('admin/home', [AdminController::class, 'adminHome'])->name('admin.home')->middleware('isAdmin');
-
-
+Route::get('admin/users', [AdminController::class, 'listUsers'])->name('admin.listUsers')->middleware('isAdmin');
+Route::get('admin/products', [AdminController::class, 'listProducts'])->name('admin.listProducts')->middleware('isAdmin');
+Route::get('admin/categories', [AdminController::class, 'listCategories'])->name('admin.listCategories')->middleware('isAdmin');
+Route::get('admin/brands', [AdminController::class, 'listBrands'])->name('admin.listBrands')->middleware('isAdmin');
+Route::get('admin/orders', [AdminController::class, 'listOrders'])->name('admin.listOrders')->middleware('isAdmin');
 
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */

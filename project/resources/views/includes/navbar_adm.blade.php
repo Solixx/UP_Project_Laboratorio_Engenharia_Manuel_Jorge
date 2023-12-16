@@ -12,7 +12,6 @@
          </div>
          <div class="accountMenu colM1 colL3 col3 flexLeft">
             <ul>
-                <li><a href="{{ url('/') }}">ADM PANEL</a></li>
                 <li class="liAccount">
                    <div>
                        <img id="avatarImage" class="avatar" src="{{asset(Auth::user()->imgPath)}}"  alt="avatar" />
@@ -29,6 +28,7 @@
                                             Log Out
                                     </a>
                                 </li>
+                                <li><a href="{{ Route('admin.home') }}">ADM PANEL</a></li>
                            </ul>
                        </div>
                    </div>
