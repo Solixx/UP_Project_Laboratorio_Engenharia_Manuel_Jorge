@@ -96,7 +96,7 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+          <a class="sidebar-link" href="{{ Route('admin.addColor') }}" aria-expanded="false">
             <span>
               <i class="ti ti-color-filter"></i>
             </span>
@@ -104,7 +104,7 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+          <a class="sidebar-link" href="{{ Route('admin.addSize') }}" aria-expanded="false">
             <span>
               <i class="ti ti-ruler-3"></i>
             </span>

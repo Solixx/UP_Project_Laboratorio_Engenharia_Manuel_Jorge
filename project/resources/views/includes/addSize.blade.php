@@ -1,7 +1,7 @@
 @extends('layouts.adminPanelApp')
  
 @section('title')
-    Add Categorie | UP
+    Add Size | UP
 @endsection
 
 @section('content')
@@ -19,14 +19,14 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Add Categorie</h5>
+              <h5 class="card-title fw-semibold mb-4">Add Size</h5>
               <div class="card">
                 <div class="card-body">
-                  <form action="{{ Route('admin.storeCategorie') }}" method="POST">
+                  <form action="{{ Route('admin.storeSize') }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <label for="exampleInputName1" class="form-label">Name</label>
-                      <input type="text" name="name" class="form-control" id="exampleInputName1" value="{{ old('name') }}">
+                      <label for="exampleInputSize1" class="form-label">Size</label>
+                      <input type="text" name="size" class="form-control" id="exampleInputSize1" value="{{ old('size') }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>

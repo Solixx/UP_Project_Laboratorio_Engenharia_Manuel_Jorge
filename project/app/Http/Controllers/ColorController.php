@@ -21,7 +21,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        //
+        return view('includes.addColor');
     }
 
     /**
@@ -29,7 +29,17 @@ class ColorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'color' => 'required|unique:colors|max:7|min:7',
+        ]);
+
+        $color = new Color();
+
+        $color->color = $request->color;
+        $color->save();
+
+        return redirect()->back()
+            ->with('success', 'Color created successfully.');
     }
 
     /**

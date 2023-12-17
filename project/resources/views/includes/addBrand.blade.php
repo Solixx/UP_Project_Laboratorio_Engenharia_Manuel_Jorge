@@ -30,7 +30,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputBrand1" class="form-label">Name</label>
-                      <input type="text" name="name" class="form-control" id="exampleInputBrand1">
+                      <input type="text" name="name" class="form-control" id="exampleInputBrand1" value="{{ old('name') }}">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>

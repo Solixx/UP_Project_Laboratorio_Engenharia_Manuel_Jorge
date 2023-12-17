@@ -15,6 +15,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\SizeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +82,16 @@ Route::get('admin/brand/create', [BrandController::class, 'create'])->name('admi
                                                                                             ->middleware('auth')
                                                                                             ->middleware('verified');
 Route::post('admin/brand/store', [BrandController::class, 'store'])->name('admin.storeBrand');
+
+Route::get('admin/color/create', [ColorController::class, 'create'])->name('admin.addColor')->middleware('isAdmin')
+                                                                                            ->middleware('auth')
+                                                                                            ->middleware('verified');
+Route::post('admin/color/store', [ColorController::class, 'store'])->name('admin.storeColor');
+
+Route::get('admin/size/create', [SizeController::class, 'create'])->name('admin.addSize')->middleware('isAdmin')
+                                                                                            ->middleware('auth')
+                                                                                            ->middleware('verified');
+Route::post('admin/size/store', [SizeController::class, 'store'])->name('admin.storeSize');
 
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */

@@ -15,11 +15,11 @@
                     @csrf
                     <div class="editProfileInfos">
                         <label for="curPass">Current Password</label>
-                        <input type="text" name="curPass" id="curPass" placeholder="Current Password">
+                        <input type="password" name="curPass" id="curPass" placeholder="Current Password">
                         <label for="newPass">New Password</label>
-                        <input type="text" name="newPass" id="newPass" placeholder="New Password">
+                        <input type="password" name="newPass" id="newPass" placeholder="New Password">
                         <label for="repPass">Repeat New Password</label>
-                        <input type="text" name="repPass" id="repPass" placeholder="Repeat Password">
+                        <input type="password" name="repPass" id="repPass" placeholder="Repeat Password">
                     </div>
                     @include('includes.accountSettingsBtn')
                 </form>
