@@ -71,7 +71,9 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
-        //
+        $stock->delete();
+
+        return back();
     }
 
 

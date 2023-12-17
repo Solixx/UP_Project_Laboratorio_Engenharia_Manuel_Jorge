@@ -84,14 +84,15 @@
                     </form>
                   </td>
                   <td class="border-bottom-0">
-                    <form action="">
-                        @csrf
-                        @if($user->id != Auth::user()->id)
-                          <button type="button" class="btn btn-danger m-1">Disable</button>
-                        @else
-                            <button type="button" class="btn btn-danger m-1" disabled>Disable</button>
-                        @endif
-                    </form>
+                      @if($user->id != Auth::user()->id)
+                        <form action="{{ route('admin.deleteUser',$user->id) }}" method="POST">
+                            @method('DELETE')  
+                            @csrf
+                            <button type="submit" class="btn btn-danger m-1">Disable</button>
+                        </form>
+                      @else
+                          <button type="button" class="btn btn-danger m-1" disabled>Disable</button>
+                      @endif
                   </td>
                 </tr> 
               @empty

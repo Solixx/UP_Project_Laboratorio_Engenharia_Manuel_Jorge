@@ -71,5 +71,9 @@ class CategorieController extends Controller
     public function destroy(Categorie $categorie)
     {
         //
+        $categorie->delete();
+
+        return redirect()->back()
+            ->with('success', 'Categorie deleted successfully');
     }
 }

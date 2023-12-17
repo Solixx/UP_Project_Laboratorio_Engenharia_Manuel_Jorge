@@ -78,9 +78,10 @@
                     </form>
                   </td>
                   <td class="border-bottom-0">
-                    <form action="">
+                    <form action="{{ route('admin.deleteProduct',$product->id) }}" method="POST">
+                        @method('DELETE')  
                         @csrf
-                        <button type="button" class="btn btn-danger m-1">Disable</button>
+                        <button type="submit" class="btn btn-danger m-1">Disable</button>
                     </form>
                   </td>
                 </tr> 

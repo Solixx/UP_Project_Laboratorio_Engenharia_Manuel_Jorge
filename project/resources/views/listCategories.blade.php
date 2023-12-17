@@ -37,11 +37,11 @@
               </tr>
             </thead>
             <tbody>
-              @forelse ($categories as $category)
+              @forelse ($categories as $categorie)
                 <tr>
-                  <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $category->id }}</h6></td>
+                  <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $categorie->id }}</h6></td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $category->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $categorie->name }}</h6>                      
                   </td>
                   <td class="border-bottom-0">
                     <form action="">
@@ -50,8 +50,10 @@
                     </form>
                   </td>
                   <td class="border-bottom-0">
-                    <form action="">
-                        <button type="button" class="btn btn-danger m-1">Disable</button>
+                    <form action="{{ route('admin.deleteCategorie',$categorie->id) }}" method="POST">
+                        @method('DELETE')  
+                        @csrf
+                        <button type="submit" class="btn btn-danger m-1">Disable</button>
                     </form>
                   </td>
                 </tr> 

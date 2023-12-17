@@ -79,4 +79,13 @@ class AdminController extends Controller
         }
         return redirect('/')->with('error', 'You have not admin access');
     }
+
+    public function destroyUser(User $user)
+    {
+        if(auth()->user()->isAdmin) {
+            $user->delete();
+            return redirect()->back()->with('success', 'User deleted successfully');
+        }
+        return redirect('/')->with('error', 'You have not admin access');
+    }
 }
