@@ -37,12 +37,16 @@ Route::get('/product/{stock}', [StockController::class, 'show'])->name('product'
 /* Route::post('/login', [RouterController::class, 'login'])->name('login');
 Route::post('/register', [RouterController::class, 'register'])->name('register'); */
 Route::get('/profile', [SettingsController::class, 'index'])->name('profile');
+
 Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 Route::get('/settings/edit-profile', [SettingsController::class, 'editProfile'])->name('settings.editProfile');
 Route::post('/settings/edit-profile/{user}', [SettingsController::class, 'editProfilePost'])->name('settings.editProfilePost');
 Route::get('/settings/account-management', [SettingsController::class, 'accountManagement'])->name('settings.accountManagement');
 Route::post('/settings/account-management/{user}', [SettingsController::class, 'accountManagementPost'])->name('settings.accountManagementPost');
 Route::get('/settings/change-password', [SettingsController::class, 'changePassword'])->name('settings.changePassword');
+Route::get('/settings/change-password', [SettingsController::class, 'changePassword'])->name('settings.changePassword');
+Route::delete('/settings/disable', [SettingsController::class, 'disableAccount'])->name('settings.disableAccount');
+
 Route::post('/favorite/{stock}', [FavoriteController::class, 'store'])->name('favorite.store');
 Route::delete('/favorite/{favorite}', [FavoriteController::class, 'destroy'])->name('favorite.delete');
 Route::post('/comment/{product}', [CommentController::class, 'store'])->name('comment.store');

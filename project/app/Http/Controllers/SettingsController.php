@@ -70,4 +70,11 @@ class SettingsController extends Controller
     {
         return view('changePass');
     }
+
+    public function disableAccount()
+    {
+        $user = User::where('id', Auth::user()->id);
+        $user->delete();
+        return redirect()->route('index')->with('status', 'Account Has Been Disabled');
+    }
 }
