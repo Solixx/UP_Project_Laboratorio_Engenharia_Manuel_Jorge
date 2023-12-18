@@ -25,7 +25,7 @@
                   <form action="{{ Route('admin.updateOrder',$order->id) }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <h5>Status: {{ $order->status }}</h5>
+                        <h5>Status: {{ strtoupper($order->status) }}</h5>
                     </select>
                     </div>
                     <div class="mb-3">

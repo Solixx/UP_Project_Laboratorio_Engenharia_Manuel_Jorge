@@ -56,7 +56,7 @@
                     <h6 class="fw-semibold mb-1">{{ $order->total_price }}</h6>                      
                 </td>
                 <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">{{ $order->status }}</h6>                      
+                    <h6 class="fw-semibold mb-1">{{ strtoupper($order->status) }}</h6>                      
                 </td>
                 <td class="border-bottom-0">
                     @if($order->processed_date == null)

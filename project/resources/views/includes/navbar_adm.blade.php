@@ -21,6 +21,7 @@
                            <ul>
                                <li><a href="{{ Route('profile') }}">Profile</a></li>
                                <li><a href="{{ Route('settings.accountManagement') }}">Settings</a></li>
+                               <li><a href="{{ Route('admin.home') }}">ADM PANEL</a></li>
                                <li><a 
                                     href="{{ route('logout') }}" 
                                     onclick="event.preventDefault();
@@ -28,7 +29,6 @@
                                             Log Out
                                     </a>
                                 </li>
-                                <li><a href="{{ Route('admin.home') }}">ADM PANEL</a></li>
                            </ul>
                        </div>
                    </div>
