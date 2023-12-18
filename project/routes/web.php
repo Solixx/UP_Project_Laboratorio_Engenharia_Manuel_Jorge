@@ -44,7 +44,7 @@ Route::post('/settings/edit-profile/{user}', [SettingsController::class, 'editPr
 Route::get('/settings/account-management', [SettingsController::class, 'accountManagement'])->name('settings.accountManagement');
 Route::post('/settings/account-management/{user}', [SettingsController::class, 'accountManagementPost'])->name('settings.accountManagementPost');
 Route::get('/settings/change-password', [SettingsController::class, 'changePassword'])->name('settings.changePassword');
-Route::get('/settings/change-password', [SettingsController::class, 'changePassword'])->name('settings.changePassword');
+Route::post('/settings/change-password/edit', [SettingsController::class, 'changePasswordPost'])->name('settings.changePasswordPost');
 Route::delete('/settings/disable', [SettingsController::class, 'disableAccount'])->name('settings.disableAccount');
 
 Route::post('/favorite/{stock}', [FavoriteController::class, 'store'])->name('favorite.store');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class SettingsController extends Controller
 {
@@ -66,9 +67,32 @@ class SettingsController extends Controller
         return redirect()->route('settings.accountManagement')->with('status', 'User Has been uploaded');
     }
 
-    public function changePassword()
+    public function changePassword(Request $request)
     {
         return view('changePass');
+    }
+
+    public function changePasswordPost(Request $request)
+    {
+        $request->validate([
+            'curPass' => 'required|string|min:8',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        if($request->curPass == $request->password){
+            return redirect()->route('settings.changePassword')->with('status', 'New Password Cannot be the same as Current Password');
+        }
+        if(!Hash::check($request->curPass, Auth::user()->password)){
+            return redirect()->route('settings.changePassword')->with('status', 'Current Password is incorrect');
+        }
+
+        $user = User::find(Auth::user()->id);
+
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('settings.changePassword')->with('status', 'Password Has been changed');
     }
 
     public function disableAccount()
