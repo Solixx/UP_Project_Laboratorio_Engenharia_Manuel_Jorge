@@ -66,9 +66,9 @@
                     @endif          
                 </td>
                   <td class="border-bottom-0">
-                    <form action="">
+                    <form action="{{ Route('admin.editOrder',$order->id) }}" method="get">
                         @csrf
-                        <button type="button" class="btn btn-primary m-1">Edit</button>
+                        <button type="submit" class="btn btn-primary m-1">Edit</button>
                     </form>
                   </td>
                   <td class="border-bottom-0">

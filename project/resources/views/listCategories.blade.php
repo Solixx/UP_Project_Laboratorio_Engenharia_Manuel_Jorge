@@ -44,9 +44,9 @@
                       <h6 class="fw-semibold mb-1">{{ $categorie->name }}</h6>                      
                   </td>
                   <td class="border-bottom-0">
-                    <form action="">
+                    <form action="{{ Route('admin.editCategorie',$categorie->id) }}" method="get">
                         @csrf
-                        <button type="button" class="btn btn-primary m-1">Edit</button>
+                        <button type="submit" class="btn btn-primary m-1">Edit</button>
                     </form>
                   </td>
                   <td class="border-bottom-0">

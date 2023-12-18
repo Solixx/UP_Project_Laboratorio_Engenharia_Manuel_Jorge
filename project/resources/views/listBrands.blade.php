@@ -50,9 +50,9 @@
                       <h6 class="fw-semibold mb-1">{{ $brand->name }}</h6>                      
                   </td>
                   <td class="border-bottom-0">
-                    <form action="">
+                    <form action="{{ Route('admin.editBrand',$brand->id) }}" method="get">
                         @csrf
-                        <button type="button" class="btn btn-primary m-1">Edit</button>
+                        <button type="submit" class="btn btn-primary m-1">Edit</button>
                     </form>
                   </td>
                   <td class="border-bottom-0">

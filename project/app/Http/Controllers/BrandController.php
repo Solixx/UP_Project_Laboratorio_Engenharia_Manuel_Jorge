@@ -64,7 +64,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('index');
+        return view('includes.editBrand', compact('brand'));
     }
 
     /**
@@ -72,7 +72,22 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        return view('index');
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'name',
+        ]);
+
+        if($request->hasFile('image')){
+            $imgName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->store('public/images');
+            $brand->img = $imgName;
+            $brand->imgPath = 'storage/images/'.$request->file('image')->hashName();
+        }
+
+        $brand->update($request->all());
+
+        return redirect()->back()
+            ->with('success', 'Brand updated successfully.');
     }
 
     /**

@@ -82,6 +82,7 @@ class OrderController extends Controller
     public function edit(Order $order)
     {
         //
+        return view('includes.editOrder', compact('order'));
     }
 
     /**
@@ -90,6 +91,25 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         //
+        $order->status = 'pending';
+
+        if($request->has('processed_date')) {
+            $order->status = 'processed';
+        }
+        if($request->has('shipped_date')) {
+            $order->status = 'shipped';
+        }
+        if($request->has('delivery_date')) {
+            $order->status = 'delivered';
+        }
+        if($request->has('canceled_date')) {
+            $order->status = 'canceled';
+        }
+
+        $order->update($request->all());
+
+        return redirect()->back()
+            ->with('success', 'Order updated successfully');
     }
 
     /**
