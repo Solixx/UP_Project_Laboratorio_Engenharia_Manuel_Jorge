@@ -95,11 +95,11 @@
                                     <button type="submit">Invoice</button>
                                 </form>
                                 @if (strtolower($order->status) == 'pending' || strtolower($order->status) == 'processing')
-                                    {{-- <form action="{{ route('order.cancel', $order->id) }}" method="POST">
+                                    <form action="{{ route('deleteOrder', $order->id) }}" method="POST">
+                                        @method('DELETE')
                                         @csrf
-                                        @method('PUT') --}}
                                         <button type="submit">Cancel</button>
-                                    {{-- </form> --}}
+                                    </form>
                                 @endif
                             </div>
                             <div class="orderFooterInfo">

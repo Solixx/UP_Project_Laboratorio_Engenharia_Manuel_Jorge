@@ -84,7 +84,7 @@
             <span>
               <i class="ti ti-category"></i>
             </span>
-            <span class="hide-menu">Categorie</span>
+            <span class="hide-menu">Category</span>
           </a>
         </li>
         <li class="sidebar-item">

@@ -31,7 +31,7 @@ use App\Http\Controllers\SizeController;
 
 Route::get('/', [RouterController::class, 'index'])->name('index');
 Route::get('/products', [StockController::class, 'index'])->name('products');
-Route::get('/products&search', [StockController::class, 'serachName'])->name('search.products');
+Route::get('/products/search', [StockController::class, 'serachName'])->name('search.products');
 /* Route::get('/product', [RouterController::class, 'product'])->name('product'); */
 Route::get('/product/{stock}', [StockController::class, 'show'])->name('product');
 /* Route::post('/login', [RouterController::class, 'login'])->name('login');
@@ -90,7 +90,7 @@ Route::get('admin/brand/{brand}/edit', [BrandController::class, 'edit'])->name('
 Route::post('admin/brand/{brand}', [BrandController::class, 'update'])->name('admin.updateBrand')->middleware(['isAdmin', 'auth', 'verified']);
 Route::delete('admin/brand/{brand}', [BrandController::class, 'destroy'])->name('admin.deleteBrand')->middleware(['isAdmin', 'auth', 'verified']);
 
-Route::delete('admin/orders/{order}', [OrderController::class, 'destroy'])->name('admin.deleteOrder')->middleware(['isAdmin', 'auth', 'verified']);
+Route::delete('orders/{order}', [OrderController::class, 'destroy'])->name('deleteOrder')->middleware(['auth', 'verified']);
 Route::get('admin/order/{order}/edit', [OrderController::class, 'edit'])->name('admin.editOrder')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/order/{order}', [OrderController::class, 'update'])->name('admin.updateOrder')->middleware(['isAdmin', 'auth', 'verified']);
 

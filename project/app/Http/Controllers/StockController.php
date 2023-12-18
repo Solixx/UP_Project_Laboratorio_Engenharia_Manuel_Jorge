@@ -83,12 +83,19 @@ class StockController extends Controller
             'searchName' => 'required|string|max:255',
         ]);
 
+        $searchTerm = strtolower($request->searchName);
+
+        session(['searchName' => $searchTerm]);
+
         $stocks = Stock::whereIn(
             'product_color_id',
-            Product_Color::whereHas('product', function ($query) use ($request) {
-                $query->where('name', 'like', '%' . $request->searchName . '%');
+            Product_Color::whereHas('product', function ($query) use ($searchTerm) {
+                $query->whereRaw('LOWER(name) like ?', ['%' . $searchTerm . '%']);
             })->pluck('id')
         )->paginate(20);
+
+        $stocks->appends(['searchName' => $searchTerm]);
+
         $categories = Categorie::all();
         
         return view('products', compact('stocks', 'categories'));
