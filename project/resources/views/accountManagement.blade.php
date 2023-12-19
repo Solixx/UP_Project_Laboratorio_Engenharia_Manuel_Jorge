@@ -32,8 +32,10 @@
                     @include('includes.accountSettingsBtn')
                 </form>
                 <h2>Disable Account</h2>
-                <form action="">
-                    <button>Disable Account</button>
+                <form action="{{ Route('settings.disableAccount') }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit">Disable Account</button>
                 </form>
             </div>
         </div>

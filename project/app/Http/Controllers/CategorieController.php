@@ -22,6 +22,7 @@ class CategorieController extends Controller
     public function create()
     {
         //
+        return view('includes.addCategorie');
     }
 
     /**
@@ -30,6 +31,14 @@ class CategorieController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        Categorie::create($request->all());
+
+        return redirect()->back()
+            ->with('success', 'Categorie created successfully.');
     }
 
     /**
@@ -45,7 +54,7 @@ class CategorieController extends Controller
      */
     public function edit(Categorie $categorie)
     {
-        //
+        return view('includes.editCategorie', compact('categorie'));
     }
 
     /**
@@ -54,6 +63,14 @@ class CategorieController extends Controller
     public function update(Request $request, Categorie $categorie)
     {
         //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $categorie->update($request->all());
+
+        return redirect()->back()
+            ->with('success', 'Categorie updated successfully');
     }
 
     /**
@@ -62,5 +79,9 @@ class CategorieController extends Controller
     public function destroy(Categorie $categorie)
     {
         //
+        $categorie->delete();
+
+        return redirect()->back()
+            ->with('success', 'Categorie deleted successfully');
     }
 }

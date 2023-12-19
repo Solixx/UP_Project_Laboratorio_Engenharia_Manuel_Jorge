@@ -21,7 +21,7 @@ class SizeController extends Controller
      */
     public function create()
     {
-        //
+        return view('includes.addSize');
     }
 
     /**
@@ -29,7 +29,17 @@ class SizeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'size' => 'required|unique:sizes|min:1',
+        ]);
+
+        $size = new Size();
+
+        $size->size = $request->size;
+        $size->save();
+
+        return redirect()->back()
+            ->with('success', 'Size created successfully.');
     }
 
     /**

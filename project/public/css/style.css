@@ -1336,6 +1336,7 @@ footer .copyright p{
 .settingsOption a{
   text-decoration: none;
   color: #111111;
+  width: auto;
 }
 
 .settingsOption h1{
@@ -1355,6 +1356,7 @@ footer .copyright p{
   left: 0;
   bottom: -10px; /* ajuste conforme necessário */
   width: 100%;
+  max-width: 100%;
   height: 3px;
   background-color: currentColor; /* usa a cor do texto como cor de fundo */
   border-radius: 10px; /* ajuste conforme necessário */
@@ -1769,6 +1771,10 @@ footer .copyright p{
     max-width: 80%;
   }
 
+  .optionActive::after {
+    max-width: 80%;
+  }
+
   .genders{
     display: flex;
     flex-direction: row;
@@ -1961,6 +1967,14 @@ footer .copyright p{
 
   .myAccountMenu ul li a{
     color: #111111;
+  }
+
+  .settingsOption h1{
+    max-width: 100%;
+  }
+
+  .optionActive::after {
+    max-width: 100%;
   }
 
   .circle {

@@ -47,7 +47,6 @@
                             <div class="productInfo">
                                 <h3 class="prodInfoTitle">{{ $stock->product_color->product->name }}</h3>
                                 <h3>{{ $stock->price }}€</h3>
-                                {{ $stock->id }}
                             </div>
                         </div>
                     </a>
