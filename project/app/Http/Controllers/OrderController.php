@@ -93,17 +93,14 @@ class OrderController extends Controller
         //
         $order->status = 'pending';
 
-        if($request->has('processed_date')) {
+        if($request->filled('processed_date')) {
             $order->status = 'processed';
         }
-        if($request->has('shipped_date')) {
+        if($request->filled('shipped_date')) {
             $order->status = 'shipped';
         }
-        if($request->has('delivery_date')) {
+        if($request->filled('delivery_date')) {
             $order->status = 'delivered';
-        }
-        if($request->has('canceled_date')) {
-            $order->status = 'canceled';
         }
 
         $order->update($request->all());
