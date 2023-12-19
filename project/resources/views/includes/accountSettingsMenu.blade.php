@@ -9,9 +9,6 @@
         <div class="settingsOption">
             <a href="{{ Route('settings.changePassword') }}"><h1>Change Password</h1></a>
         </div>
-        <div class="settingsOption">
-            <a href="#"><h1>Edit Payment</h1></a>
-        </div>
     </div>
 </div>
 
