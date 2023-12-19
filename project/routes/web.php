@@ -17,6 +17,7 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\SizeController;
+use App\Http\Controllers\StripeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +100,9 @@ Route::post('admin/color/store', [ColorController::class, 'store'])->name('admin
 
 Route::get('admin/size/create', [SizeController::class, 'create'])->name('admin.addSize')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/size/store', [SizeController::class, 'store'])->name('admin.storeSize')->middleware(['isAdmin', 'auth', 'verified']);
+
+Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout')->middleware(['auth', 'verified']);
+Route::get('/success', [StripeController::class, 'success'])->name('stripe.success')->middleware(['auth', 'verified']);
 
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */

@@ -84,9 +84,14 @@
             </div>
         </div>
         <div class="cartBtn">
-            <form action="{{ Route('order.store') }}" method="POST">
+            {{-- <form action="{{ Route('order.store') }}" method="POST">
                 @csrf
-                <button>Checkout</button>
+                <button type="submit">Checkout</button>
+            </form> --}}
+            <form action="{{ Route('stripe.checkout') }}" method="POST">
+                @csrf
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button type="submit">Checkout</button>
             </form>
         </div>
     </div>
