@@ -53,7 +53,7 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $product->id }}</h6></td>
                   <td class="border-bottom-0">
-                    @if($product->Product_Color->photos->first()->exists())
+                    @if($product->Product_Color && $product->Product_Color->photos && $product->Product_Color->photos->first() && $product->Product_Color->photos->first()->exists())
                       <img style="width: 100px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($product->Product_Color->photos->first()->imgPath) }}" class="card-img-top rounded-0" alt="{{ $product->Product_Color->photos->first()->img }}">
                     @else
                       <img style="width: 100px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="https://via.placeholder.com/100"  class="card-img-top rounded-0" alt="">

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product_Brand;
+use App\Models\Product_Color;
+use App\Models\Stock;
 
 class BrandController extends Controller
 {
@@ -95,9 +98,19 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
+        foreach(Product_Brand::where('brand_id', $brand->id)->get() as $product){
+            foreach(Product_Color::where('product_id', $product->product_id)->get() as $productColor){
+                foreach(Stock::where('product_color_id', $productColor->id)->get() as $stock){
+                    $stock->delete();
+                }
+            }
+        }
+
         $brand->delete();
 
-        return redirect()->back()
+        $brands = Brand::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+
+        return view('listBrands', compact('brands'))
             ->with('success', 'Brand deleted successfully.');
     }
 }
