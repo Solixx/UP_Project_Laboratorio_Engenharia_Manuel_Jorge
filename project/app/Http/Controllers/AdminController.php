@@ -43,8 +43,7 @@ class AdminController extends Controller
     public function listProducts()
     {
         if(auth()->user()->isAdmin) {
-            /* $products = Stock::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20); */
-            $products = Stock::orderBy('created_at', 'desc')->orderBy('id', 'desc')->get();
+            $products = Stock::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
 
             return view('listProducts', compact('products'));
         }

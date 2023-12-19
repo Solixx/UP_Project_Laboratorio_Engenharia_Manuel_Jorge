@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorie;
 use App\Http\Controllers\Controller;
+use App\Models\Product_Categorie;
 use Illuminate\Http\Request;
+use App\Models\Product_Color;
+use App\Models\Stock;
 
 class CategorieController extends Controller
 {
@@ -78,10 +81,19 @@ class CategorieController extends Controller
      */
     public function destroy(Categorie $categorie)
     {
-        //
+        foreach(Product_Categorie::where('categorie_id', $categorie->id)->get() as $product){
+            foreach(Product_Color::where('product_id', $product->product_id)->get() as $productColor){
+                foreach(Stock::where('product_color_id', $productColor->id)->get() as $stock){
+                    $stock->delete();
+                }
+            }
+        }
+
         $categorie->delete();
 
-        return redirect()->back()
+        $categories = Categorie::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+
+        return view('listCategories', compact('categories'))
             ->with('success', 'Categorie deleted successfully');
     }
 }
