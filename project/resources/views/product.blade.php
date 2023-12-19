@@ -75,7 +75,7 @@
                                         </a>
                                     @endif
                                 @else
-                                    @if(Stock::where('size_id', $thisSize->id)->get()->first()->stock == 0)
+                                    @if(Stock::where('product_color_id', $stock->product_color->id)->where('size_id', $thisSize->id)->get()->first()->stock == 0)
                                         <a href="{{ route('product',Stock::where('product_color_id', $stock->product_color_id)->where('size_id', $thisSize->id)->get()->first()->id) }}">
                                             <div class="sizeBox sizeOut">{{ $thisSize->size }}</div>
                                         </a>
@@ -94,7 +94,10 @@
 
                 <div class="prodButtons">
                     @if ($stock->stock == 0)
-                        <button class="addCartBtn addCartBtnDisabled" disabled>Out Of Stock</button>
+                        <form action="#">
+                            @csrf
+                            <button type="button" class="addCartBtn addCartBtnDisabled" disabled>Out Of Stock</button>
+                        </form>
                     @else
                         <form action="{{ Route('cart.store',$stock->id) }}" method="POST">
                             @csrf

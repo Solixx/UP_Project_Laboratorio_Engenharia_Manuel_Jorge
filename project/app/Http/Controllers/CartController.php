@@ -47,7 +47,7 @@ class CartController extends Controller
             return $cartItem->id === $stockId;
         });
 
-        if($item->isNotEmpty()) {
+        if($item->isNotEmpty() && $item->first()->qty < $stock->stock) {
             Cart::instance('shopping')->update($item->first()->rowId, $item->first()->qty + 1);
         }
 
@@ -65,7 +65,7 @@ class CartController extends Controller
             return $cartItem->id === $stockId;
         });
 
-        if($item->isNotEmpty()) {
+        if($item->isNotEmpty() && $request->qty <= $stock->stock) {
             Cart::instance('shopping')->update($item->first()->rowId, $request->qty);
         }
 
