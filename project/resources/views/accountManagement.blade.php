@@ -17,6 +17,10 @@
                     <div class="editProfileInfos">
                         <label for="email">Email</label>
                         <input type="text" name="email" id="email" placeholder="Email" value="{{ Auth::user()->email }}">
+                        <label for="address">Address</label>
+                        <input type="text" name="address" id="address" placeholder="Address" value="{{ Auth::user()->address }}">
+                        <label for="phone">Phone</label>
+                        <input type="text" name="phone" id="phone" placeholder="Phone" value="{{ Auth::user()->phone }}">
                         <p>Gender</p>
                         <div class="genders">
                             <div class="gMan">

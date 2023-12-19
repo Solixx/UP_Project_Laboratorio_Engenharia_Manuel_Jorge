@@ -60,6 +60,8 @@ class SettingsController extends Controller
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id),],
             'gender' => 'required|max:1',
+            'phone' => 'required|numeric|digits_between:9,15|unique:users,phone,'.$user->id,
+            'address' => 'required|string|max:255',
         ]);
 
         $user->update($request->all());
