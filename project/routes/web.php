@@ -16,6 +16,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\StripeController;
 
@@ -104,6 +105,10 @@ Route::post('admin/size/store', [SizeController::class, 'store'])->name('admin.s
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout')->middleware(['auth', 'verified']);
 Route::get('/success', [StripeController::class, 'success'])->name('stripe.success')->middleware(['auth', 'verified']);
 
+Route::get('/forgetPassword', [RouterController::class, 'forgetPass'])->name('form.forgetPass');
+Route::post('/forgetPassword/reset', [EmailController::class, 'forgetPass'])->name('forgetPass');
+
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */
 /* Route::get('/testes', [StockController::class, 'index'])->name('testes'); */
+Route::get('/testes', [EmailController::class, 'sendEmail'])->name('sendEmail');
