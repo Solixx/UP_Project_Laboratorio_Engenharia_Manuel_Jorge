@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    UP | Login
+    UP | Forget Password
 @endsection
 
 @section('content')
@@ -10,17 +10,15 @@
         <div class="container">
             <div class="col12 colS4 colM8 colL12">
                 <div class="loginForm">
-                    <form action="{{ route('login') }}" method="POST">
+                    <form action="{{ route('forgetPass') }}" method="POST">
                         @csrf
-                        <h1>Login</h1>
+                        <h1>Forget Password</h1>
                         <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
-                        <input type="password" name="password" placeholder="Password" id="password" required>
-                        <button type="submit">Login</button>
+                        <button type="submit">Submit</button>
                         <div class="loginExtraOp">
                             <div class="goToSignup">
-                                <p>New User?</p><a href="{{ route('register') }}"> Sign UP</a>
+                                <p>Go Back?</p><a href="{{ route('login') }}">Login</a>
                             </div>
-                            <a href="{{ Route('form.forgetPass') }}">Forget Password</a>
                         </div>
                     </form>
                 </div>

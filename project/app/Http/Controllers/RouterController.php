@@ -48,4 +48,9 @@ class RouterController extends Controller
     {
         return view('register');
     }
+
+    public function forgetPass()
+    {
+        return view('auth.forgetPassword');
+    }
 }
