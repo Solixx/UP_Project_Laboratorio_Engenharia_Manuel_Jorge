@@ -11,6 +11,8 @@ use Illuminate\Validation\Rule;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Mail\NewslleterEmail;
+use App\Models\newslleter;
 
 class EmailController extends Controller
 {
@@ -55,5 +57,20 @@ class EmailController extends Controller
         Mail::to('supportUpStore@up.com')->send(new SupportEmail($request->message, $request->email));
 
         return redirect()->route('index')->with("Email sent successfully!");
+    }
+
+    public function newslleter(Request $request){
+        $request->validate([
+            'subject' => ['required', 'string', 'max:255'],
+            'message' => ['required', 'string', 'max:255'],
+        ]);
+
+        $newslleter = newslleter::all();
+
+        foreach($newslleter as $email){
+            Mail::to($email->email)->send(new NewslleterEmail($request->message, $request->subject));
+        }
+
+        return back();
     }
 }

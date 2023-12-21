@@ -6,8 +6,9 @@
             </div>
             <div class="col2 colL4 colM4 colS2">
                 <p>Newslleter</p>
-                <form action="#">
-                    <input type="text" placeholder="Email">
+                <form action="{{ Route('newslleter') }}" method="POST">
+                    @csrf
+                    <input type="text" placeholder="Email" name="email">
                     <button type="submit">SIGN UP</button>
                 </form>
             </div>
