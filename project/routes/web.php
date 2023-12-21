@@ -16,8 +16,10 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\StripeController;
+use App\Http\Controllers\NewslleterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +106,18 @@ Route::post('admin/size/store', [SizeController::class, 'store'])->name('admin.s
 Route::post('/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout')->middleware(['auth', 'verified']);
 Route::get('/success', [StripeController::class, 'success'])->name('stripe.success')->middleware(['auth', 'verified']);
 
+Route::get('admin/newslleter', [NewslleterController::class, 'create'])->name('admin.createNewslleter')->middleware(['auth', 'verified']);
+Route::post('admin/newslleter', [EmailController::class, 'newslleter'])->name('admin.storeNewslleter')->middleware(['auth', 'verified']);
+
+Route::post('/newslleter', [NewslleterController::class, 'store'])->name('newslleter');
+
+Route::get('/forgetPassword', [RouterController::class, 'forgetPass'])->name('form.forgetPass');
+Route::post('/forgetPassword/reset', [EmailController::class, 'forgetPass'])->name('forgetPass');
+
+Route::post('/support', [EmailController::class, 'support'])->name('support');
+
+
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */
 /* Route::get('/testes', [StockController::class, 'index'])->name('testes'); */
+/* Route::get('/testes', [EmailController::class, 'sendEmail'])->name('sendEmail'); */

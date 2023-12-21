@@ -13,10 +13,11 @@
     @endsection
 
     @section('supportInfo')
-        <form action="">
-            <input type="text" placeholder="Email" name="" id="">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-            <button>Submit</button>
+        <form action="{{ Route('support') }}" method="POST">
+            @csrf
+            <input type="text" placeholder="Email" name="email" id="">
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Message"></textarea>
+            <button type="submit">Submit</button>
         </form>
     @endsection
 
