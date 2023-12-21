@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ForgetPasswordEmail;
 use Illuminate\Http\Request;
 use App\Mail\MyEmail;
+use App\Mail\SupportEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use App\Models\User;
@@ -43,5 +44,16 @@ class EmailController extends Controller
         Mail::to($request->email)->send(new ForgetPasswordEmail($password));
 
         return view('auth.login')->with("Email sent successfully!");
+    }
+
+    public function support(Request $request){
+        $request->validate([
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'message' => ['required', 'string', 'max:255'],
+        ]);
+
+        Mail::to('supportUpStore@up.com')->send(new SupportEmail($request->message, $request->email));
+
+        return redirect()->route('index')->with("Email sent successfully!");
     }
 }

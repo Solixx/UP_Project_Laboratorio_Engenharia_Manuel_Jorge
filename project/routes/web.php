@@ -108,6 +108,8 @@ Route::get('/success', [StripeController::class, 'success'])->name('stripe.succe
 Route::get('/forgetPassword', [RouterController::class, 'forgetPass'])->name('form.forgetPass');
 Route::post('/forgetPassword/reset', [EmailController::class, 'forgetPass'])->name('forgetPass');
 
+Route::post('/support', [EmailController::class, 'support'])->name('support');
+
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */
 /* Route::get('/testes', [StockController::class, 'index'])->name('testes'); */
