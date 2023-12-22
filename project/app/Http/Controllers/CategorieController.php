@@ -91,9 +91,16 @@ class CategorieController extends Controller
 
         $categorie->delete();
 
-        $categories = Categorie::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+        return back();
+    }
 
-        return view('listCategories', compact('categories'))
-            ->with('success', 'Categorie deleted successfully');
+    public function restoreCategorie($id)
+    {
+        $data = Categorie::withTrashed()->find($id);
+        if(auth()->user()->isAdmin) {
+            $data->restore();
+            return redirect()->back()->with('success', 'User restored successfully');
+        }
+        return redirect('/')->with('error', 'You have not admin access');
     }
 }

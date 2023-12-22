@@ -76,6 +76,15 @@ class StockController extends Controller
         return back();
     }
 
+    public function restoreProduct($id)
+    {
+        $data = Stock::withTrashed()->find($id);
+        if(auth()->user()->isAdmin) {
+            $data->restore();
+            return redirect()->back()->with('success', 'User restored successfully');
+        }
+        return redirect('/')->with('error', 'You have not admin access');
+    }
 
     public function serachName(Request $request)
     {

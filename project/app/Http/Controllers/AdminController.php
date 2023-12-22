@@ -34,8 +34,9 @@ class AdminController extends Controller
     {
         if(auth()->user()->isAdmin) {
             $users = User::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+            $usersDisabled = User::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
 
-            return view('listUsers', compact('users'));
+            return view('listUsers', compact('users', 'usersDisabled'));
         }
         return redirect('/')->with('error', 'You have not admin access');
     }
@@ -44,8 +45,9 @@ class AdminController extends Controller
     {
         if(auth()->user()->isAdmin) {
             $products = Stock::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+            $productsDisabled = Stock::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
 
-            return view('listProducts', compact('products'));
+            return view('listProducts', compact('products', 'productsDisabled'));
         }
         return redirect('/')->with('error', 'You have not admin access');
     }
@@ -54,8 +56,9 @@ class AdminController extends Controller
     {
         if(auth()->user()->isAdmin) {
             $categories = Categorie::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+            $categoriesDisabled = Categorie::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
 
-            return view('listCategories', compact('categories'));
+            return view('listCategories', compact('categories', 'categoriesDisabled'));
         }
         return redirect('/')->with('error', 'You have not admin access');
     }
@@ -64,8 +67,9 @@ class AdminController extends Controller
     {
         if(auth()->user()->isAdmin) {
             $brands = Brand::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+            $brandsDisabled = Brand::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
 
-            return view('listBrands', compact('brands'));
+            return view('listBrands', compact('brands', 'brandsDisabled'));
         }
         return redirect('/')->with('error', 'You have not admin access');
     }
@@ -74,8 +78,9 @@ class AdminController extends Controller
     {
         if(auth()->user()->isAdmin) {
             $orders = Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+            $ordersDisabled = Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
 
-            return view('listOrders', compact('orders'));
+            return view('listOrders', compact('orders', 'ordersDisabled'));
         }
         return redirect('/')->with('error', 'You have not admin access');
     }
@@ -85,6 +90,16 @@ class AdminController extends Controller
         if(auth()->user()->isAdmin) {
             $user->delete();
             return redirect()->back()->with('success', 'User deleted successfully');
+        }
+        return redirect('/')->with('error', 'You have not admin access');
+    }
+
+    public function restoreUser($id)
+    {
+        $data = User::withTrashed()->find($id);
+        if(auth()->user()->isAdmin) {
+            $data->restore();
+            return redirect()->back()->with('success', 'User restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');
     }
