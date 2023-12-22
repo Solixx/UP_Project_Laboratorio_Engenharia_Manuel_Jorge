@@ -116,7 +116,6 @@ Route::post('/forgetPassword/reset', [EmailController::class, 'forgetPass'])->na
 
 Route::post('/support', [EmailController::class, 'support'])->name('support');
 
-
 /* Testes */
 /* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */
 /* Route::get('/testes', [StockController::class, 'index'])->name('testes'); */
