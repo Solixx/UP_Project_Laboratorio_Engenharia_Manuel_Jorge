@@ -22,7 +22,7 @@
               <h5 class="card-title fw-semibold mb-4">Add Product</h5>
               <div class="card">
                 <div class="card-body">
-                  <form>
+                  <form action="{{ Route('admin.storeProduct') }}" method="post">
                     @csrf
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -34,22 +34,27 @@
                     </div>
                     <div class="mb-3">
                         <h4 for="" class="form-label">Brands</h4>
-                        <label for="exampleInputBrand1" class="form-label">Brands</label>
-                        <input type="radio" name="brands" id="exampleInputBrand1">
+                        @forelse ($brands as $brand)
+                          <label for="exampleInputBrand{{ $brand->id }}" class="form-label">{{ $brand->name }}</label>
+                          <input type="checkbox" name="brands[]" id="exampleInputBrand{{ $brand->id }}" value="{{ $brand->id }}">
+                        @empty
+                        @endforelse
+                    </div>
+                    <div class="mb-3">
+                      <h4 for="" class="form-label">Categories</h4>
+                      @forelse ($categories as $category)
+                        <label for="exampleInputCategory{{ $category->id }}" class="form-label">{{ $category->name }}</label>
+                        <input type="checkbox" name="categories[]" id="exampleInputCategory{{ $category->id }}" value="{{ $category->id }}">
+                      @empty
+                      @endforelse
                     </div>
                     <div class="mb-3">
                         <h4 for="" class="form-label">Colors</h4>
-                        <label for="exampleInputColor1" class="form-label">Blue</label>
-                        <input type="radio" name="colors" id="exampleInputColor1">
-                    </div>
-                    <div class="mb-3">
-                        <h4 for="" class="form-label">Sizes</h4>
-                        <label for="exampleInputSize1" class="form-label">34</label>
-                        <input type="radio" name="sizes" id="exampleInputSize1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputStock1" class="form-label">Stock</label>
-                        <input type="number" name="stock" class="form-control" id="exampleInputStock1">
+                        @forelse ($colors as $color)
+                          <div class="colorBox" style="background-color: {{ $color->color }};"></div>
+                          <input type="checkbox" name="colors[]" id="exampleInputColor{{ $color->id }}" value="{{ $color->id }}">
+                        @empty
+                        @endforelse
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>

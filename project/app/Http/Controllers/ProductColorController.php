@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Product_Color;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Size;
+use App\Models\Stock;
+use App\Models\Photo;
 
 class ProductColorController extends Controller
 {
@@ -19,17 +23,60 @@ class ProductColorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Product_Color $product_color)
     {
-        //
+        $product = Product::where('id', $product_color->product->id)->get();
+        $sizes = Size::all();
+
+        return view('includes.addProductColor', compact('product_color', 'product', 'sizes'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Product_Color $product_color)
     {
-        //
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'size' => 'required',
+        ]);
+
+        $foto = new Photo();
+        if($request->hasFile('image')){
+            $imgName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->store('public/images');
+            $foto->img = $imgName;
+            $foto->imgPath = 'storage/images/'.$request->file('image')->hashName();
+            $foto->product_color_id = $product_color->id;
+            $foto->save();
+        }
+
+        foreach($request->size as $size){
+            $stock = new Stock();
+            $stock->product_color_id = $product_color->id;
+            $stock->size_id = $size;
+            $stock->stock = 0;
+            $stock->price = 0;
+            $stock->save();
+        }
+        
+        $firstProdColor = Product_Color::where('product_id', $product_color->product->id)->first();
+        $allProductColors = Product_Color::where('product_id', $product_color->product->id)->get();
+        $length = count($allProductColors);
+
+        $product = Product::where('id', $product_color->product->id)->get();
+        $sizes = Size::all();
+
+        foreach($allProductColors as $index => $prodColor){
+            if($prodColor->id == $product_color->id && $index < $length-1){
+                $product_color = $allProductColors[$index + 1];
+                return view('includes.addProductColor', compact('product_color',  'product', 'sizes'));
+            }
+        }
+        
+        $stock = Stock::where('product_color_id', $firstProdColor->id)->first();
+
+        return redirect()->route('admin.addStock', $stock)->with('success', 'Product added successfully.');
     }
 
     /**

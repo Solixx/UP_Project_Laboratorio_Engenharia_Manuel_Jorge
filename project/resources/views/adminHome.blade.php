@@ -325,7 +325,7 @@
               <div class="card overflow-hidden rounded-2">
                 <div class="position-relative">
                   <a href="javascript:void(0)">
-                    @if($product->Product_Color->photos->first()->exists())
+                    @if($product->Product_Color && $product->Product_Color->photos && $product->Product_Color->photos->first())
                       <img src="{{ asset($product->Product_Color->photos->first()->imgPath) }}" class="card-img-top rounded-0" alt="{{ $product->Product_Color->photos->first()->img }}">
                     @else
                       <img src="https://via.placeholder.com/100"  class="card-img-top rounded-0" alt="">
