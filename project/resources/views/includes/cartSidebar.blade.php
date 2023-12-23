@@ -10,7 +10,7 @@
     <hr>
     
     <div class="cartProds">
-        @forelse (Cart::instance('shopping')->content() as $item)
+        @forelse ($cart->content() as $item)
             @if(!Stock::where('id', (int)$item->id)->exists()) 
                 @continue
             @endif	
@@ -72,15 +72,15 @@
         <div class="cartOrderInfo">
             <div class="cartOrderInfoBox">
                 <p>Subtotal</p>
-                <p>€{{ Cart::instance('shopping')->subtotal(); }}</p>
+                <p>€{{ $cart->subtotal(); }}</p>
             </div>
             <div class="cartOrderInfoBox">
                 <p>Tax</p>
-                <p>€{{ Cart::instance('shopping')->tax(); }}</p>
+                <p>€{{ $cart->tax(); }}</p>
             </div>
             <div class="cartOrderInfoBox">
                 <p>Total</p>
-                <p>€{{ Cart::instance('shopping')->total(); }}</p>
+                <p>€{{ $cart->total(); }}</p>
             </div>
         </div>
         <div class="cartBtn">
