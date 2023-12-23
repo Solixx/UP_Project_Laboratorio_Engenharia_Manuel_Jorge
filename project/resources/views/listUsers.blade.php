@@ -74,14 +74,15 @@
                     @endif
                   </td>
                   <td class="border-bottom-0">
-                    <form action="">
                         @csrf
                         @if($user->id != Auth::user()->id)
-                          <button type="button" class="btn btn-primary m-1">Edit</button>
+                          <form action="{{ Route('admin.editUser',$user->id) }}" method="get">
+                              @csrf
+                              <button type="submit" class="btn btn-primary m-1">Edit</button>
+                          </form>
                         @else
                             <button type="button" class="btn btn-primary m-1" disabled>Edit</button>
                         @endif
-                    </form>
                   </td>
                   <td class="border-bottom-0">
                       @if($user->id != Auth::user()->id)
@@ -165,14 +166,15 @@
                     @endif
                   </td>
                   <td class="border-bottom-0">
-                    <form action="">
                         @csrf
                         @if($user->id != Auth::user()->id)
-                          <button type="button" class="btn btn-primary m-1">Edit</button>
+                          <form action="{{ Route('admin.editUser',$user->id) }}" method="get">
+                              @csrf
+                              <button type="submit" class="btn btn-primary m-1">Edit</button>
+                          </form>
                         @else
                             <button type="button" class="btn btn-primary m-1" disabled>Edit</button>
                         @endif
-                    </form>
                   </td>
                   <td class="border-bottom-0">
                       @if($user->id != Auth::user()->id)
