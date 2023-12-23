@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Mail\NewslleterEmail;
 use App\Models\newslleter;
+use App\Mail\ValidateNewslleterEmail;
 
 class EmailController extends Controller
 {
@@ -70,6 +71,24 @@ class EmailController extends Controller
         foreach($newslleter as $email){
             Mail::to($email->email)->send(new NewslleterEmail($request->message, $request->subject));
         }
+
+        return back();
+    }
+
+    public function formNewslleter(Request $request){
+        $request->validate([
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:newslleters'],
+        ]);
+
+        $newslleter = new newslleter();
+
+        $newslleter->email = $request->email;
+
+        $newslleter->save();
+
+        $hash = Hash::make($request->email);
+
+        Mail::to($request->email)->send(new ValidateNewslleterEmail($newslleter->id, $hash));
 
         return back();
     }
