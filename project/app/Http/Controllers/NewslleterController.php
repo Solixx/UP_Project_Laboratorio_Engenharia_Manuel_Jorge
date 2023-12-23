@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\newslleter;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class NewslleterController extends Controller
 {
@@ -13,7 +15,7 @@ class NewslleterController extends Controller
         return view('includes.createNewslleter');
     }
 
-    public function store(Request $request)
+    /* public function store(Request $request)
     {
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255'],
@@ -26,5 +28,20 @@ class NewslleterController extends Controller
         $newslleter->save();
 
         return redirect()->route('index');
+    } */
+
+    public function store($id, $hash)
+    { 
+        $newslleter = Newslleter::find($id);
+
+        // Check if the hash matches the email
+        if (Hash::check($newslleter->email, $hash)) {
+            $newslleter->email_verified_at = now();
+            $newslleter->save();
+
+            return redirect()->route('index')->with('success', 'Email verified successfully.');
+        } else {
+            return redirect()->route('index')->with('error', 'Email verification failed.');
+        }
     }
 }

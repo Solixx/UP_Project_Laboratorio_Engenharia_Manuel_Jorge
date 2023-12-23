@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('newslleters', function (Blueprint $table) {
             $table->id();
             $table->string('email');
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

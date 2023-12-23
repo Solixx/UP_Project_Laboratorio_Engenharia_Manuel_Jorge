@@ -115,7 +115,9 @@ Route::get('/success', [StripeController::class, 'success'])->name('stripe.succe
 Route::get('admin/newslleter', [NewslleterController::class, 'create'])->name('admin.createNewslleter')->middleware(['auth', 'verified']);
 Route::post('admin/newslleter', [EmailController::class, 'newslleter'])->name('admin.storeNewslleter')->middleware(['auth', 'verified']);
 
-Route::post('/newslleter', [NewslleterController::class, 'store'])->name('newslleter');
+/* Route::post('/newslleter', [NewslleterController::class, 'store'])->name('newslleter'); */
+Route::post('/newslleter', [EmailController::class, 'formNewslleter'])->name('newslleter');
+Route::get('/validateNewslleter/{id}/{hash}', [NewslleterController::class, 'store'])->name('validateNewslleter');
 
 Route::get('/forgetPassword', [RouterController::class, 'forgetPass'])->name('form.forgetPass');
 Route::post('/forgetPassword/reset', [EmailController::class, 'forgetPass'])->name('forgetPass');
