@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Stock;
 use App\Http\Controllers\Controller;
 use App\Models\Categorie;
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\Product_Color;
 use Illuminate\Http\Request;
 use App\Models\Comment;
+use App\Models\Brand;
 
 class StockController extends Controller
 {
@@ -27,18 +29,47 @@ class StockController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Stock $stock)
     {
-        //
-        return view('includes.addProduct');
+        return view('includes.addStock', compact('stock'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Stock $stock)
     {
-        //
+        $request->validate([
+            'price' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ]);
+
+        $stock->price = $request->price;
+        $stock->stock = $request->stock;
+        $stock->save();
+
+        $allProductColors = Product_Color::where('product_id', $stock->product_color->product_id)->get();
+        $lengthProductColors  = count($allProductColors);
+
+        foreach($allProductColors as $indexColor => $prodColor){
+            $allStocks = Stock::where('product_color_id', $prodColor->id)->orderBy('id')->get();
+            $length = count($allStocks);
+            foreach($allStocks as $index => $thisStock){
+                if($thisStock->id == $stock->id && $index < $length-1){
+                    $stock = $allStocks[$index + 1];
+                    return view('includes.addStock', compact('stock'));
+                }
+            }
+
+            if($prodColor->id == $stock->product_color->id && $indexColor < $lengthProductColors-1){
+                $nextProdColor = $allProductColors[$indexColor+1];
+                $stock = Stock::where('product_color_id', $nextProdColor->id)->first();
+                return view('includes.addStock', compact('stock'));
+            }
+        }
+
+
+        return redirect()->route('admin.listProducts')->with('success', 'Stock added successfully');
     }
 
     /**
