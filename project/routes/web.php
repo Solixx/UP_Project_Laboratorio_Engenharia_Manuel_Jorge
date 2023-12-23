@@ -76,6 +76,8 @@ Route::get('admin/categories', [AdminController::class, 'listCategories'])->name
 Route::get('admin/brands', [AdminController::class, 'listBrands'])->name('admin.listBrands')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/orders', [AdminController::class, 'listOrders'])->name('admin.listOrders')->middleware(['isAdmin', 'auth', 'verified']);
 
+Route::get('admin/users/{user}/edit', [AdminController::class, 'edit'])->name('admin.editUser')->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/users/{user}', [AdminController::class, 'update'])->name('admin.updateUser')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/users/{user}', [AdminController::class, 'destroyUser'])->name('admin.deleteUser')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/users/restore/{id}', [AdminController::class, 'restoreUser'])->name('admin.restoreUser')->middleware(['isAdmin', 'auth', 'verified']);
 

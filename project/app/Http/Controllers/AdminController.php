@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Stock;
 use App\Models\User;
 use App\Models\Order;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -102,5 +103,35 @@ class AdminController extends Controller
             return redirect()->back()->with('success', 'User restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');
+    }
+
+    public function edit(User $user){
+        return view('includes.editUser', compact('user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'name' => 'string|max:255',
+            'email' => ['string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'address' => 'string|max:255|nullable',
+            'phone' => 'numeric|nullable|digits_between:9,15|unique:users,phone,'.$user->id,
+            'gender' => 'max:1',
+            'isAdmin' => 'boolean',
+        ]);
+
+        if($request->hasFile('image')){
+            $imgName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->store('public/images');
+            $user->img = $imgName;
+            $user->imgPath = 'storage/images/'.$request->file('image')->hashName();
+        }
+
+        $user->isAdmin = $request->has('isAdmin');
+
+        $user->update($request->except('isAdmin'));
+
+        return back()->with('status', 'User Has been updated');
     }
 }
