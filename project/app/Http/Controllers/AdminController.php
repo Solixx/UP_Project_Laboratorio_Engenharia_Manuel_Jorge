@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 
+use App\Models\Product;
 use App\Models\Stock;
 use App\Models\User;
 use App\Models\Order;
@@ -45,8 +46,8 @@ class AdminController extends Controller
     public function listProducts()
     {
         if(auth()->user()->isAdmin) {
-            $products = Stock::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
-            $productsDisabled = Stock::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
+            $products = Product::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
+            $productsDisabled = Product::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
 
             return view('listProducts', compact('products', 'productsDisabled'));
         }

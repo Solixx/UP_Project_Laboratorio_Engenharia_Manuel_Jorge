@@ -1,7 +1,7 @@
 @extends('layouts.adminPanelApp')
  
 @section('title')
-    Add Product | UP
+    Edit Stock | UP
 @endsection
 
 @php
@@ -26,25 +26,23 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Add Product {{ $stock->size->size }}</h5>
+              <h5 class="card-title fw-semibold mb-4">Edit Stock</h5>
               <div class="card" style="background-color: rgba({{ $r }}, {{ $g }}, {{ $b }}, {{ $opacity }}); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
                 <div class="card-body">
-                  <form action="{{ Route('admin.storeStock', $stock->id) }}" method="post">
+                  <form action="{{ Route('admin.updateStock',$stock->id) }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                      <h4 for="" class="form-label">Price</h4>
-                        <input type="number" name="price">
+                      <label for="exampleInputDescription1" class="form-label">Price</label>
+                      <input type="number" name="price" class="form-control" id="exampleInputDescription1" value="{{ $stock->price }}">
                     </div>
                     <div class="mb-3">
-                        <h4 for="" class="form-label">Stock</h4>
-                          <input type="number" name="stock">
-                      </div>
-                    <div class="mb-3">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                        <label for="exampleInputDescription2" class="form-label">Stock</label>
+                        <input type="number" name="stock" class="form-control" id="exampleInputDescription2" value="{{ $stock->stock }}">
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
                 </div>
-              </div>  
+              </div>
             </div>
           </div>
         </div>
