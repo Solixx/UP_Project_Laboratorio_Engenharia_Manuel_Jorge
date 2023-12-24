@@ -18,6 +18,14 @@ class CartController extends Controller
     {
         Cart::instance('shopping')->add($stock->id, $stock->product_color->product->name, 1, $stock->price)->associate('App\Models\Stock');
 
+        $stockId = $stock->id;
+        $item = Cart::instance('shopping')->search(function ($cartItem, $rowId) use ($stockId) {
+            return $cartItem->id === $stockId;
+        });
+        if($item->first()->qty > $stock->stock){
+            Cart::instance('shopping')->update($item->first()->rowId, $stock->stock);
+        }
+
         return back();
     }
 
