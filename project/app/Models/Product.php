@@ -34,4 +34,8 @@ class Product extends Model
     public function comments(){
         return $this->hasMany(Comment::class, 'product_id', 'id');
     }
+
+    public function getColorsWithTrashed(){
+        return $this->hasMany(Product_Color::class, 'product_id', 'id')->withTrashed();
+    }
 }

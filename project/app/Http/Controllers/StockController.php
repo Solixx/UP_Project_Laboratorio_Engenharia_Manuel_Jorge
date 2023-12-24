@@ -11,6 +11,7 @@ use App\Models\Product_Color;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Brand;
+use App\Models\Size;
 
 class StockController extends Controller
 {
@@ -32,6 +33,16 @@ class StockController extends Controller
     public function create(Stock $stock)
     {
         return view('includes.addStock', compact('stock'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function createProdColorStock(Product_Color $product_color)
+    {
+        $sizes = Size::all();
+
+        return view('includes.addStock-ProdColor', compact('product_color', 'sizes'));
     }
 
     /**
@@ -73,6 +84,28 @@ class StockController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     */
+    public function storeProdColorStock(Request $request)
+    {
+        $request->validate([
+            'product_color_id' => 'required',
+            'size' => 'required',
+            'price' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ]);
+
+        $stock = new Stock();
+        $stock->product_color_id = $request->product_color_id;
+        $stock->price = $request->price;
+        $stock->stock = $request->stock;
+        $stock->size_id = $request->size;
+        $stock->save();
+
+        return redirect()->route('admin.editProductColor', $request->product_color_id)->with('success', 'Stock added successfully');
+    }
+
+    /**
      * Display the specified resource.
      */
     public function show(Stock $stock)
@@ -86,7 +119,7 @@ class StockController extends Controller
      */
     public function edit(Stock $stock)
     {
-        //
+        return view('includes.editStock', compact('stock'));
     }
 
     /**
@@ -94,7 +127,18 @@ class StockController extends Controller
      */
     public function update(Request $request, Stock $stock)
     {
-        //
+        $request->validate([
+            'price' => 'numeric',
+            'stock' => 'numeric',
+        ]);
+
+        $stock->price = $request->price;
+        $stock->stock = $request->stock;
+
+        $stock->save();
+
+        return redirect()->back()
+            ->with('success', 'Product updated successfully');
     }
 
     /**

@@ -90,24 +90,52 @@ class ProductColorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product_Color $product_Color)
+    public function edit(Product_Color $product_color)
     {
-        //
+        $stocks = Stock::where('product_color_id', $product_color->id)->get();
+        $stocksDisabled  = Stock::where('product_color_id', $product_color->id)->onlyTrashed()->get();
+
+        return view('includes.editProductColor', compact('product_color', 'stocks', 'stocksDisabled'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product_Color $product_Color)
+    public function update(Request $request, Product_Color $product_color)
     {
-        //
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        $foto = new Photo();
+        if($request->hasFile('image')){
+            $imgName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->store('public/images');
+            $foto->img = $imgName;
+            $foto->imgPath = 'storage/images/'.$request->file('image')->hashName();
+            $foto->product_color_id = $product_color->id;
+            $foto->save();
+        }
+
+        return redirect()->back()
+            ->with('success', 'Product Color updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product_Color $product_Color)
+    public function destroy(Product_Color $product_color)
     {
-        //
+        $product = $product_color->product;
+
+        $stocks = Stock::where('product_color_id', $product_color->id)->get();
+        foreach($stocks as $stock){
+            $stock->delete();
+        }
+
+        $product_color->delete();
+
+        return redirect()->route('admin.editProduct', $product->id)
+            ->with('success', 'Brand deleted successfully.');
     }
 }

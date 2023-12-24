@@ -31,7 +31,7 @@
                 <th class="border-bottom-0">
                   <h6 class="fw-semibold mb-0">Name</h6>
                 </th>
-                <th class="border-bottom-0">
+                {{-- <th class="border-bottom-0">
                   <h6 class="fw-semibold mb-0">Size</h6>
                 </th>
                 <th class="border-bottom-0">
@@ -39,12 +39,12 @@
                 </th>
                 <th class="border-bottom-0">
                     <h6 class="fw-semibold mb-0">Stock</h6>
-                </th>
+                </th> --}}
                 <th class="border-bottom-0">
                   <h6 class="fw-semibold mb-0">Edit</h6>
                 </th>
                 <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Disable</h6>
+                  <h6 class="fw-semibold mb-0">Disable</h6>
                 </th>
               </tr>
             </thead>
@@ -53,16 +53,16 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $product->id }}</h6></td>
                   <td class="border-bottom-0">
-                    @if($product->Product_Color && $product->Product_Color->photos && $product->Product_Color->photos->first() && $product->Product_Color->photos->first()->exists())
-                      <img style="width: 100px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($product->Product_Color->photos->first()->imgPath) }}" class="card-img-top rounded-0" alt="{{ $product->Product_Color->photos->first()->img }}">
+                    @if($product->getColorsWithTrashed && $product->getColorsWithTrashed->first() && $product->getColorsWithTrashed->first()->photos->first() && $product->getColorsWithTrashed->first()->photos->first()->exists())
+                      <img style="width: 100px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($product->getColorsWithTrashed->first()->photos->first()->imgPath) }}" class="card-img-top rounded-0" alt="{{ $product->getColorsWithTrashed->first()->photos->first()->img }}">
                     @else
                       <img style="width: 100px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="https://via.placeholder.com/100"  class="card-img-top rounded-0" alt="">
                     @endif
                   </td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $product->product_color->product->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $product->name }}</h6>                      
                   </td>
-                  <td class="border-bottom-0">
+                  {{-- <td class="border-bottom-0">
                     <h6 class="fw-semibold mb-1">{{ $product->size->size }}</h6>                      
                 </td>
                 <td class="border-bottom-0">
@@ -70,11 +70,11 @@
                 </td>
                 <td class="border-bottom-0">
                     <p class="fw-semibold mb-1">{{ $product->stock }}</p>                      
-                </td>
+                </td> --}}
                   <td class="border-bottom-0">
-                    <form action="">
+                    <form action="{{ Route('admin.editProduct', $product->id) }}" method="GET">
                         @csrf
-                        <button type="button" class="btn btn-primary m-1">Edit</button>
+                        <button type="submit" class="btn btn-primary m-1">Edit</button>
                     </form>
                   </td>
                   <td class="border-bottom-0">
@@ -112,7 +112,7 @@
                 <th class="border-bottom-0">
                   <h6 class="fw-semibold mb-0">Name</h6>
                 </th>
-                <th class="border-bottom-0">
+                {{-- <th class="border-bottom-0">
                   <h6 class="fw-semibold mb-0">Size</h6>
                 </th>
                 <th class="border-bottom-0">
@@ -120,7 +120,7 @@
                 </th>
                 <th class="border-bottom-0">
                     <h6 class="fw-semibold mb-0">Stock</h6>
-                </th>
+                </th> --}}
                 <th class="border-bottom-0">
                   <h6 class="fw-semibold mb-0">Edit</h6>
                 </th>
@@ -134,16 +134,16 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $product->id }}</h6></td>
                   <td class="border-bottom-0">
-                    @if($product->Product_Color && $product->Product_Color->photos && $product->Product_Color->photos->first() && $product->Product_Color->photos->first()->exists())
-                      <img style="width: 100px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($product->Product_Color->photos->first()->imgPath) }}" class="card-img-top rounded-0" alt="{{ $product->Product_Color->photos->first()->img }}">
+                    @if($product->getColorsWithTrashed && $product->getColorsWithTrashed->first() && $product->getColorsWithTrashed->first()->photos->first() && $product->getColorsWithTrashed->first()->photos->first()->exists())
+                      <img style="width: 100px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($product->getColorsWithTrashed->first()->photos->first()->imgPath) }}" class="card-img-top rounded-0" alt="{{ $product->getColorsWithTrashed->first()->photos->first()->img }}">
                     @else
                       <img style="width: 100px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="https://via.placeholder.com/100"  class="card-img-top rounded-0" alt="">
                     @endif
                   </td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $product->product_color->product->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $product->name }}</h6>                      
                   </td>
-                  <td class="border-bottom-0">
+                 {{--  <td class="border-bottom-0">
                     <h6 class="fw-semibold mb-1">{{ $product->size->size }}</h6>                      
                 </td>
                 <td class="border-bottom-0">
@@ -151,11 +151,11 @@
                 </td>
                 <td class="border-bottom-0">
                     <p class="fw-semibold mb-1">{{ $product->stock }}</p>                      
-                </td>
+                </td> --}}
                   <td class="border-bottom-0">
-                    <form action="">
+                    <form action="{{ Route('admin.editProduct', $product->id) }}" method="GET">
                         @csrf
-                        <button type="button" class="btn btn-primary m-1">Edit</button>
+                        <button type="submit" class="btn btn-primary m-1">Edit</button>
                     </form>
                   </td>
                   <td class="border-bottom-0">

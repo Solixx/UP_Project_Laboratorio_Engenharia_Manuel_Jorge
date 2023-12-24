@@ -20,6 +20,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\NewslleterController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProductColorController;
 use App\Http\Controllers\ProductController;
 
@@ -85,12 +86,27 @@ Route::get('admin/users/restore/{id}', [AdminController::class, 'restoreUser'])-
 
 Route::get('admin/product/create', [ProductController::class, 'create'])->name('admin.addProduct')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/product/store', [ProductController::class, 'store'])->name('admin.storeProduct')->middleware(['isAdmin', 'auth', 'verified']);
-Route::get('admin/product/{stock}', [StockController::class, 'destroy'])->name('admin.deleteProduct')->middleware(['isAdmin', 'auth', 'verified']);
-Route::get('admin/product/restore/{id}', [StockController::class, 'restoreProduct'])->name('admin.restoreProduct')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/product/{product}', [ProductController::class, 'destroy'])->name('admin.deleteProduct')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/product/restore/{id}', [ProductController::class, 'restoreProduct'])->name('admin.restoreProduct')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/product/{product}/edit', [ProductController::class, 'edit'])->name('admin.editProduct')->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/product/{product}', [ProductController::class, 'update'])->name('admin.updateProduct')->middleware(['isAdmin', 'auth', 'verified']);
+
 Route::get('admin/productColor/create/{product_color}', [ProductColorController::class, 'create'])->name('admin.addProductColor')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/productColor/store/{product_color}', [ProductColorController::class, 'store'])->name('admin.storeProductColor')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/productColor/{product_color}/edit', [ProductColorController::class, 'edit'])->name('admin.editProductColor')->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/productColor/{product_color}', [ProductColorController::class, 'update'])->name('admin.updateProductColor')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/productColor/{product_color}', [ProductColorController::class, 'destroy'])->name('admin.deleteProductColor')->middleware(['isAdmin', 'auth', 'verified']);
+
+Route::get('admin/photo/{photo}', [PhotoController::class, 'destroy'])->name('admin.deletePhoto')->middleware(['isAdmin', 'auth', 'verified']);
+
 Route::get('admin/stock/create/{stock}', [StockController::class, 'create'])->name('admin.addStock')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/productColor/stock/create/{product_color}', [StockController::class, 'createProdColorStock'])->name('admin.addProdColorStock')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/stock/store/{stock}', [StockController::class, 'store'])->name('admin.storeStock')->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/productColor/stock/store', [StockController::class, 'storeProdColorStock'])->name('admin.storeProdColorStock')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/stock/{stock}/edit', [StockController::class, 'edit'])->name('admin.editStock')->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/stock/{stock}', [StockController::class, 'update'])->name('admin.updateStock')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/stock/{stock}', [StockController::class, 'destroy'])->name('admin.deleteStock')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/stock/restore/{id}', [StockController::class, 'restoreProduct'])->name('admin.restoreStock')->middleware(['isAdmin', 'auth', 'verified']);
 
 Route::get('admin/categorie/create', [CategorieController::class, 'create'])->name('admin.addCategorie')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/categorie/store', [CategorieController::class, 'store'])->name('admin.storeCategorie')->middleware(['isAdmin', 'auth', 'verified']);

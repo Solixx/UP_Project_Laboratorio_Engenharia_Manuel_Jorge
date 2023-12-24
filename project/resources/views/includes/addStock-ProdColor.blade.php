@@ -1,12 +1,12 @@
 @extends('layouts.adminPanelApp')
  
 @section('title')
-    Add Product | UP
+    Add Stock | UP
 @endsection
 
 @php
   // Convert HEX to RGB
-  list($r, $g, $b) = sscanf($stock->product_color->color->color, "#%02x%02x%02x");
+  list($r, $g, $b) = sscanf($product_color->color->color, "#%02x%02x%02x");
   // Set the desired opacity (e.g., 0.5 for 50% opacity)
   $opacity = 0.2;
 @endphp
@@ -26,11 +26,12 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Add Product {{ $stock->size->size }}</h5>
+              <h5 class="card-title fw-semibold mb-4">Add Stock</h5>
               <div class="card" style="background-color: rgba({{ $r }}, {{ $g }}, {{ $b }}, {{ $opacity }}); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
                 <div class="card-body">
-                  <form action="{{ Route('admin.storeStock', $stock->id) }}" method="post">
+                  <form action="{{ Route('admin.storeProdColorStock') }}" method="post">
                     @csrf
+                    <input type="hidden" name="product_color_id" value="{{ $product_color->id }}">
                     <div class="mb-3">
                       <h4 for="" class="form-label">Price</h4>
                         <input type="number" name="price">
@@ -38,7 +39,16 @@
                     <div class="mb-3">
                         <h4 for="" class="form-label">Stock</h4>
                           <input type="number" name="stock">
-                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <h4 for="" class="form-label">Sizes</h4>
+                            @forelse ($sizes as $size)
+                                <label for="size{{$size->id}}">{{ $size->size }}</label>
+                                <input type="radio" id="size{{$size->id}}" name="size" value="{{ $size->id }}">
+                            @empty
+                            @endforelse
+                          
+                    </div>
                     <div class="mb-3">
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
