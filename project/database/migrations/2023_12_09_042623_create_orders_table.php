@@ -17,6 +17,7 @@ return new class extends Migration
             $table->float('total_price')->default(0);
             $table->string('status')->default('pending');
             $table->date('delivery_date')->nullable();
+            $table->date('canceled_date')->nullable();
             $table->string('delivery_time')->nullable();
             $table->string('delivery_address')->nullable();
             $table->string('delivery_phone')->nullable();

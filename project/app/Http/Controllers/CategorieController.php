@@ -8,6 +8,7 @@ use App\Models\Product_Categorie;
 use Illuminate\Http\Request;
 use App\Models\Product_Color;
 use App\Models\Stock;
+use App\Models\Product;
 
 class CategorieController extends Controller
 {
@@ -81,12 +82,17 @@ class CategorieController extends Controller
      */
     public function destroy(Categorie $categorie)
     {
-        foreach(Product_Categorie::where('categorie_id', $categorie->id)->get() as $product){
-            foreach(Product_Color::where('product_id', $product->product_id)->get() as $productColor){
-                foreach(Stock::where('product_color_id', $productColor->id)->get() as $stock){
-                    $stock->delete();
+        foreach(Product_Categorie::where('categorie_id', $categorie->id)->get() as $product_categorie){
+            foreach(Product::where('id', $product_categorie->product_id)->get() as $product){
+                foreach(Product_Color::where('product_id', $product->id)->get() as $productColor){
+                    foreach(Stock::where('product_color_id', $productColor->id)->get() as $stock){
+                        $stock->delete();
+                    }
+                    $productColor->delete();
                 }
+                $product->delete();
             }
+            $product_categorie->delete();
         }
 
         $categorie->delete();

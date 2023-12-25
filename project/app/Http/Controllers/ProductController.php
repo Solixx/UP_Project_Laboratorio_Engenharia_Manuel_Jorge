@@ -13,6 +13,7 @@ use App\Models\Product_Categorie;
 use App\Models\Product_Color;
 use App\Models\Photo;
 use App\Models\Stock;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ProductController extends Controller
 {
@@ -182,6 +183,14 @@ class ProductController extends Controller
         foreach($product_colors as $prodColor){
             $stocks = Stock::where('product_color_id', $prodColor->id)->get();
             foreach($stocks as $stock){
+                $stockId = $stock->id;
+                $item = Cart::instance('shopping')->search(function ($cartItem, $rowId) use ($stockId) {
+                    return $cartItem->id === $stockId;
+                });
+        
+                if($item->isNotEmpty()) {
+                    Cart::instance('shopping')->remove($item->first()->rowId);
+                }
                 $stock->delete();
             }
             $prodColor->delete();

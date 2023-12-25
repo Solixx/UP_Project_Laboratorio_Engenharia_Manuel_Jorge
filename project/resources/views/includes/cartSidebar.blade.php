@@ -17,7 +17,11 @@
             @endif	
             <div class="cartProdBox">
                 <div class="cartProdImg">
-                    <img src="{{ asset($stock->product_color->photos->first()->imgPath) }}" alt="{{ $stock->product_color->photos->first()->img }}">
+                    @if(count($stock->product_color->photos) > 0)
+                        <img src="{{ asset($stock->product_color->photos->first()->imgPath) }}" alt="{{ $stock->product_color->photos->first()->img }}">
+                    @else
+                        <img src="{{ asset('imgs/no_img.JPG') }}" alt="">
+                    @endif
                 </div>
                 <div class="cartProdTitleQuant">
                     <h3>{{ $item->name }}</h3>

@@ -59,13 +59,13 @@
                             <h3>Order: #{{ $order->id }}</h3>
                             <p>{{ $order->status }}</p>
                         </div>
-                        @forelse ($order->order_items as $item)
+                        @forelse ($order->order_itemsWithTrashed as $item)
                             <div class="orderBoxContent">
                                 <div class="orderProds">
                                     <div class="orderBoxContentImage">
-                                        <a href="{{ Route('product', $item->stock->id) }}">
-                                            @if($item->stock->Product_Color->photos->first()->exists()) 
-                                                <img src="{{ asset($item->stock->Product_Color->photos->first()->imgPath) }}" alt="{{ $item->stock->Product_Color->photos->first()->img }}">
+                                        <a href="{{ Route('product', $item->stockWithTrashed->id) }}">
+                                            @if($item->stockWithTrashed->product_colorWithTrashed->photos->first()->exists()) 
+                                                <img src="{{ asset($item->stockWithTrashed->product_colorWithTrashed->photos->first()->imgPath) }}" alt="{{ $item->stockWithTrashed->product_colorWithTrashed->photos->first()->img }}">
                                             @else
                                                 <img src="https://via.placeholder.com/100" alt="">
                                             @endif
@@ -73,10 +73,10 @@
                                     </div>
                                     <div class="orderBoxContentInfo">
                                         <div class="orderProdInfos">
-                                            <h3>{{ $item->stock->Product_Color->product->name }}</h3>
-                                            <p>{{ $item->stock->Product_Color->product->description }}</p>
-                                            <h3>{{ $item->stock->size->size }}</h3>
-                                            <div class="colorBox colorActive" style="background-color: {{ $item->stock->Product_Color->color->color }};"></div>
+                                            <h3>{{ $item->stockWithTrashed->product_colorWithTrashed->productWithTrashed->name }}</h3>
+                                            <p>{{ $item->stockWithTrashed->product_colorWithTrashed->productWithTrashed->description }}</p>
+                                            <h3>{{ $item->stockWithTrashed->size->size }}</h3>
+                                            <div class="colorBox colorActive" style="background-color: {{ $item->stockWithTrashed->product_colorWithTrashed->color->color }};"></div>
                                         </div>
                                         <div class="orderProdPrice">
                                             <h3>{{ $item->price }}€</h3>

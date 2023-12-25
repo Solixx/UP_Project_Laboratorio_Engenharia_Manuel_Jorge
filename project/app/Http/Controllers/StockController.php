@@ -14,6 +14,7 @@ use App\Models\Brand;
 use App\Models\Size;
 use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class StockController extends Controller
 {
@@ -165,6 +166,14 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
+        $stockId = $stock->id;
+        $item = Cart::instance('shopping')->search(function ($cartItem, $rowId) use ($stockId) {
+            return $cartItem->id === $stockId;
+        });
+    
+        if($item->isNotEmpty()) {
+            Cart::instance('shopping')->remove($item->first()->rowId);
+        }
         $stock->delete();
 
         return back();

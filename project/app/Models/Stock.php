@@ -24,6 +24,10 @@ class Stock extends Model
         return $this->belongsTo(Product_Color::class, 'product_color_id', 'id');
     }
 
+    public function product_colorWithTrashed(){
+        return $this->product_color()->withTrashed();
+    }
+
     public function size(){
         return $this->belongsTo(Size::class, 'size_id', 'id');
     }
