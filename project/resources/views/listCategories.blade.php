@@ -64,6 +64,9 @@
           </table>
         </div>
       </div>
+
+      {{ $categories->links('vendor.pagination.custom-pagination') }}
+
     </div>
 </div>
 
@@ -119,6 +122,9 @@
             </div> --}}
         </div>
       </div>
+
+      {{ $categoriesDisabled->links('vendor.pagination.custom-pagination') }}
+
     </div>
   </div>
 </div>

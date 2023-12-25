@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="{{ asset('imgs/logo.png') }}" />
   <link rel="stylesheet" href="{{ asset('css/styles.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
 
   <title>@yield('title', 'Admin Panel | UP')</title>
 

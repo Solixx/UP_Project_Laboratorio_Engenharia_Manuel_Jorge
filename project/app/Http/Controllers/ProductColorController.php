@@ -93,8 +93,8 @@ class ProductColorController extends Controller
      */
     public function edit(Product_Color $product_color)
     {
-        $stocks = Stock::where('product_color_id', $product_color->id)->get();
-        $stocksDisabled  = Stock::where('product_color_id', $product_color->id)->onlyTrashed()->get();
+        $stocks = Stock::where('product_color_id', $product_color->id)->paginate(5);
+        $stocksDisabled  = Stock::where('product_color_id', $product_color->id)->onlyTrashed()->paginate(5);
 
         return view('includes.editProductColor', compact('product_color', 'stocks', 'stocksDisabled'));
     }
