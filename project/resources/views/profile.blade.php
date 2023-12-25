@@ -30,10 +30,12 @@
         <div class="content favProducts">
             <div id="favProductsImageGallery" class="favProductsInfo">
                 @forelse ($favorites as $fav)
-                    <div class="newArrivalsBox">
-                        <img src="{{ asset($fav->stock->product_color->photos->first()->imgPath) }}" alt="{{ $fav->stock->product_color->photos->first()->img }}">
-                        <a href="{{ route('product',$fav->stock->id) }}"><p>Go To ></p></a>    
-                    </div>
+                    @if($fav && $fav->stock)
+                        <div class="newArrivalsBox">
+                            <img src="{{ asset($fav->stock->product_color->photos->first()->imgPath) }}" alt="{{ $fav->stock->product_color->photos->first()->img }}">
+                            <a href="{{ route('product',$fav->stock->id) }}"><p>Go To ></p></a>    
+                        </div>
+                    @endif
                 @empty
                     
                 @endforelse

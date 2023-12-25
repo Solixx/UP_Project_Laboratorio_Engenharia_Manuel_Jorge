@@ -12,7 +12,7 @@
     <div class="cartProds">
         @forelse ($cart->content() as $item)
             @php $stock = $item->model; @endphp
-            @if(!$stock->exists()) 
+            @if(!$stock) 
                 @continue
             @endif	
             <div class="cartProdBox">
