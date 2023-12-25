@@ -105,6 +105,11 @@ class CategorieController extends Controller
         $data = Categorie::withTrashed()->find($id);
         if(auth()->user()->isAdmin) {
             $data->restore();
+            $product_categories = Product_Categorie::where('categorie_id', $data->id)->withTrashed()->get();
+            foreach($product_categories as $product_category){
+                $product_category->restore();
+            }
+
             return redirect()->back()->with('success', 'User restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');

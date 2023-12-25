@@ -118,17 +118,41 @@
                 <ul class="timeline-widget mb-0 position-relative mb-n5">
                   @foreach ($orders as $order)
                     <li class="timeline-item d-flex position-relative overflow-hidden">
-                      <div class="timeline-time text-dark flex-shrink-0 text-end"> 
-                        @if ($order->delivery_date)
-                          {{ $order->delivery_date }}
+                      
+                        @if ($order->status == 'pending' || $order->status == 'processed')
+                          <div class="timeline-time text-dark flex-shrink-0 text-end"> 
+                            {{ $order->processed_date }}
+                          </div>
+                          <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                            <span class="timeline-badge border-2 border border-warning flex-shrink-0 my-8"></span>
+                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                          </div>
+                        @elseif($order->status == 'shipped')
+                          <div class="timeline-time text-dark flex-shrink-0 text-end"> 
+                            {{ $order->shipped_date }}
+                          </div>
+                          <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                            <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
+                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                          </div>
+                        @elseif($order->status == 'delivered')
+                          <div class="timeline-time text-dark flex-shrink-0 text-end"> 
+                            {{ $order->delivery_date }}
+                          </div>
+                          <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                            <span class="timeline-badge border-2 border border-success flex-shrink-0 my-8"></span>
+                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                          </div>
                         @else
-                            xx/xx/xxxx
+                          <div class="timeline-time text-dark flex-shrink-0 text-end"> 
+                            {{ $order->canceled_date }}
+                          </div>
+                          <div class="timeline-badge-wrap d-flex flex-column align-items-center">
+                            <span class="timeline-badge border-2 border border-danger flex-shrink-0 my-8"></span>
+                            <span class="timeline-badge-border d-block flex-shrink-0"></span>
+                          </div>
                         @endif
-                      </div>
-                      <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                        <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                        <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                      </div>
+                      
                       <div class="timeline-desc fs-3 text-dark mt-n1">Order#{{ $order->id }}: {{ $order->delivery_name }}</div>
                     </li>
                   @endforeach

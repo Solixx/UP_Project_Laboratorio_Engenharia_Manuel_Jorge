@@ -25,7 +25,7 @@ class AdminController extends Controller
         if(auth()->user()->isAdmin) {
             $products = Stock::orderBy('created_at', 'desc')->orderBy('id', 'desc')->take(4)->get();
             $users = User::orderBy('created_at', 'desc')->orderBy('id', 'desc')->take(5)->get();
-            $orders = Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->take(5)->get();
+            $orders = Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->withTrashed()->take(5)->get();
 
             return view('adminHome', compact('products', 'users', 'orders'));
         }

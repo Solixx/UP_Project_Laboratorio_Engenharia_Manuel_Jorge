@@ -128,6 +128,11 @@ class BrandController extends Controller
         $data = Brand::withTrashed()->find($id);
         if(auth()->user()->isAdmin) {
             $data->restore();
+            $product_brands = Product_Brand::where('brand_id', $data->id)->withTrashed()->get();
+            foreach($product_brands as $product_brand){
+                $product_brand->restore();
+            }
+
             return redirect()->back()->with('success', 'User restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');

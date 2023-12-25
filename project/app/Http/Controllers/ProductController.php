@@ -205,6 +205,15 @@ class ProductController extends Controller
     public function restoreProduct($id)
     {
         $data = Product::withTrashed()->find($id);
+        $count_product_brands = count(Product_Brand::where('product_id', $data->id)->onlyTrashed()->get());
+        $count_product_categories = count(Product_Categorie::where('product_id', $data->id)->onlyTrashed()->get());
+        if($count_product_brands > 0){
+            return back()->with('error', 'This product have one or more brands disabled');
+        }
+        if($count_product_categories > 0){
+            return back()->with('error', 'This product have one or more categories disabled');
+        }
+
         if(auth()->user()->isAdmin) {
             $data->restore();
             return redirect()->back()->with('success', 'User restored successfully');
