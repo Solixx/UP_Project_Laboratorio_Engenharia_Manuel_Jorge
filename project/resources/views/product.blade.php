@@ -1,9 +1,3 @@
-@php 
-    use App\Models\Stock; 
-    use App\Models\Size;
-    use App\Models\Favorite;
-@endphp
-
 @extends('layouts.app')
 
 @section('title')
@@ -53,6 +47,34 @@
 
                 @section('prodSizes')
                     <div class="size">
+                        @forelse ($stocks as $thisStock)
+                            <div class="sizeBoxSpace"> 
+                                @if ($stock->id == $thisStock->stock_id)
+                                    @if($thisStock->stock == 0)
+                                        <a href="{{ route('product',$thisStock->stock_id) }}">
+                                            <div class="sizeBox sizeActive sizeOut">{{ $thisStock->size }}</div>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('product',$thisStock->stock_id) }}">
+                                            <div class="sizeBox sizeActive">{{ $thisStock->size }}</div>
+                                        </a>
+                                    @endif
+                                @else
+                                    @if($thisStock->stock == 0)
+                                        <a href="{{ route('product',$thisStock->stock_id) }}">
+                                            <div class="sizeBox sizeOut">{{ $thisStock->size }}</div>
+                                        </a>
+                                    @else
+                                        <a href="{{ route('product',$thisStock->stock_id) }}">
+                                            <div class="sizeBox">{{ $thisStock->size }}</div>
+                                        </a>
+                                    @endif
+                                @endif
+                            </div>
+                        @empty 
+                        @endforelse
+                    </div>
+                    {{-- <div class="size">
                         @php $thisProductColor = $stock->product_color; 
                           $stocks = Stock::where('product_color_id', $thisProductColor->id)->get();
                           $sizes = array();
@@ -87,7 +109,7 @@
                                 @endif
                             </div>
                         @endforeach
-                    </div>
+                    </div> --}}
                 @endsection
 
                 @include('includes.productInfo')
@@ -104,8 +126,8 @@
                             <button class="addCartBtn">Add to cart</button>
                         </form>
                     @endif
-                    @if (Auth::user() && Favorite::where('user_id', Auth::user()->id)->where('stock_id', $stock->id)->get()->first() != null)
-                        <form method="POST" class="favForm" action="{{ Route('favorite.delete',Favorite::where('user_id', Auth::user()->id)->where('stock_id', $stock->id)->get()->first()->id) }}">
+                    @if ($authUser && $fav != null)
+                        <form method="POST" class="favForm" action="{{ Route('favorite.delete',$fav->id) }}">
                             @method('DELETE')
                             @csrf
                             <button class="favBtn favBtnActive">
@@ -140,7 +162,7 @@
                             <div class="commentUserInfo">
                                 <img src="{{ asset($comment->user->imgPath) }}" alt="User">
                                 <h3>{{ $comment->user->name }}</h3>
-                                @if(Auth::user() && Auth::user()->id == $comment->user->id)
+                                @if($authUser && $authUser->id == $comment->user->id)
                                     <div class="commentDelete">
                                         <form method="POST" action="{{ Route('comment.delete',$comment->id) }}">
                                             @method('DELETE')

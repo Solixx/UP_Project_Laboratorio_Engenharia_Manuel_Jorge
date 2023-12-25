@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +24,8 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             $cart = Cart::instance('shopping');
-            $view->with('cart', $cart);
+            $authUser = Auth::user();
+            $view->with(compact('cart', 'authUser'));
         });
     }
 }

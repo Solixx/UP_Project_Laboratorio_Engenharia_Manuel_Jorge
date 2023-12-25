@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    UP | {{ Auth::user()->name }}
+    UP | {{ $authUser->name }}
 @endsection
 
 @section('content')
@@ -9,13 +9,13 @@
     <div class="container">
         <div class="col12 colL12 colM8 colS4 userInfo">
             <div class="userAvatar">
-                <a href="{{ Route('settings.editProfile') }}"><img src="{{asset(Auth::user()->imgPath)}}" alt=""></a>
+                <a href="{{ Route('settings.editProfile') }}"><img src="{{asset($authUser->imgPath)}}" alt=""></a>
             </div>
             <div class="userName">
-                <h1> {{ Auth::user()->name }} </h1>
+                <h1> {{ $authUser->name }} </h1>
             </div>
             <div class="userDate">
-                <p>Member Since: {{ Auth::user()->created_at }}</p>
+                <p>Member Since: {{ $authUser->created_at }}</p>
             </div>
         </div>
     </div>

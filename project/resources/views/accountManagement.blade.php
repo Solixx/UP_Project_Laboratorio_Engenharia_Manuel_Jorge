@@ -12,23 +12,23 @@
             <div class="col6 colL6 colM8 colS4 editProfileForm">
                 <h1>Account Management</h1>
                 <h2>Your Account</h2>
-                <form method="POST" action="{{ route('settings.accountManagementPost',Auth::user()->id) }}">
+                <form method="POST" action="{{ route('settings.accountManagementPost',$authUser->id) }}">
                     @csrf
                     <div class="editProfileInfos">
                         <label for="email">Email</label>
-                        <input type="text" name="email" id="email" placeholder="Email" value="{{ Auth::user()->email }}">
+                        <input type="text" name="email" id="email" placeholder="Email" value="{{ $authUser->email }}">
                         <label for="address">Address</label>
-                        <input type="text" name="address" id="address" placeholder="Address" value="{{ Auth::user()->address }}">
+                        <input type="text" name="address" id="address" placeholder="Address" value="{{ $authUser->address }}">
                         <label for="phone">Phone</label>
-                        <input type="text" name="phone" id="phone" placeholder="Phone" value="{{ Auth::user()->phone }}">
+                        <input type="text" name="phone" id="phone" placeholder="Phone" value="{{ $authUser->phone }}">
                         <p>Gender</p>
                         <div class="genders">
                             <div class="gMan">
-                                <input value="m" type="radio" id="man" name="gender" @if(Auth::user()->gender == 'm') checked @endif>
+                                <input value="m" type="radio" id="man" name="gender" @if($authUser->gender == 'm') checked @endif>
                                 <label for="man">Man</label>
                             </div>
                             <div class="gWomen">
-                                <input value="f" type="radio" name="gender" id="women" @if(Auth::user()->gender == 'f') checked @endif>
+                                <input value="f" type="radio" name="gender" id="women" @if($authUser->gender == 'f') checked @endif>
                                 <label for="women">female</label>
                             </div>
                         </div>

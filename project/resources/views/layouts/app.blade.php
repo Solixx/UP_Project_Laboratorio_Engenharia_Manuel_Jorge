@@ -22,7 +22,7 @@
     <main>
         @guest
             @include('includes.navbar_visitante')
-        @elseif(Auth::user()->isAdmin && Auth::user()->email_verified_at != null)
+        @elseif($authUser->isAdmin && $authUser->email_verified_at != null)
             @include('includes.navbar_adm')
         @else
             @include('includes.navbar_logado')

@@ -14,7 +14,7 @@
              <ul>
                  <li class="liAccount">
                     <div>
-                        <img id="avatarImage" class="avatar" src="{{asset(Auth::user()->imgPath)}}" alt="avatar" />
+                        <img id="avatarImage" class="avatar" src="{{asset($authUser->imgPath)}}" alt="avatar" />
                         <div class="myAccountMenu" id="accountMenu" style="display: none">
                             <h2 class="accountMenuTitle">Account</h2>
                             <hr>
