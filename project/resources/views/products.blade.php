@@ -53,11 +53,11 @@
                 </div>
             @endforeach
         </div>
-        {{-- <div class="container"> --}}
-            <div class="col12 colS4 colM8 colL12 paginations flexCenter">
-                {{ $stocks->links() }}
+        <div class="container">
+            <div class="col12 colS4 colM8 colL12 flexCenter">
+                {{ $stocks->links('vendor.pagination.custom-pagination') }}
             </div>
-        {{-- </div> --}}
+        </div>
     </div>
     
 @endsection

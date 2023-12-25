@@ -86,6 +86,9 @@
           </table>
         </div>
       </div>
+
+      {{ $orders->links('vendor.pagination.custom-pagination') }}
+
     </div>
 </div>
 
@@ -163,6 +166,9 @@
             </div> --}}
         </div>
       </div>
+
+      {{ $ordersDisabled->links('vendor.pagination.custom-pagination') }}
+
     </div>
   </div>
 </div>

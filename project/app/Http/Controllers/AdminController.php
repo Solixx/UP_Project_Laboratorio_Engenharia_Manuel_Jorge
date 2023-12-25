@@ -35,8 +35,8 @@ class AdminController extends Controller
     public function listUsers()
     {
         if(auth()->user()->isAdmin) {
-            $users = User::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
-            $usersDisabled = User::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
+            $users = User::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(10);
+            $usersDisabled = User::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(10);
 
             return view('listUsers', compact('users', 'usersDisabled'));
         }
@@ -46,8 +46,8 @@ class AdminController extends Controller
     public function listProducts()
     {
         if(auth()->user()->isAdmin) {
-            $products = Product::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
-            $productsDisabled = Product::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
+            $products = Product::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(10);
+            $productsDisabled = Product::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(10);
 
             return view('listProducts', compact('products', 'productsDisabled'));
         }
@@ -57,8 +57,8 @@ class AdminController extends Controller
     public function listCategories()
     {
         if(auth()->user()->isAdmin) {
-            $categories = Categorie::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
-            $categoriesDisabled = Categorie::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
+            $categories = Categorie::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(10);
+            $categoriesDisabled = Categorie::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(10);
 
             return view('listCategories', compact('categories', 'categoriesDisabled'));
         }
@@ -68,8 +68,8 @@ class AdminController extends Controller
     public function listBrands()
     {
         if(auth()->user()->isAdmin) {
-            $brands = Brand::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
-            $brandsDisabled = Brand::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
+            $brands = Brand::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(10);
+            $brandsDisabled = Brand::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(10);
 
             return view('listBrands', compact('brands', 'brandsDisabled'));
         }
@@ -79,8 +79,8 @@ class AdminController extends Controller
     public function listOrders()
     {
         if(auth()->user()->isAdmin) {
-            $orders = Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(20);
-            $ordersDisabled = Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(20);
+            $orders = Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->paginate(10);
+            $ordersDisabled = Order::orderBy('created_at', 'desc')->orderBy('id', 'desc')->onlyTrashed()->paginate(10);
 
             return view('listOrders', compact('orders', 'ordersDisabled'));
         }
