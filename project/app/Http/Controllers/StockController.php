@@ -71,14 +71,16 @@ class StockController extends Controller
             foreach($allStocks as $index => $thisStock){
                 if($thisStock->id == $stock->id && $index < $length-1){
                     $stock = $allStocks[$index + 1];
-                    return view('includes.addStock', compact('stock'));
+                    /* return view('includes.addStock', compact('stock')); */
+                    return redirect()->route('admin.addStock', $stock->id);
                 }
             }
 
             if($prodColor->id == $stock->product_color->id && $indexColor < $lengthProductColors-1){
                 $nextProdColor = $allProductColors[$indexColor+1];
                 $stock = Stock::where('product_color_id', $nextProdColor->id)->first();
-                return view('includes.addStock', compact('stock'));
+                /* return view('includes.addStock', compact('stock')); */
+                return redirect()->route('admin.addStock', $stock->id);
             }
         }
 

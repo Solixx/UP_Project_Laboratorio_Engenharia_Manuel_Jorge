@@ -71,7 +71,8 @@ class ProductColorController extends Controller
         foreach($allProductColors as $index => $prodColor){
             if($prodColor->id == $product_color->id && $index < $length-1){
                 $product_color = $allProductColors[$index + 1];
-                return view('includes.addProductColor', compact('product_color',  'product', 'sizes'));
+                /* return view('includes.addProductColor', compact('product_color',  'product', 'sizes')); */
+                return redirect()->route('admin.addProductColor', $product_color->id);
             }
         }
         
