@@ -29,6 +29,11 @@ class Order_Items extends Model
         return $this->belongsTo(Stock::class);
     }
 
+    public function stockWithTrashed()
+    {
+        return $this->stock()->withTrashed();
+    }
+
     public function getSubtotalAttribute()
     {
         return $this->price * $this->quantity + Cart::instance('shopping')->tax();

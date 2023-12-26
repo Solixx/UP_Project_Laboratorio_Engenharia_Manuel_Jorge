@@ -59,11 +59,11 @@
                     <p class="mb-0 fw-normal">{{ $user->email }}</p>
                   </td>
                   <td class="border-bottom-0">
-                    @if ($user->isAdmin && $user->id != Auth::user()->id)
+                    @if ($user->isAdmin && $user->id != $authUser->id)
                       <div class="d-flex align-items-center gap-2">
                         <span class="badge bg-primary rounded-3 fw-semibold">Yes</span>
                       </div>
-                    @elseif($user->id == Auth::user()->id)
+                    @elseif($user->id == $authUser->id)
                       <div class="d-flex align-items-center gap-2">
                         <span class="badge bg-success rounded-3 fw-semibold">You</span>
                       </div>
@@ -75,7 +75,7 @@
                   </td>
                   <td class="border-bottom-0">
                         @csrf
-                        @if($user->id != Auth::user()->id)
+                        @if($user->id != $authUser->id)
                           <form action="{{ Route('admin.editUser',$user->id) }}" method="get">
                               @csrf
                               <button type="submit" class="btn btn-primary m-1">Edit</button>
@@ -85,7 +85,7 @@
                         @endif
                   </td>
                   <td class="border-bottom-0">
-                      @if($user->id != Auth::user()->id)
+                      @if($user->id != $authUser->id)
                         <form action="{{ route('admin.deleteUser',$user->id) }}" method="GET">
                             @method('DELETE')  
                             @csrf
@@ -103,6 +103,9 @@
           </table>
         </div>
       </div>
+      
+      {{ $users->links('vendor.pagination.custom-pagination') }}
+
     </div>
 </div>
 
@@ -151,11 +154,11 @@
                     <p class="mb-0 fw-normal">{{ $user->email }}</p>
                   </td>
                   <td class="border-bottom-0">
-                    @if ($user->isAdmin && $user->id != Auth::user()->id)
+                    @if ($user->isAdmin && $user->id != $authUser->id)
                       <div class="d-flex align-items-center gap-2">
                         <span class="badge bg-primary rounded-3 fw-semibold">Yes</span>
                       </div>
-                    @elseif($user->id == Auth::user()->id)
+                    @elseif($user->id == $authUser->id)
                       <div class="d-flex align-items-center gap-2">
                         <span class="badge bg-success rounded-3 fw-semibold">You</span>
                       </div>
@@ -167,7 +170,7 @@
                   </td>
                   <td class="border-bottom-0">
                         @csrf
-                        @if($user->id != Auth::user()->id)
+                        @if($user->id != $authUser->id)
                           <form action="{{ Route('admin.editUser',$user->id) }}" method="get">
                               @csrf
                               <button type="submit" class="btn btn-primary m-1">Edit</button>
@@ -177,7 +180,7 @@
                         @endif
                   </td>
                   <td class="border-bottom-0">
-                      @if($user->id != Auth::user()->id)
+                      @if($user->id != $authUser->id)
                         <form action="{{ route('admin.restoreUser',$user->id) }}" method="GET">
                             @csrf
                             <button type="submit" class="btn btn-danger m-1">Enable</button>
@@ -195,6 +198,9 @@
           
         </div>
       </div>
+
+      {{ $usersDisabled->links('vendor.pagination.custom-pagination') }}
+
     </div>
   </div>
 </div>

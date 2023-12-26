@@ -70,6 +70,9 @@
           </table>
         </div>
       </div>
+
+      {{ $brands->links('vendor.pagination.custom-pagination') }}
+
     </div>
 </div>
 
@@ -131,6 +134,9 @@
             </div> --}}
         </div>
       </div>
+
+      {{ $brandsDisabled->links('vendor.pagination.custom-pagination') }}
+
     </div>
   </div>
 </div>

@@ -24,6 +24,10 @@ class Product_Color extends Model
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 
+    public function productWithTrashed(){
+        return $this->product()->withTrashed();
+    }
+
     public function color(){
         return $this->belongsTo(Color::class, 'color_id', 'id');
     }

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Product_Brand;
 use App\Models\Product_Color;
 use App\Models\Stock;
+use App\Models\Product;
 
 class BrandController extends Controller
 {
@@ -98,12 +99,17 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        foreach(Product_Brand::where('brand_id', $brand->id)->get() as $product){
-            foreach(Product_Color::where('product_id', $product->product_id)->get() as $productColor){
-                foreach(Stock::where('product_color_id', $productColor->id)->get() as $stock){
-                    $stock->delete();
+        foreach(Product_Brand::where('brand_id', $brand->id)->get() as $product_brand){
+            foreach(Product::where('id', $product_brand->product_id)->get() as $product){
+                foreach(Product_Color::where('product_id', $product->id)->get() as $productColor){
+                    foreach(Stock::where('product_color_id', $productColor->id)->get() as $stock){
+                        $stock->delete();
+                    }
+                    $productColor->delete();
                 }
+                $product->delete();
             }
+            $product_brand->delete();
         }
 
         $brand->delete();
@@ -122,6 +128,11 @@ class BrandController extends Controller
         $data = Brand::withTrashed()->find($id);
         if(auth()->user()->isAdmin) {
             $data->restore();
+            $product_brands = Product_Brand::where('brand_id', $data->id)->withTrashed()->get();
+            foreach($product_brands as $product_brand){
+                $product_brand->restore();
+            }
+
             return redirect()->back()->with('success', 'User restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');

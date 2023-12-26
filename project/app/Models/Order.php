@@ -17,6 +17,7 @@ class Order extends Model
         'total_price',
         'status',
         'delivery_date',
+        'canceled_date',
         'delivery_time',
         'delivery_address',
         'delivery_phone',
@@ -36,10 +37,15 @@ class Order extends Model
         return $this->hasMany(Order_Items::class);
     }
 
+    public function order_itemsWithTrashed()
+    {
+        return $this->order_items()->withTrashed();
+    }
+
     public function total_price()
     {
         $total_price = 0;
-        foreach ($this->order_items as $order_item) {
+        foreach ($this->order_itemsWithTrashed as $order_item) {
             $total_price += $order_item->price * $order_item->quantity;
         }
         $this->total_price = $total_price + Cart::instance('shopping')->tax();

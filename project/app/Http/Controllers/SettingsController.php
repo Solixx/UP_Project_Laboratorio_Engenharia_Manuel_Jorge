@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Order;
 
 class SettingsController extends Controller
 {
@@ -19,7 +20,7 @@ class SettingsController extends Controller
     public function index()
     {
         $favorites = Auth::user()->favorites;
-        $orders = Auth::user()->orders;
+        $orders = /* Auth::user()->orders */ Order::where('user_id', Auth::user()->id)->withTrashed()->get();
 
         return view('profile', compact('favorites', 'orders'));
         /* return view('profile'); */

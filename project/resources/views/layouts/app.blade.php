@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cols.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebars.css') }}">
     
     <title>@yield('title', 'UP')</title>
@@ -22,7 +23,7 @@
     <main>
         @guest
             @include('includes.navbar_visitante')
-        @elseif(Auth::user()->isAdmin && Auth::user()->email_verified_at != null)
+        @elseif($authUser->isAdmin && $authUser->email_verified_at != null)
             @include('includes.navbar_adm')
         @else
             @include('includes.navbar_logado')

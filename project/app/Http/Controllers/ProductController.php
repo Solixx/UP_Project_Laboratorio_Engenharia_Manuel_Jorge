@@ -13,6 +13,7 @@ use App\Models\Product_Categorie;
 use App\Models\Product_Color;
 use App\Models\Photo;
 use App\Models\Stock;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ProductController extends Controller
 {
@@ -182,6 +183,14 @@ class ProductController extends Controller
         foreach($product_colors as $prodColor){
             $stocks = Stock::where('product_color_id', $prodColor->id)->get();
             foreach($stocks as $stock){
+                $stockId = $stock->id;
+                $item = Cart::instance('shopping')->search(function ($cartItem, $rowId) use ($stockId) {
+                    return $cartItem->id === $stockId;
+                });
+        
+                if($item->isNotEmpty()) {
+                    Cart::instance('shopping')->remove($item->first()->rowId);
+                }
                 $stock->delete();
             }
             $prodColor->delete();
@@ -196,6 +205,15 @@ class ProductController extends Controller
     public function restoreProduct($id)
     {
         $data = Product::withTrashed()->find($id);
+        $count_product_brands = count(Product_Brand::where('product_id', $data->id)->onlyTrashed()->get());
+        $count_product_categories = count(Product_Categorie::where('product_id', $data->id)->onlyTrashed()->get());
+        if($count_product_brands > 0){
+            return back()->with('error', 'This product have one or more brands disabled');
+        }
+        if($count_product_categories > 0){
+            return back()->with('error', 'This product have one or more categories disabled');
+        }
+
         if(auth()->user()->isAdmin) {
             $data->restore();
             return redirect()->back()->with('success', 'User restored successfully');

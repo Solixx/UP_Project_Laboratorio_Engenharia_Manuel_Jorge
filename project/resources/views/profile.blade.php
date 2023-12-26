@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    UP | {{ Auth::user()->name }}
+    UP | {{ $authUser->name }}
 @endsection
 
 @section('content')
@@ -9,13 +9,13 @@
     <div class="container">
         <div class="col12 colL12 colM8 colS4 userInfo">
             <div class="userAvatar">
-                <a href="{{ Route('settings.editProfile') }}"><img src="{{asset(Auth::user()->imgPath)}}" alt=""></a>
+                <a href="{{ Route('settings.editProfile') }}"><img src="{{asset($authUser->imgPath)}}" alt=""></a>
             </div>
             <div class="userName">
-                <h1> {{ Auth::user()->name }} </h1>
+                <h1> {{ $authUser->name }} </h1>
             </div>
             <div class="userDate">
-                <p>Member Since: {{ Auth::user()->created_at }}</p>
+                <p>Member Since: {{ $authUser->created_at }}</p>
             </div>
         </div>
     </div>
@@ -30,10 +30,12 @@
         <div class="content favProducts">
             <div id="favProductsImageGallery" class="favProductsInfo">
                 @forelse ($favorites as $fav)
-                    <div class="newArrivalsBox">
-                        <img src="{{ asset($fav->stock->product_color->photos->first()->imgPath) }}" alt="{{ $fav->stock->product_color->photos->first()->img }}">
-                        <a href="{{ route('product',$fav->stock->id) }}"><p>Go To ></p></a>    
-                    </div>
+                    @if($fav && $fav->stock)
+                        <div class="newArrivalsBox">
+                            <img src="{{ asset($fav->stock->product_color->photos->first()->imgPath) }}" alt="{{ $fav->stock->product_color->photos->first()->img }}">
+                            <a href="{{ route('product',$fav->stock->id) }}"><p>Go To ></p></a>    
+                        </div>
+                    @endif
                 @empty
                     
                 @endforelse
@@ -57,13 +59,13 @@
                             <h3>Order: #{{ $order->id }}</h3>
                             <p>{{ $order->status }}</p>
                         </div>
-                        @forelse ($order->order_items as $item)
+                        @forelse ($order->order_itemsWithTrashed as $item)
                             <div class="orderBoxContent">
                                 <div class="orderProds">
                                     <div class="orderBoxContentImage">
-                                        <a href="{{ Route('product', $item->stock->id) }}">
-                                            @if($item->stock->Product_Color->photos->first()->exists()) 
-                                                <img src="{{ asset($item->stock->Product_Color->photos->first()->imgPath) }}" alt="{{ $item->stock->Product_Color->photos->first()->img }}">
+                                        <a href="{{ Route('product', $item->stockWithTrashed->id) }}">
+                                            @if($item->stockWithTrashed->product_colorWithTrashed->photos->first()->exists()) 
+                                                <img src="{{ asset($item->stockWithTrashed->product_colorWithTrashed->photos->first()->imgPath) }}" alt="{{ $item->stockWithTrashed->product_colorWithTrashed->photos->first()->img }}">
                                             @else
                                                 <img src="https://via.placeholder.com/100" alt="">
                                             @endif
@@ -71,10 +73,10 @@
                                     </div>
                                     <div class="orderBoxContentInfo">
                                         <div class="orderProdInfos">
-                                            <h3>{{ $item->stock->Product_Color->product->name }}</h3>
-                                            <p>{{ $item->stock->Product_Color->product->description }}</p>
-                                            <h3>{{ $item->stock->size->size }}</h3>
-                                            <div class="colorBox colorActive" style="background-color: {{ $item->stock->Product_Color->color->color }};"></div>
+                                            <h3>{{ $item->stockWithTrashed->product_colorWithTrashed->productWithTrashed->name }}</h3>
+                                            <p>{{ $item->stockWithTrashed->product_colorWithTrashed->productWithTrashed->description }}</p>
+                                            <h3>{{ $item->stockWithTrashed->size->size }}</h3>
+                                            <div class="colorBox colorActive" style="background-color: {{ $item->stockWithTrashed->product_colorWithTrashed->color->color }};"></div>
                                         </div>
                                         <div class="orderProdPrice">
                                             <h3>{{ $item->price }}€</h3>

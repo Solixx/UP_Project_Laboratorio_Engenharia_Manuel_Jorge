@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Order_Items;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -102,6 +103,9 @@ class OrderController extends Controller
         if($request->filled('delivery_date')) {
             $order->status = 'delivered';
         }
+        if($request->filled('canceled_date')) {
+            $order->status = 'canceled';
+        }
 
         $order->update($request->all());
 
@@ -114,6 +118,9 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
+        $order->status = 'canceled';
+        $order->canceled_date = Carbon::today();
+        $order->save();
         $order->delete();
 
         return redirect()->back()

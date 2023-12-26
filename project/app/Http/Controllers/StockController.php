@@ -12,6 +12,9 @@ use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Brand;
 use App\Models\Size;
+use App\Models\Favorite;
+use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class StockController extends Controller
 {
@@ -111,7 +114,24 @@ class StockController extends Controller
     public function show(Stock $stock)
     {
         $comments = Comment::where('product_id', $stock->product_color->product_id)->orderBy('updated_at', 'desc')->get();
-        return view('product', compact('stock', 'comments'));
+        /* $stocks = Stock::where('product_color_id', $stock->product_color->id)->orderBy()->get(); */
+        /* $sizes = array();
+        foreach ($stocks as $thisStock){
+            $sizes[] = $thisStock->size;
+        }
+        sort($sizes); */
+        $stocks = Stock::select('stocks.id as stock_id', 'sizes.id as size_id', '*')
+            ->join('sizes', 'stocks.size_id', '=', 'sizes.id')
+            ->where('product_color_id', $stock->product_color->id)
+            ->orderBy('sizes.size')
+            ->get();
+
+        $fav = '';
+        if(Auth::user()){
+            $fav = Favorite::where('user_id', Auth::user()->id)->where('stock_id', $stock->id)->get()->first();
+        }
+
+        return view('product', compact('stock', 'comments', 'stocks', 'fav'));
     }
 
     /**
@@ -146,6 +166,14 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
+        $stockId = $stock->id;
+        $item = Cart::instance('shopping')->search(function ($cartItem, $rowId) use ($stockId) {
+            return $cartItem->id === $stockId;
+        });
+    
+        if($item->isNotEmpty()) {
+            Cart::instance('shopping')->remove($item->first()->rowId);
+        }
         $stock->delete();
 
         return back();

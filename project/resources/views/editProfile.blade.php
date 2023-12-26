@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form method="POST" enctype="multipart/form-data" action="{{ route('settings.editProfilePost',Auth::user()->id) }}">
+    <form method="POST" enctype="multipart/form-data" action="{{ route('settings.editProfilePost',$authUser->id) }}">
         @csrf
         <div class="container editProfile">
             @include('includes.accountSettingsMenu')
@@ -14,12 +14,12 @@
             <div class="col6 colL6 colM8 colS4 editProfileForm">
                 <h1>Edit Profile</h1>
                     <div class="editProfileImg">
-                        <img id="profiledisplay" src="{{asset(Auth::user()->imgPath)}}" alt="Profile Image" onclick="triggerclick()">
+                        <img id="profiledisplay" src="{{asset($authUser->imgPath)}}" alt="Profile Image" onclick="triggerclick()">
                         <input id="profileImgInput" type="file" name="image" onchange="displayimage(this)">
                     </div>
                     <div class="editProfileInfos">
                         {{-- <label for="name">Name</label> --}}
-                        <input type="text" name="name" id="name" placeholder="Name" value="{{ Auth::user()->name }}">
+                        <input type="text" name="name" id="name" placeholder="Name" value="{{ $authUser->name }}">
                     </div>
             </div>
         </div>
