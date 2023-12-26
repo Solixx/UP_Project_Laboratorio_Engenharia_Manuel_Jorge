@@ -73,7 +73,7 @@
             <form action="{{ Route('stripe.checkout') }}" method="POST">
                 @csrf
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <button type="submit">Checkout</button>
+                <button type="submit" @if($cart->total() <= 0) disabled @endif>Checkout</button>
             </form>
         </div>
     </div>
