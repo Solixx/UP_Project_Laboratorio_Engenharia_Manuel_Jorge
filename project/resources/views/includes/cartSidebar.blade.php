@@ -6,7 +6,6 @@
 <div id="cartSidebar" class="cartSB">
     <a href="javascript:void(0)" class="cartClosebtn" onclick="closeCartNav()">×</a>
     <h1>Cart</h1>
-
     <hr>
     
     <div class="cartProds">
