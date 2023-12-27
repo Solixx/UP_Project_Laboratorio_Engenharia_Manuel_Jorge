@@ -397,7 +397,7 @@ svg {
   object-position: 50% 50%;
   cursor: pointer;
 
-  margin-right: 10vh;
+  margin-right: 15vw;
 }
 
 .newArrivals, .favProducts{
@@ -2004,6 +2004,6 @@ footer .copyright p{
     object-position: 50% 50%;
     cursor: pointer;
   
-    margin-right: 17vh;
+    margin-right: 13vw;
   }
 }
