@@ -64,7 +64,7 @@
                                 <div class="orderProds">
                                     <div class="orderBoxContentImage">
                                         <a href="{{ Route('product', $item->stockWithTrashed->id) }}">
-                                            @if($item->stockWithTrashed->product_colorWithTrashed->photos->first()->exists()) 
+                                            @if($item && $item->stockWithTrashed && $item->stockWithTrashed->product_colorWithTrashed && $item->stockWithTrashed->product_colorWithTrashed->photos->first()) 
                                                 <img src="{{ asset($item->stockWithTrashed->product_colorWithTrashed->photos->first()->imgPath) }}" alt="{{ $item->stockWithTrashed->product_colorWithTrashed->photos->first()->img }}">
                                             @else
                                                 <img src="https://via.placeholder.com/100" alt="">
