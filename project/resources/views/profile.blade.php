@@ -96,7 +96,7 @@
                                     @csrf
                                     <button type="submit">Invoice</button>
                                 </form>
-                                @if (strtolower($order->status) == 'pending' || strtolower($order->status) == 'processing')
+                                @if (strtolower($order->status) == 'pending' || strtolower($order->status) == 'processed')
                                     <form action="{{ route('deleteOrder', $order->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
