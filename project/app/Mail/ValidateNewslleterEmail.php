@@ -16,7 +16,7 @@ class ValidateNewslleterEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private $id, private $hash)
+    public function __construct(/* private $id, private $hash */ private $url)
     {
         //
     }
@@ -38,7 +38,7 @@ class ValidateNewslleterEmail extends Mailable
     {
         return new Content(
             view: 'mail.validateNewslleter-email',
-            with: ['id' => $this->id, 'hash' => $this->hash]
+            with: [/* 'id' => $this->id, 'hash' => $this->hash */ 'url' => $this->url]
         );
     }
 

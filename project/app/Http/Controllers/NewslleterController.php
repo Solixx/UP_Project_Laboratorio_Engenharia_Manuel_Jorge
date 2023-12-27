@@ -30,18 +30,24 @@ class NewslleterController extends Controller
         return redirect()->route('index');
     } */
 
-    public function store($id, $hash)
+    public function store($id/* , $hash */)
     { 
         $newslleter = Newslleter::find($id);
 
+        /* $emailToHash = $newslleter->email;
+        $decodedHash = urldecode($hash); */
+
         // Check if the hash matches the email
-        if (Hash::check($newslleter->email, $hash)) {
+        /* if (Hash::check($emailToHash, $decodedHash)) {
+            $newslleter->email_verified_at = now();
+            $newslleter->save(); */
+
             $newslleter->email_verified_at = now();
             $newslleter->save();
 
             return redirect()->route('index')->with('success', 'Email verified successfully.');
-        } else {
+        /* } else {
             return redirect()->route('index')->with('error', 'Email verification failed.');
-        }
+        } */
     }
 }

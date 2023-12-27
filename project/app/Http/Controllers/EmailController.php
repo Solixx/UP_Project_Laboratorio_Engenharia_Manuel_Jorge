@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\URL;
+
 use App\Mail\ForgetPasswordEmail;
 use Illuminate\Http\Request;
 use App\Mail\MyEmail;
@@ -86,9 +88,15 @@ class EmailController extends Controller
 
         $newslleter->save();
 
-        $hash = Hash::make($request->email);
+        /* $hash = Hash::make($request->email);
+        $hash = urlencode($hash); */
+        /* $hash = urlencode(base64_encode($request->email)); */
 
-        Mail::to($request->email)->send(new ValidateNewslleterEmail($newslleter->id, $hash));
+        $verificationUrl = URL::signedRoute(
+            'validateNewslleter', ['id' => $newslleter->id]
+        );
+
+        Mail::to($request->email)->send(new ValidateNewslleterEmail($verificationUrl));
 
         return back();
     }

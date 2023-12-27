@@ -142,7 +142,8 @@ Route::post('admin/newslleter', [EmailController::class, 'newslleter'])->name('a
 
 /* Route::post('/newslleter', [NewslleterController::class, 'store'])->name('newslleter'); */
 Route::post('/newslleter', [EmailController::class, 'formNewslleter'])->name('newslleter');
-Route::get('/validateNewslleter/{id}/{hash}', [NewslleterController::class, 'store'])->name('validateNewslleter');
+/* Route::get('/validateNewslleter/{id}/{hash}', [NewslleterController::class, 'store'])->name('validateNewslleter'); */
+Route::get('/validateNewslleter/{id}', [NewslleterController::class, 'store'])->name('validateNewslleter');
 
 Route::get('/forgetPassword', [RouterController::class, 'forgetPass'])->name('form.forgetPass');
 Route::post('/forgetPassword/reset', [EmailController::class, 'forgetPass'])->name('forgetPass');

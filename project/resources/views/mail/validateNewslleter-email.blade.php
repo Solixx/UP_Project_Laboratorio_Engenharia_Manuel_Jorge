@@ -21,7 +21,7 @@
         <p>Thank you for subscribing to our newsletter.</p>
         <p>Best regards,</p>
         <p>Click here to validate your email!</p>
-        <a href="{{ Route('validateNewslleter', ['id' => $id, 'hash' => urlencode($hash)]) }}">Validate</a>
+        <a href="{{ $url }}">Validate</a>
         <p class="signature">UP</p>
     </div>
 </body>
