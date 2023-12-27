@@ -79,8 +79,8 @@ Route::get('admin/categories', [AdminController::class, 'listCategories'])->name
 Route::get('admin/brands', [AdminController::class, 'listBrands'])->name('admin.listBrands')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/orders', [AdminController::class, 'listOrders'])->name('admin.listOrders')->middleware(['isAdmin', 'auth', 'verified']);
 
-Route::get('admin/users/{user}/edit', [AdminController::class, 'edit'])->name('admin.editUser')->middleware(['isAdmin', 'auth', 'verified']);
-Route::post('admin/users/{user}', [AdminController::class, 'update'])->name('admin.updateUser')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/users/{user}/edit', [AdminController::class, 'edit'])->name('admin.editUser')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/users/{user}', [AdminController::class, 'update'])->name('admin.updateUser')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/users/{user}', [AdminController::class, 'destroyUser'])->name('admin.deleteUser')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/users/restore/{id}', [AdminController::class, 'restoreUser'])->name('admin.restoreUser')->middleware(['isAdmin', 'auth', 'verified']);
 
@@ -88,13 +88,13 @@ Route::get('admin/product/create', [ProductController::class, 'create'])->name('
 Route::post('admin/product/store', [ProductController::class, 'store'])->name('admin.storeProduct')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/product/{product}', [ProductController::class, 'destroy'])->name('admin.deleteProduct')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/product/restore/{id}', [ProductController::class, 'restoreProduct'])->name('admin.restoreProduct')->middleware(['isAdmin', 'auth', 'verified']);
-Route::get('admin/product/{product}/edit', [ProductController::class, 'edit'])->name('admin.editProduct')->middleware(['isAdmin', 'auth', 'verified']);
-Route::post('admin/product/{product}', [ProductController::class, 'update'])->name('admin.updateProduct')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/product/{product}/edit', [ProductController::class, 'edit'])->name('admin.editProduct')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/product/{product}', [ProductController::class, 'update'])->name('admin.updateProduct')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
 
 Route::get('admin/productColor/create/{product_color}', [ProductColorController::class, 'create'])->name('admin.addProductColor')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/productColor/store/{product_color}', [ProductColorController::class, 'store'])->name('admin.storeProductColor')->middleware(['isAdmin', 'auth', 'verified']);
-Route::get('admin/productColor/{product_color}/edit', [ProductColorController::class, 'edit'])->name('admin.editProductColor')->middleware(['isAdmin', 'auth', 'verified']);
-Route::post('admin/productColor/{product_color}', [ProductColorController::class, 'update'])->name('admin.updateProductColor')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/productColor/{product_color}/edit', [ProductColorController::class, 'edit'])->name('admin.editProductColor')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/productColor/{product_color}', [ProductColorController::class, 'update'])->name('admin.updateProductColor')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/productColor/{product_color}', [ProductColorController::class, 'destroy'])->name('admin.deleteProductColor')->middleware(['isAdmin', 'auth', 'verified']);
 
 Route::get('admin/photo/{photo}', [PhotoController::class, 'destroy'])->name('admin.deletePhoto')->middleware(['isAdmin', 'auth', 'verified']);
@@ -103,29 +103,29 @@ Route::get('admin/stock/create/{stock}', [StockController::class, 'create'])->na
 Route::get('admin/productColor/stock/create/{product_color}', [StockController::class, 'createProdColorStock'])->name('admin.addProdColorStock')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/stock/store/{stock}', [StockController::class, 'store'])->name('admin.storeStock')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/productColor/stock/store', [StockController::class, 'storeProdColorStock'])->name('admin.storeProdColorStock')->middleware(['isAdmin', 'auth', 'verified']);
-Route::get('admin/stock/{stock}/edit', [StockController::class, 'edit'])->name('admin.editStock')->middleware(['isAdmin', 'auth', 'verified']);
-Route::post('admin/stock/{stock}', [StockController::class, 'update'])->name('admin.updateStock')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/stock/{stock}/edit', [StockController::class, 'edit'])->name('admin.editStock')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/stock/{stock}', [StockController::class, 'update'])->name('admin.updateStock')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/stock/{stock}', [StockController::class, 'destroy'])->name('admin.deleteStock')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/stock/restore/{id}', [StockController::class, 'restoreProduct'])->name('admin.restoreStock')->middleware(['isAdmin', 'auth', 'verified']);
 
 Route::get('admin/categorie/create', [CategorieController::class, 'create'])->name('admin.addCategorie')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/categorie/store', [CategorieController::class, 'store'])->name('admin.storeCategorie')->middleware(['isAdmin', 'auth', 'verified']);
-Route::get('admin/categorie/{categorie}/edit', [CategorieController::class, 'edit'])->name('admin.editCategorie')->middleware(['isAdmin', 'auth', 'verified']);
-Route::post('admin/categorie/{categorie}', [CategorieController::class, 'update'])->name('admin.updateCategorie')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/categorie/{categorie}/edit', [CategorieController::class, 'edit'])->name('admin.editCategorie')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/categorie/{categorie}', [CategorieController::class, 'update'])->name('admin.updateCategorie')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/categorie/{categorie}', [CategorieController::class, 'destroy'])->name('admin.deleteCategorie')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/categorie/restore/{id}', [CategorieController::class, 'restoreCategorie'])->name('admin.restoreCategorie')->middleware(['isAdmin', 'auth', 'verified']);
 
 Route::get('admin/brand/create', [BrandController::class, 'create'])->name('admin.addBrand')->middleware(['isAdmin', 'auth', 'verified']);
 Route::post('admin/brand/store', [BrandController::class, 'store'])->name('admin.storeBrand')->middleware(['isAdmin', 'auth', 'verified']);
-Route::get('admin/brand/{brand}/edit', [BrandController::class, 'edit'])->name('admin.editBrand')->middleware(['isAdmin', 'auth', 'verified']);
-Route::post('admin/brand/{brand}', [BrandController::class, 'update'])->name('admin.updateBrand')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/brand/{brand}/edit', [BrandController::class, 'edit'])->name('admin.editBrand')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/brand/{brand}', [BrandController::class, 'update'])->name('admin.updateBrand')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/brand/{brand}', [BrandController::class, 'destroy'])->name('admin.deleteBrand')->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/brand/restore/{id}', [BrandController::class, 'restoreBrand'])->name('admin.restoreBrand')->middleware(['isAdmin', 'auth', 'verified']);
 
 Route::delete('orders/{order}', [OrderController::class, 'destroy'])->name('deleteOrder')->middleware(['auth', 'verified']);
 Route::get('admin/orders/restore/{id}', [OrderController::class, 'restoreOrder'])->name('admin.restoreOrder')->middleware(['isAdmin', 'auth', 'verified']);
-Route::get('admin/order/{order}/edit', [OrderController::class, 'edit'])->name('admin.editOrder')->middleware(['isAdmin', 'auth', 'verified']);
-Route::post('admin/order/{order}', [OrderController::class, 'update'])->name('admin.updateOrder')->middleware(['isAdmin', 'auth', 'verified']);
+Route::get('admin/order/{order}/edit', [OrderController::class, 'edit'])->name('admin.editOrder')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
+Route::post('admin/order/{order}', [OrderController::class, 'update'])->name('admin.updateOrder')->withTrashed()->middleware(['isAdmin', 'auth', 'verified']);
 Route::get('admin/brand/restore/{id}', [BrandController::class, 'restoreBrand'])->name('admin.restoreBrand')->middleware(['isAdmin', 'auth', 'verified']);
 
 Route::get('admin/color/create', [ColorController::class, 'create'])->name('admin.addColor')->middleware(['isAdmin', 'auth', 'verified']);
