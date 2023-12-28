@@ -30,7 +30,7 @@ class ColorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'color' => 'required|unique:colors|max:7|min:7',
+            'color' => 'required|unique:colors|max:7|min:7|regex:/^#[0-9A-Fa-f]{6}$/',
         ]);
 
         $color = new Color();

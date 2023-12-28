@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/cols.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sidebars.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/alerts.css') }}">
     
     <title>@yield('title', 'UP')</title>
 </head>

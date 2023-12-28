@@ -36,7 +36,7 @@ class BrandController extends Controller
     {
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            'name' => 'required',
+            'name' => 'required|max:200',
         ]);
 
         $brand = new Brand();
@@ -78,7 +78,7 @@ class BrandController extends Controller
     {
         $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
-            'name',
+            'name' => 'min:1|max:200',
         ]);
 
         if($request->hasFile('image')){
@@ -133,7 +133,7 @@ class BrandController extends Controller
                 $product_brand->restore();
             }
 
-            return redirect()->back()->with('success', 'User restored successfully');
+            return redirect()->back()->with('success', 'Brand restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');
     }

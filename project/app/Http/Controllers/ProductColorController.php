@@ -38,7 +38,7 @@ class ProductColorController extends Controller
     public function store(Request $request, Product_Color $product_color)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'size' => 'required',
         ]);
 
@@ -78,7 +78,7 @@ class ProductColorController extends Controller
         
         $stock = Stock::where('product_color_id', $firstProdColor->id)->first();
 
-        return redirect()->route('admin.addStock', $stock)->with('success', 'Product added successfully.');
+        return redirect()->route('admin.addStock', $stock)->with('success', 'Product Color added successfully.');
     }
 
     /**
@@ -106,7 +106,7 @@ class ProductColorController extends Controller
     public function update(Request $request, Product_Color $product_color)
     {
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $foto = new Photo();
@@ -146,6 +146,6 @@ class ProductColorController extends Controller
         $product_color->delete();
 
         return redirect()->route('admin.editProduct', $product->id)
-            ->with('success', 'Brand deleted successfully.');
+            ->with('success', 'Product Color deleted successfully.');
     }
 }

@@ -13,6 +13,18 @@
                     <form action="{{ route('forgetPass') }}" method="POST">
                         @csrf
                         <h1>Forget Password</h1>
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
                         <button type="submit">Submit</button>
                         <div class="loginExtraOp">

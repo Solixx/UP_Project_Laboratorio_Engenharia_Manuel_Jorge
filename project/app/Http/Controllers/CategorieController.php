@@ -36,13 +36,13 @@ class CategorieController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:200',
         ]);
 
         Categorie::create($request->all());
 
         return redirect()->back()
-            ->with('success', 'Categorie created successfully.');
+            ->with('success', 'Category created successfully.');
     }
 
     /**
@@ -68,13 +68,13 @@ class CategorieController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:200',
         ]);
 
         $categorie->update($request->all());
 
         return redirect()->back()
-            ->with('success', 'Categorie updated successfully');
+            ->with('success', 'Category updated successfully');
     }
 
     /**
@@ -97,7 +97,7 @@ class CategorieController extends Controller
 
         $categorie->delete();
 
-        return back();
+        return back()->with('success', 'Categorie has been Disabled');
     }
 
     public function restoreCategorie($id)
@@ -110,7 +110,7 @@ class CategorieController extends Controller
                 $product_category->restore();
             }
 
-            return redirect()->back()->with('success', 'User restored successfully');
+            return redirect()->back()->with('success', 'Category restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');
     }

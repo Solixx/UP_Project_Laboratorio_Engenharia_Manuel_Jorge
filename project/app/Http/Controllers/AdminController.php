@@ -114,8 +114,8 @@ class AdminController extends Controller
     {
         $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
-            'name' => 'string|max:255',
-            'email' => ['string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'name' => 'string|min:1|max:255',
+            'email' => ['string', 'email', 'max:255', 'min:1', Rule::unique('users')->ignore($user->id)],
             'address' => 'string|max:255|nullable',
             'phone' => 'numeric|nullable|digits_between:9,15|unique:users,phone,'.$user->id,
             'gender' => 'max:1',
@@ -133,6 +133,6 @@ class AdminController extends Controller
 
         $user->update($request->except('isAdmin'));
 
-        return back()->with('status', 'User Has been updated');
+        return back()->with('success', 'User Has been updated');
     }
 }

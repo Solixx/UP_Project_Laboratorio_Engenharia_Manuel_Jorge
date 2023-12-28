@@ -13,6 +13,11 @@
     {{-- @include('includes.sidebar_adminPanel') --}}
     @include('includes.navbar_adminPanel')
 <div class="container-fluid">
+  @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+          @endif
 <div class="row">
 <div class="col-lg-12 d-flex align-items-stretch">
     <div class="card w-100">

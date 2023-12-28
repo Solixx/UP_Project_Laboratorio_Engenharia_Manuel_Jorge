@@ -54,8 +54,8 @@ class StockController extends Controller
     public function store(Request $request, Stock $stock)
     {
         $request->validate([
-            'price' => 'required|numeric',
-            'stock' => 'required|numeric',
+            'price' => 'required|numeric|gt:0',
+            'stock' => 'required|numeric|gt:0',
         ]);
 
         $stock->price = $request->price;
@@ -96,8 +96,8 @@ class StockController extends Controller
         $request->validate([
             'product_color_id' => 'required',
             'size' => 'required',
-            'price' => 'required|numeric',
-            'stock' => 'required|numeric',
+            'price' => 'required|numeric|gt:0',
+            'stock' => 'required|numeric|gt:0',
         ]);
 
         $stock = new Stock();
@@ -150,8 +150,8 @@ class StockController extends Controller
     public function update(Request $request, Stock $stock)
     {
         $request->validate([
-            'price' => 'numeric',
-            'stock' => 'numeric',
+            'price' => 'numeric|gt:0',
+            'stock' => 'numeric|gt:0',
         ]);
 
         $stock->price = $request->price;
@@ -160,7 +160,7 @@ class StockController extends Controller
         $stock->save();
 
         return redirect()->back()
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Stock updated successfully');
     }
 
     /**
@@ -178,7 +178,7 @@ class StockController extends Controller
         }
         $stock->delete();
 
-        return back();
+        return back()->with('success', 'Stock deleted successfully');
     }
 
     public function restoreProduct($id)
@@ -186,7 +186,7 @@ class StockController extends Controller
         $data = Stock::withTrashed()->find($id);
         if(auth()->user()->isAdmin) {
             $data->restore();
-            return redirect()->back()->with('success', 'User restored successfully');
+            return redirect()->back()->with('success', 'Stock restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');
     }

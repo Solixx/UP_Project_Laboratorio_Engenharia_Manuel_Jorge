@@ -48,7 +48,7 @@ class EmailController extends Controller
     
         Mail::to($request->email)->send(new ForgetPasswordEmail($password));
 
-        return view('auth.login')->with("Email sent successfully!");
+        return view('auth.login')->with('success', 'Email sent successfully!');
     }
 
     public function support(Request $request){
@@ -59,7 +59,7 @@ class EmailController extends Controller
 
         Mail::to('supportUpStore@up.com')->send(new SupportEmail($request->message, $request->email));
 
-        return redirect()->route('index')->with("Email sent successfully!");
+        return redirect()->route('index')->with('success', 'Email sent successfully!');
     }
 
     public function newslleter(Request $request){
@@ -74,7 +74,7 @@ class EmailController extends Controller
             Mail::to($email->email)->send(new NewslleterEmail($request->message, $request->subject));
         }
 
-        return back();
+        return back()->with('success', 'Newslleter send');
     }
 
     public function formNewslleter(Request $request){
