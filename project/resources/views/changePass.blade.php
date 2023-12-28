@@ -10,6 +10,24 @@
             @include('includes.accountSettingsMenu')
             <div class="col3 colL4 colM8 colS4"></div>
             <div class="col6 colL6 colM8 colS4 editProfileForm">
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <h1>Change Password</h1>
                 <form action="{{ Route('settings.changePasswordPost') }}" method="POST">
                     @csrf

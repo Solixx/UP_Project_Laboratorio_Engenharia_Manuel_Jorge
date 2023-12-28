@@ -75,6 +75,8 @@ class CartController extends Controller
 
         if($item->isNotEmpty() && $request->qty <= $stock->stock) {
             Cart::instance('shopping')->update($item->first()->rowId, $request->qty);
+        } else{
+            Cart::instance('shopping')->update($item->first()->rowId, $stock->stock);
         }
 
         return back();

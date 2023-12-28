@@ -14,6 +14,31 @@
                         @csrf
 
                         <h1>Register</h1>
+
+                        @error('name')
+                          <div class="alert alert-danger" role="alert">
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                          </div>
+                        @enderror
+
+                        @error('email')
+                          <div class="alert alert-danger" role="alert">
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                          </div>
+                        @enderror
+
+                        @error('password')
+                          <div class="alert alert-danger" role="alert">
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          </div>
+                        @enderror
+
                         <input type="name" name="name" id="name" placeholder="Name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
                         <input type="password" name="password" placeholder="Password" id="password" required autocomplete="new-password">

@@ -91,7 +91,14 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        
+        $request->validate([
+            'delivery_date' => 'nullable|date',
+            'delivery_time' => 'min:1',
+            'processed_date' => 'nullable|date',
+            'shipped_date' => 'nullable|date',
+        ]);
+
         $order->status = 'pending';
 
         if($request->filled('processed_date')) {
@@ -124,7 +131,7 @@ class OrderController extends Controller
         $order->delete();
 
         return redirect()->back()
-            ->with('success', 'Order deleted successfully.');
+            ->with('success', 'Order canceled successfully.');
     }
 
     public function restoreOrder($id)
@@ -132,7 +139,7 @@ class OrderController extends Controller
         $data = Order::withTrashed()->find($id);
         if(auth()->user()->isAdmin) {
             $data->restore();
-            return redirect()->back()->with('success', 'User restored successfully');
+            return redirect()->back()->with('success', 'Order restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');
     }

@@ -17,6 +17,24 @@
     <!--  Sidebar End -->
       <div class="container-fluid">
         <div class="container-fluid">
+
+          @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+          @endif
+
+          @if ($errors->any())
+            <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
+
           <div class="card">
             <div class="card-body">
               <h5 class="card-title fw-semibold mb-4">Edit Product</h5>
@@ -96,9 +114,6 @@
               </div>
             </div>
           </div>
-
-
-
           <div class="card">
             <div class="card-body">
               <h5 class="card-title fw-semibold mb-4">Edit Product Colors</h5>

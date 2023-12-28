@@ -13,6 +13,25 @@
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
                         <h1>Login</h1>
+
+                        @if(session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+
                         <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
                         <input type="password" name="password" placeholder="Password" id="password" required>
                         <button type="submit">Login</button>

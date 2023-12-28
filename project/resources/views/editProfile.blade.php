@@ -12,6 +12,24 @@
             @include('includes.accountSettingsBtn')
             <div class="col3 colL4 colM8 colS4"></div>
             <div class="col6 colL6 colM8 colS4 editProfileForm">
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <h1>Edit Profile</h1>
                     <div class="editProfileImg">
                         <img id="profiledisplay" src="{{asset($authUser->imgPath)}}" alt="Profile Image" onclick="triggerclick()">

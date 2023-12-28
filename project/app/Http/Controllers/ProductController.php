@@ -43,8 +43,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'name' => 'required|min:1|max:255',
+            'description' => 'required|min:1|max:255',
             'categories' => 'required',
             'brands' => 'required',
             'colors' => 'required',
@@ -106,8 +106,8 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'name' => 'max:255',
-            'description' => 'max:255',
+            'name' => 'min:1|max:255',
+            'description' => 'min:1|max:255',
             'categories' => 'required',
             'brands' => 'required',
             'colors',
@@ -199,7 +199,7 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->back()
-            ->with('success', 'Brand deleted successfully.');
+            ->with('success', 'Product deleted successfully.');
     }
 
     public function restoreProduct($id)
@@ -216,7 +216,7 @@ class ProductController extends Controller
 
         if(auth()->user()->isAdmin) {
             $data->restore();
-            return redirect()->back()->with('success', 'User restored successfully');
+            return redirect()->back()->with('success', 'Product restored successfully');
         }
         return redirect('/')->with('error', 'You have not admin access');
     }

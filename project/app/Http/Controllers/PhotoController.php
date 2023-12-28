@@ -63,6 +63,6 @@ class PhotoController extends Controller
     {
         $photo->delete();
 
-        return back();
+        return back()->with('success', 'Photo deleted');
     }
 }

@@ -8,6 +8,13 @@
 
     <div class="container">
         <div class="col12 colL12 colM8 colS4 userInfo">
+
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+
             <div class="userAvatar">
                 <a href="{{ Route('settings.editProfile') }}"><img src="{{asset($authUser->imgPath)}}" alt=""></a>
             </div>
