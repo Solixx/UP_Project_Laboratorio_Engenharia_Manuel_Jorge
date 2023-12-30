@@ -18,6 +18,7 @@ class CategorieController extends Controller
     public function index()
     {
         //
+        return view('index');
     }
 
     /**
@@ -51,6 +52,7 @@ class CategorieController extends Controller
     public function show(Categorie $categorie)
     {
         //
+        return view('index');
     }
 
     /**

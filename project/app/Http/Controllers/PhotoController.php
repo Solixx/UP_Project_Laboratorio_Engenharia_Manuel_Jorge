@@ -14,6 +14,7 @@ class PhotoController extends Controller
     public function index()
     {
         //
+        return view('index');
     }
 
     /**
@@ -22,6 +23,7 @@ class PhotoController extends Controller
     public function create()
     {
         //
+        return view('index');
     }
 
     /**
@@ -30,6 +32,7 @@ class PhotoController extends Controller
     public function store(Request $request)
     {
         //
+        return view('index');
     }
 
     /**
@@ -38,6 +41,7 @@ class PhotoController extends Controller
     public function show(Photo $photo)
     {
         //
+        return view('index');
     }
 
     /**
@@ -46,6 +50,7 @@ class PhotoController extends Controller
     public function edit(Photo $photo)
     {
         //
+        return view('index');
     }
 
     /**
@@ -54,6 +59,7 @@ class PhotoController extends Controller
     public function update(Request $request, Photo $photo)
     {
         //
+        return view('index');
     }
 
     /**

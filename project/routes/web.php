@@ -8,7 +8,6 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FavoriteController;
-use App\Http\Controllers\ProductBrandController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
@@ -151,6 +150,5 @@ Route::post('/forgetPassword/reset', [EmailController::class, 'forgetPass'])->na
 Route::post('/support', [EmailController::class, 'support'])->name('support');
 
 /* Testes */
-/* Route::get('/testes', [ProductBrandController::class, 'index'])->name('testes'); */
 /* Route::get('/testes', [StockController::class, 'index'])->name('testes'); */
 /* Route::get('/testes', [EmailController::class, 'sendEmail'])->name('sendEmail'); */

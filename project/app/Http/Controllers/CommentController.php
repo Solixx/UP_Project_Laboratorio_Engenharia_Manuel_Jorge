@@ -20,6 +20,7 @@ class CommentController extends Controller
     public function index()
     {
         //
+        return view('index');
     }
 
     /**
@@ -28,6 +29,7 @@ class CommentController extends Controller
     public function create()
     {
         //
+        return view('index');
     }
 
     /**
@@ -54,6 +56,7 @@ class CommentController extends Controller
     public function show(Comment $comment)
     {
         //
+        return view('index');
     }
 
     /**
@@ -62,6 +65,7 @@ class CommentController extends Controller
     public function edit(Comment $comment)
     {
         //
+        return view('index');
     }
 
     /**
@@ -70,6 +74,7 @@ class CommentController extends Controller
     public function update(Request $request, Comment $comment)
     {
         //
+        return view('index');
     }
 
     /**

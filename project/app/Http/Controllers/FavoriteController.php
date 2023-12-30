@@ -20,7 +20,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        
+        return view('index');
     }
 
     /**
@@ -29,6 +29,7 @@ class FavoriteController extends Controller
     public function create()
     {
         //
+        return view('index');
     }
 
     /**
@@ -50,6 +51,7 @@ class FavoriteController extends Controller
     public function show(Favorite $favorite)
     {
         //
+        return view('index');
     }
 
     /**
@@ -58,6 +60,7 @@ class FavoriteController extends Controller
     public function edit(Favorite $favorite)
     {
         //
+        return view('index');
     }
 
     /**
@@ -66,6 +69,7 @@ class FavoriteController extends Controller
     public function update(Request $request, Favorite $favorite)
     {
         //
+        return view('index');
     }
 
     /**

@@ -23,6 +23,7 @@ class ProductController extends Controller
     public function index()
     {
         //
+        return view('index');
     }
 
     /**
@@ -85,6 +86,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+        return view('index');
     }
 
     /**

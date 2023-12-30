@@ -19,6 +19,7 @@ class ProductColorController extends Controller
     public function index()
     {
         //
+        return view('index');
     }
 
     /**
@@ -87,6 +88,7 @@ class ProductColorController extends Controller
     public function show(Product_Color $product_Color)
     {
         //
+        return view('index');
     }
 
     /**

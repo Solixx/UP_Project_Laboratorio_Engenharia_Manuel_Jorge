@@ -14,6 +14,7 @@ class ColorController extends Controller
     public function index()
     {
         //
+        return view('index');
     }
 
     /**
@@ -48,6 +49,7 @@ class ColorController extends Controller
     public function show(Color $color)
     {
         //
+        return view('index');
     }
 
     /**
@@ -56,6 +58,7 @@ class ColorController extends Controller
     public function edit(Color $color)
     {
         //
+        return view('index');
     }
 
     /**
@@ -64,6 +67,7 @@ class ColorController extends Controller
     public function update(Request $request, Color $color)
     {
         //
+        return view('index');
     }
 
     /**
@@ -72,5 +76,6 @@ class ColorController extends Controller
     public function destroy(Color $color)
     {
         //
+        return view('index');
     }
 }

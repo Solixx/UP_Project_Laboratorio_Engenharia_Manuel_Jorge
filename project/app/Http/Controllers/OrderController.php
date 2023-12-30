@@ -21,6 +21,7 @@ class OrderController extends Controller
     public function index()
     {
         //
+        return view('index');
     }
 
     /**
@@ -29,6 +30,7 @@ class OrderController extends Controller
     public function create()
     {
         //
+        return view('index');
     }
 
     /**
@@ -75,6 +77,7 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         //
+        return view('index');
     }
 
     /**
