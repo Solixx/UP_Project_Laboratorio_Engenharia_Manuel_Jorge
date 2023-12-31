@@ -147,7 +147,7 @@ class ProductColorController extends Controller
 
         $product_color->delete();
 
-        return redirect()->route('admin.editProduct', $product->id)
+        return redirect()->route('admin.editProduct', $product_color->product_id)
             ->with('success', 'Product Color deleted successfully.');
     }
 }
