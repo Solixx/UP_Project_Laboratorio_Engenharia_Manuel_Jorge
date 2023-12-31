@@ -28,6 +28,18 @@
                     </div>
                 @endif
 
+                @if (session('currPassError') || session('passConfirmError'))
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        @if(session('currPassError'))
+                            <p>{{ session('currPassError') }}</p>
+                        @endif
+                        @if(session('passConfirmError'))
+                            <p>{{ session('passConfirmError') }}</p>
+                        @endif
+                    </div>
+                @endif
+
                 <h1>Change Password</h1>
                 <form action="{{ Route('settings.changePasswordPost') }}" method="POST">
                     @csrf

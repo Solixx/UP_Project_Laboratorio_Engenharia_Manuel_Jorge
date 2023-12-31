@@ -82,11 +82,11 @@ class SettingsController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        if($request->curPass == $request->password){
-            return redirect()->route('settings.changePassword')->with('error', 'New Password Cannot be the same as Current Password');
+        if (!Hash::check($request->curPass, Auth::user()->password)) {
+            return redirect()->route('settings.changePassword')->with('currPassError', 'Current Password is incorrect');
         }
-        if(!Hash::check($request->curPass, Auth::user()->password)){
-            return redirect()->route('settings.changePassword')->with('error', 'Current Password is incorrect');
+        if($request->curPass == $request->password){
+            return redirect()->route('settings.changePassword')->with('passConfirmError', 'New Password Cannot be the same as Current Password');
         }
 
         $user = User::find(Auth::user()->id);
