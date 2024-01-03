@@ -31,6 +31,7 @@
             Brands List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
+            <caption style="display: none;">Brands List Table</caption>
             <thead class="text-dark fs-4">
               <tr>
                 <th class="border-bottom-0">

@@ -26,7 +26,7 @@
                     <li class="timeline-item d-flex position-relative overflow-hidden">
                       
                         @if ($order->status == 'pending' || $order->status == 'processed')
-                          <div class="timeline-time text-dark flex-shrink-0 text-end"> 
+                          <div class="timeline-time text-dark flex-shrink-0 text-end">
                             {{ $order->processed_date }}
                           </div>
                           <div class="timeline-badge-wrap d-flex flex-column align-items-center">
@@ -34,7 +34,7 @@
                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                           </div>
                         @elseif($order->status == 'shipped')
-                          <div class="timeline-time text-dark flex-shrink-0 text-end"> 
+                          <div class="timeline-time text-dark flex-shrink-0 text-end">
                             {{ $order->shipped_date }}
                           </div>
                           <div class="timeline-badge-wrap d-flex flex-column align-items-center">
@@ -42,7 +42,7 @@
                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                           </div>
                         @elseif($order->status == 'delivered')
-                          <div class="timeline-time text-dark flex-shrink-0 text-end"> 
+                          <div class="timeline-time text-dark flex-shrink-0 text-end">
                             {{ $order->delivery_date }}
                           </div>
                           <div class="timeline-badge-wrap d-flex flex-column align-items-center">
@@ -50,7 +50,7 @@
                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                           </div>
                         @else
-                          <div class="timeline-time text-dark flex-shrink-0 text-end"> 
+                          <div class="timeline-time text-dark flex-shrink-0 text-end">
                             {{ $order->canceled_date }}
                           </div>
                           <div class="timeline-badge-wrap d-flex flex-column align-items-center">
@@ -115,10 +115,10 @@
                               </div>
                             @endif
                           </td>
-                        </tr> 
+                        </tr>
                       @empty
                           
-                      @endforelse                 
+                      @endforelse
                     </tbody>
                   </table>
                 </div>
@@ -132,8 +132,8 @@
               <div class="card overflow-hidden rounded-2">
                 <div class="position-relative">
                   <a href="javascript:void(0)">
-                    @if($product->Product_Color && 
-                        $product->Product_Color->photos && 
+                    @if($product->Product_Color &&
+                        $product->Product_Color->photos &&
                         $product->Product_Color->photos->first())
                       <img src="{{ asset($product->Product_Color->photos->first()->imgPath) }}" 
                             class="card-img-top rounded-0" 
@@ -157,7 +157,11 @@
           @endforelse
         </div>
         <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
+          <p class="mb-0 fs-4">Design and Developed by
+            <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">
+              AdminMart.com
+            </a>
+          </p>
         </div>
       </div>
     </div>

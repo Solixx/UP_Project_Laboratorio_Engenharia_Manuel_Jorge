@@ -139,7 +139,6 @@ svg {
   height: 100vh;
   width: 100%;
   transform: translate(-150%);
-  display: flex;
   flex-direction: column;
   transition: transform 0.5s ease-in-out;
   text-align: center;
@@ -346,10 +345,6 @@ svg {
   text-transform: uppercase;
   text-align: center;
 }
-
-/* .content{
-  height: 100%;
-} */
 
 .brands{
   height: 60vh;
@@ -751,12 +746,6 @@ footer .copyright p{
   margin-top: 15vh;
   margin-bottom: 5vh;
 }
-
-/* .prodImgs{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-} */
 
 .prodImgs img{
   margin-right: 20px;

@@ -50,25 +50,52 @@
                                       backdrop-filter: blur(5px);
                                       -webkit-backdrop-filter: blur(5px);">
                 <div class="card-body">
-                  <form action="{{ Route('admin.updateProductColor',$product_color->id) }}" enctype="multipart/form-data" method="POST">
+                  <form action="{{ Route('admin.updateProductColor',$product_color->id) }}" 
+                        enctype="multipart/form-data" 
+                        method="POST">
                     @csrf
                     <div class="mb-3">
-                      <img class="form-control" style="margin: 0 auto; min-width: 100px; max-width: 50%; border: none;" id="prodColordisplay" src="https://via.placeholder.com/100"  class="card-img-top rounded-0" alt="" onclick="triggerclick()">
-                      @if($product_color && $product_color->photos->first() && $product_color->photos->first()->exists())
-                        <div class="imgGalery" style="display: flex; flex-direction: row; justify-content: flex-start !important; flex-wrap: wrap;">
+                      <img class="form-control" 
+                            style="margin: 0 auto; 
+                                  min-width: 100px; 
+                                  max-width: 50%; 
+                                  border: none;" 
+                            id="prodColordisplay" 
+                            src="https://via.placeholder.com/100"  
+                            class="card-img-top rounded-0" 
+                            alt="No Image" 
+                            onclick="triggerclick()" />
+                      @if($product_color && 
+                          $product_color->photos->first() && 
+                          $product_color->photos->first()->exists())
+                        <div class="imgGalery" style="display: flex; flex-direction: row; 
+                                                      justify-content: flex-start !important; flex-wrap: wrap;">
                           @foreach ($product_color->photos as $photos)
                             <a href="{{ Route('admin.deletePhoto', $photos->id) }}">
-                              <img style="min-width: 100px; max-width: 25%; height: 100px; border: none; object-fit: contain; object-position: 50% 50%;" src="{{ asset($photos->imgPath) }}" alt="{{ $photos->img }}">
+                              <img style="min-width: 100px; 
+                                          max-width: 25%; 
+                                          height: 100px; 
+                                          border: none; 
+                                          object-fit: contain; 
+                                          object-position: 50% 50%;" 
+                                    src="{{ asset($photos->imgPath) }}" 
+                                    alt="{{ $photos->img }}">
                             </a>
                         @endforeach
                         </div>
                       @else
                       @endif
-                      <input id="prodColorImgInput" type="file" name="image" onchange="displayimage(this)" style="display: none;">
+                      <input id="prodColorImgInput" 
+                              type="file" 
+                              name="image" 
+                              onchange="displayimage(this)" 
+                              style="display: none;">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
-                  <form action="{{ Route('admin.deleteProductColor',$product_color->id) }}" method="GET" style="margin-top: 10px">
+                  <form action="{{ Route('admin.deleteProductColor',$product_color->id) }}" 
+                        method="GET" 
+                        style="margin-top: 10px">
                     @csrf
                     <button type="submit" class="btn btn-danger">Disable</button>
                   </form>
@@ -88,6 +115,10 @@
                   <button type="submit" class="btn btn-danger m-1">Add Stock</button>
                 </form>
                 <div class="table-responsive">
+
+                  <!--
+                    Stocks Table List
+                  -->
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
                       <tr>
@@ -116,13 +147,13 @@
                         <tr>
                           <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $stock->id }}</h6></td>
                           <td class="border-bottom-0">
-                              <h6 class="fw-semibold mb-1">{{ $stock->size->size }}</h6>                      
+                              <h6 class="fw-semibold mb-1">{{ $stock->size->size }}</h6>
                           </td>
                           <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{ $stock->price }}</h6>                      
+                            <h6 class="fw-semibold mb-1">{{ $stock->price }}</h6>
                           </td>
                           <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{ $stock->stock }}</h6>                      
+                            <h6 class="fw-semibold mb-1">{{ $stock->stock }}</h6>
                           </td>
                           <td class="border-bottom-0">
                             <form action="{{ Route('admin.editStock', $stock->id) }}" method="GET">
@@ -132,15 +163,15 @@
                           </td>
                           <td class="border-bottom-0">
                             <form action="{{ route('admin.deleteStock',$stock->id) }}" method="GET">
-                                @method('DELETE')  
+                                @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger m-1">Disable</button>
                             </form>
                           </td>
-                        </tr> 
+                        </tr>
                       @empty
                           
-                      @endforelse                 
+                      @endforelse
                     </tbody>
                   </table>
                 </div>
@@ -156,6 +187,10 @@
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold mb-4">Stocks Disabled</h5>
                 <div class="table-responsive">
+
+                  <!--
+                    Disabled Stocks Table List
+                  -->
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
                       <tr>
@@ -184,13 +219,13 @@
                         <tr>
                           <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $stock->id }}</h6></td>
                           <td class="border-bottom-0">
-                              <h6 class="fw-semibold mb-1">{{ $stock->size->size }}</h6>                      
+                              <h6 class="fw-semibold mb-1">{{ $stock->size->size }}</h6>
                           </td>
                           <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{ $stock->price }}</h6>                      
+                            <h6 class="fw-semibold mb-1">{{ $stock->price }}</h6>
                           </td>
                           <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{ $stock->stock }}</h6>                      
+                            <h6 class="fw-semibold mb-1">{{ $stock->stock }}</h6>
                           </td>
                           <td class="border-bottom-0">
                             <form action="{{ Route('admin.editStock', $stock->id) }}" method="GET">
@@ -204,10 +239,10 @@
                                 <button type="submit" class="btn btn-danger m-1">Enable</button>
                             </form>
                           </td>
-                        </tr> 
+                        </tr>
                       @empty
                           
-                      @endforelse                 
+                      @endforelse
                     </tbody>
                   </table>
                 </div>
