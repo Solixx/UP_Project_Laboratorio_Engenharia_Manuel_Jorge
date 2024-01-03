@@ -10,7 +10,6 @@
     @include('includes.sidebar_adminPanel')
     <!--  Main wrapper -->
     <div class="body-wrapper">
-    {{-- @include('includes.sidebar_adminPanel') --}}
     @include('includes.navbar_adminPanel')
 <div class="container-fluid">
 
@@ -26,6 +25,10 @@
       <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Orders</h5>
         <div class="table-responsive">
+
+          <!-- 
+            Orders List Table
+          -->
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -57,20 +60,20 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $order->id }}</h6></td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $order->delivery_name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $order->delivery_name }}</h6>
                   </td>
                   <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">{{ $order->total_price }}</h6>                      
+                    <h6 class="fw-semibold mb-1">{{ $order->total_price }}</h6>
                 </td>
                 <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">{{ strtoupper($order->status) }}</h6>                      
+                    <h6 class="fw-semibold mb-1">{{ strtoupper($order->status) }}</h6>
                 </td>
                 <td class="border-bottom-0">
                     @if($order->processed_date == null)
                         <h6 class="fw-semibold mb-1">Not processed yet</h6>
                     @else
-                        <h6 class="fw-semibold mb-1">{{ $order->processed_date }}</h6>            
-                    @endif          
+                        <h6 class="fw-semibold mb-1">{{ $order->processed_date }}</h6>
+                    @endif
                 </td>
                   <td class="border-bottom-0">
                     <form action="{{ Route('admin.editOrder',$order->id) }}" method="get">
@@ -80,15 +83,15 @@
                   </td>
                   <td class="border-bottom-0">
                     <form action="{{ route('deleteOrder',$order->id) }}" method="POST">
-                        @method('DELETE')  
+                        @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger m-1">Disable</button>
                     </form>
                   </td>
-                </tr> 
+                </tr>
               @empty
                   
-              @endforelse        
+              @endforelse
             </tbody>
           </table>
         </div>
@@ -104,6 +107,10 @@
       <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Disabled Orders</h5>
         <div class="table-responsive">
+
+          <!-- 
+            Disabled Orders List Table
+          -->
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -135,20 +142,20 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $order->id }}</h6></td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $order->delivery_name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $order->delivery_name }}</h6>
                   </td>
                   <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">{{ $order->total_price }}</h6>                      
+                    <h6 class="fw-semibold mb-1">{{ $order->total_price }}</h6>
                 </td>
                 <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">{{ strtoupper($order->status) }}</h6>                      
+                    <h6 class="fw-semibold mb-1">{{ strtoupper($order->status) }}</h6>
                 </td>
                 <td class="border-bottom-0">
                     @if($order->processed_date == null)
                         <h6 class="fw-semibold mb-1">Not processed yet</h6>
                     @else
-                        <h6 class="fw-semibold mb-1">{{ $order->processed_date }}</h6>            
-                    @endif          
+                        <h6 class="fw-semibold mb-1">{{ $order->processed_date }}</h6>
+                    @endif
                 </td>
                   <td class="border-bottom-0">
                     <form action="{{ Route('admin.editOrder',$order->id) }}" method="get">
@@ -165,12 +172,9 @@
                 </tr> 
               @empty
                   
-              @endforelse        
+              @endforelse
             </tbody>
           </table>
-          {{-- <div class="col12 colS4 colM8 colL12 paginations flexCenter">
-            {{ $users->links() }}
-            </div> --}}
         </div>
       </div>
 

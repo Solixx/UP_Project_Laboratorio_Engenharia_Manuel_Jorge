@@ -10,7 +10,6 @@
     @include('includes.sidebar_adminPanel')
     <!--  Main wrapper -->
     <div class="body-wrapper">
-    {{-- @include('includes.sidebar_adminPanel') --}}
     @include('includes.navbar_adminPanel')
 <div class="container-fluid">
   @if ($message = Session::get('success'))
@@ -24,6 +23,10 @@
       <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Categories</h5>
         <div class="table-responsive">
+
+          <!-- 
+            Categories List Table
+          -->
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -46,7 +49,7 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $categorie->id }}</h6></td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $categorie->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $categorie->name }}</h6>
                   </td>
                   <td class="border-bottom-0">
                     <form action="{{ Route('admin.editCategorie',$categorie->id) }}" method="get">
@@ -56,12 +59,12 @@
                   </td>
                   <td class="border-bottom-0">
                     <form action="{{ route('admin.deleteCategorie',$categorie->id) }}" method="GET">
-                        @method('DELETE')  
+                        @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger m-1">Disable</button>
                     </form>
                   </td>
-                </tr> 
+                </tr>
               @empty
                   
               @endforelse               
@@ -80,6 +83,10 @@
       <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Disabled Products</h5>
         <div class="table-responsive">
+
+          <!-- 
+            Disabled Categories List Table
+          -->
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -102,7 +109,7 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $categorie->id }}</h6></td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $categorie->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $categorie->name }}</h6>
                   </td>
                   <td class="border-bottom-0">
                     <form action="{{ Route('admin.editCategorie',$categorie->id) }}" method="get">
@@ -116,10 +123,10 @@
                       <button type="submit" class="btn btn-danger m-1">Enable</button>
                     </form>
                   </td>
-                </tr> 
+                </tr>
               @empty
                   
-              @endforelse               
+              @endforelse
             </tbody>
           </table>
           {{-- <div class="col12 colS4 colM8 colL12 paginations flexCenter">

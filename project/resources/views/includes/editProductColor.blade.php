@@ -45,7 +45,10 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title fw-semibold mb-4">Edit Product Color</h5>
-              <div class="card" style="background-color: rgba({{ $r }}, {{ $g }}, {{ $b }}, {{ $opacity }}); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
+              <div class="card" style="background-color: rgba({{ $r }}, {{ $g }}, {{ $b }},
+                                      {{ $opacity }}); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                                      backdrop-filter: blur(5px);
+                                      -webkit-backdrop-filter: blur(5px);">
                 <div class="card-body">
                   <form action="{{ Route('admin.updateProductColor',$product_color->id) }}" enctype="multipart/form-data" method="POST">
                     @csrf

@@ -10,7 +10,6 @@
     @include('includes.sidebar_adminPanel')
     <!--  Main wrapper -->
     <div class="body-wrapper">
-    {{-- @include('includes.sidebar_adminPanel') --}}
     @include('includes.navbar_adminPanel')
 <div class="container-fluid">
 
@@ -27,6 +26,10 @@
       <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Brands</h5>
         <div class="table-responsive">
+
+          <!-- 
+            Brands List Table
+          -->
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -52,10 +55,16 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $brand->id }}</h6></td>
                   <td class="border-bottom-0">
-                    <img style="width: 50px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($brand->imgPath) }}" class="card-img-top rounded-0" alt="{{ $brand->img }}">
+                    <img style="width: 50px;
+                          heigth: 100%;
+                          object-fit: contain;
+                          bject-position: 50% 50%;" 
+                          src="{{ asset($brand->imgPath) }}" 
+                          class="card-img-top rounded-0" 
+                          alt="{{ $brand->img }}" />
                   </td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $brand->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $brand->name }}</h6>
                   </td>
                   <td class="border-bottom-0">
                     <form action="{{ Route('admin.editBrand',$brand->id) }}" method="get">
@@ -65,12 +74,12 @@
                   </td>
                   <td class="border-bottom-0">
                     <form action="{{ route('admin.deleteBrand',$brand->id) }}" method="GET">
-                        @method('DELETE')  
+                        @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger m-1">Disable</button>
                     </form>
                   </td>
-                </tr> 
+                </tr>
               @empty
                   
               @endforelse        
@@ -89,6 +98,10 @@
       <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Disabled Brands</h5>
         <div class="table-responsive">
+
+          <!-- 
+            Disabled Brands List Table
+          -->
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -114,7 +127,13 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $brand->id }}</h6></td>
                   <td class="border-bottom-0">
-                    <img style="width: 50px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($brand->imgPath) }}" class="card-img-top rounded-0" alt="{{ $brand->img }}">
+                    <img style="width: 50px;
+                                heigth: 100%;
+                                object-fit: contain; 
+                                bject-position: 50% 50%;" 
+                                src="{{ asset($brand->imgPath) }}" 
+                                class="card-img-top rounded-0" 
+                                alt="{{ $brand->img }}" />
                   </td>
                   <td class="border-bottom-0">
                       <h6 class="fw-semibold mb-1">{{ $brand->name }}</h6>                      
@@ -131,15 +150,12 @@
                       <button type="submit" class="btn btn-danger m-1">Enable</button>
                     </form>
                   </td>
-                </tr> 
+                </tr>
               @empty
                   
-              @endforelse        
+              @endforelse
             </tbody>
           </table>
-          {{-- <div class="col12 colS4 colM8 colL12 paginations flexCenter">
-            {{ $users->links() }}
-            </div> --}}
         </div>
       </div>
 
