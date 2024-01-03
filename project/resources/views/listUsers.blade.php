@@ -10,7 +10,6 @@
     @include('includes.sidebar_adminPanel')
     <!--  Main wrapper -->
     <div class="body-wrapper">
-    {{-- @include('includes.sidebar_adminPanel') --}}
     @include('includes.navbar_adminPanel')
 <div class="container-fluid">
 
@@ -26,6 +25,10 @@
       <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Users</h5>
         <div class="table-responsive">
+          
+          <!-- 
+            Users List Table
+          -->
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -57,10 +60,17 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $user->id }}</h6></td>
                   <td class="border-bottom-0">
-                    <img style="border-radius: 50% !important; width: 50px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($user->imgPath) }}" class="card-img-top rounded-0" alt="{{ $user->img }}">
+                    <img style="border-radius: 50% !important; 
+                                width: 50px; 
+                                heigth: 100%; 
+                                object-fit: contain; 
+                                object-position: 50% 50%;" 
+                                src="{{ asset($user->imgPath) }}" 
+                                class="card-img-top rounded-0" 
+                                alt="{{ $user->img }}">
                   </td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $user->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $user->name }}</h6>
                   </td>
                   <td class="border-bottom-0">
                     <p class="mb-0 fw-normal">{{ $user->email }}</p>
@@ -94,7 +104,7 @@
                   <td class="border-bottom-0">
                       @if($user->id != $authUser->id)
                         <form action="{{ route('admin.deleteUser',$user->id) }}" method="GET">
-                            @method('DELETE')  
+                            @method('DELETE')
                             @csrf
                             <button type="submit" class="btn btn-danger m-1">Disable</button>
                         </form>
@@ -102,10 +112,10 @@
                           <button type="button" class="btn btn-danger m-1" disabled>Disable</button>
                       @endif
                   </td>
-                </tr> 
+                </tr>
               @empty
                   
-              @endforelse        
+              @endforelse
             </tbody>
           </table>
         </div>
@@ -121,6 +131,10 @@
       <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Disabled Users</h5>
         <div class="table-responsive">
+
+          <!-- 
+            Disabled Users List Table
+          -->
           <table class="table text-nowrap mb-0 align-middle">
             <thead class="text-dark fs-4">
               <tr>
@@ -152,10 +166,17 @@
                 <tr>
                   <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $user->id }}</h6></td>
                   <td class="border-bottom-0">
-                    <img style="border-radius: 50% !important; width: 50px; heigth: 100%; object-fit: contain; bject-position: 50% 50%;" src="{{ asset($user->imgPath) }}" class="card-img-top rounded-0" alt="{{ $user->img }}">
+                    <img style="border-radius: 50% !important; 
+                                width: 50px; 
+                                heigth: 100%; 
+                                object-fit: contain; 
+                                object-position: 50% 50%;" 
+                                src="{{ asset($user->imgPath) }}" 
+                                class="card-img-top rounded-0" 
+                                alt="{{ $user->img }}" />
                   </td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $user->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $user->name }}</h6>
                   </td>
                   <td class="border-bottom-0">
                     <p class="mb-0 fw-normal">{{ $user->email }}</p>
@@ -196,10 +217,10 @@
                           <button type="button" class="btn btn-danger m-1" disabled>Enable</button>
                       @endif
                   </td>
-                </tr> 
+                </tr>
               @empty
                   
-              @endforelse        
+              @endforelse
             </tbody>
           </table>
           
@@ -212,7 +233,4 @@
   </div>
 </div>
 </div>
-{{-- <div class="col12 colS4 colM8 colL12 paginations flexCenter">
-            {{ $users->links() }}
-            </div> --}}
 @endsection

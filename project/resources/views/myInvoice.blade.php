@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
 
 <head>
     <meta charset="UTF-8" />
@@ -28,7 +27,9 @@
                             <h3>{{ $item->stock->Product_Color->product->name }}</h3>
                             <p>{{ $item->stock->Product_Color->product->description }}</p>
                             <h3>{{ $item->stock->size->size }}</h3>
-                            <div class="colorBox colorActive" style="background-color: {{ $item->stock->Product_Color->color->color }};"></div>
+                            <div class="colorBox colorActive" 
+                                style="background-color: {{ $item->stock->Product_Color->color->color }};">
+                            </div>
                         </div>
                         <div class="orderProdPrice">
                             <h3>{{ $item->price }}€</h3>

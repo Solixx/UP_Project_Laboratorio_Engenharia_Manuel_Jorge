@@ -126,15 +126,29 @@ svg {
 }
 
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 62px;
+  display: block;
+  position: relative;
+  height: 60px;
 }
 
 .navbarPhone .menu-items {
   display: flex;
   overflow: scroll;
+  padding-top: 120px;
+  box-shadow: inset 2000px 2000px 2000px rgba(0, 0, 0, 0.9);
+  height: 100vh;
+  width: 100%;
+  transform: translate(-150%);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
+}
+
+.navbarPhone .menu-items li {
+  margin-bottom: 1.6rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .navbarPhone .nav-container li {
@@ -163,12 +177,6 @@ svg {
     font-weight: bolder;
 }
 
-.nav-container {
-  display: block;
-  position: relative;
-  height: 60px;
-}
-
 .nav-container .navPhoneCheckbox {
   position: absolute;
   display: block;
@@ -182,7 +190,6 @@ svg {
 }
 
 .nav-container .hamburger-lines {
-  display: block;
   height: 26px;
   width: 32px;
   position: absolute;
@@ -218,24 +225,6 @@ svg {
 .nav-container .hamburger-lines .line3 {
   transform-origin: 0% 100%;
   transition: transform 0.4s ease-in-out;
-}
-
-.navbarPhone .menu-items {
-  padding-top: 120px;
-  box-shadow: inset 2000px 2000px 2000px rgba(0, 0, 0, 0.9);
-  height: 100vh;
-  width: 100%;
-  transform: translate(-150%);
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.5s ease-in-out;
-  text-align: center;
-}
-
-.navbarPhone .menu-items li {
-  margin-bottom: 1.6rem;
-  font-size: 1.5rem;
-  font-weight: 500;
 }
 
 .nav-container input[type="checkbox"]:checked ~ .menu-items {
@@ -1505,7 +1494,6 @@ footer .copyright p{
   }
 
   .arrows{
-    display: block;
     position: absolute;
     left: 50%;
     right: 50%;
@@ -1660,7 +1648,6 @@ footer .copyright p{
     text-overflow:unset;
     overflow:unset;
     word-wrap: normal;
-    margin-bottom: 15px;
   }
   
   .orderBox .orderFooter{
