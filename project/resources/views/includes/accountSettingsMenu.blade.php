@@ -12,23 +12,24 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <script>
-    $(document).ready(function(){
-        // Get the current URL
+    document.addEventListener('DOMContentLoaded', function () {
+        // Recebe o URL
         var currentPath = window.location.pathname;
 
-        // Remove 'optionActive' class from all links
-        $('.settingsOption a').removeClass('optionActive');
+        // Remove a class 'optionActive' para todos os <a>
+        var links = document.querySelectorAll('.settingsOption a');
+        links.forEach(function (link) {
+            link.classList.remove('optionActive');
+        });
 
-        // Loop through each link and check if the current URL starts with its href
-        $('.settingsOption a').each(function(){
-            var href = $(this).attr('href');
+        // Vê todos os <a> e verifica se contem o URL
+        links.forEach(function (link) {
+            var href = link.getAttribute('href');
             if (href !== '#') {
-                var hrefPath = new URL(href).pathname;
+                var hrefPath = new URL(href, window.location.origin).pathname;
                 if (currentPath === hrefPath) {
-                    $(this).addClass('optionActive');
+                    link.classList.add('optionActive');
                 }
             }
         });
