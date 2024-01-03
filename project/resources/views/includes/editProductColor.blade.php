@@ -50,51 +50,52 @@
                                       backdrop-filter: blur(5px);
                                       -webkit-backdrop-filter: blur(5px);">
                 <div class="card-body">
-                  <form action="{{ Route('admin.updateProductColor',$product_color->id) }}" 
-                        enctype="multipart/form-data" 
+                  <form action="{{ Route('admin.updateProductColor',$product_color->id) }}"
+                        enctype="multipart/form-data"
                         method="POST">
                     @csrf
                     <div class="mb-3">
-                      <img class="form-control" 
-                            style="margin: 0 auto; 
-                                  min-width: 100px; 
-                                  max-width: 50%; 
-                                  border: none;" 
-                            id="prodColordisplay" 
-                            src="https://via.placeholder.com/100"  
-                            class="card-img-top rounded-0" 
-                            alt="No Image" 
+                      <img class="form-control"
+                            style="margin: 0 auto;
+                                  min-width: 100px;
+                                  max-width: 50%;
+                                  border: none;"
+                            id="prodColordisplay"
+                            src="https://via.placeholder.com/100"
+                            class="card-img-top rounded-0"
+                            alt="No Image"
                             onclick="triggerclick()" />
-                      @if($product_color && 
-                          $product_color->photos->first() && 
+                      @if($product_color &&
+                          $product_color->photos->first() &&
                           $product_color->photos->first()->exists())
-                        <div class="imgGalery" style="display: flex; flex-direction: row; 
+
+                        <div class="imgGalery" style="display: flex; flex-direction: row;
                                                       justify-content: flex-start !important; flex-wrap: wrap;">
                           @foreach ($product_color->photos as $photos)
                             <a href="{{ Route('admin.deletePhoto', $photos->id) }}">
-                              <img style="min-width: 100px; 
-                                          max-width: 25%; 
-                                          height: 100px; 
-                                          border: none; 
-                                          object-fit: contain; 
-                                          object-position: 50% 50%;" 
-                                    src="{{ asset($photos->imgPath) }}" 
+                              <img style="min-width: 100px;
+                                          max-width: 25%;
+                                          height: 100px;
+                                          border: none;
+                                          object-fit: contain;
+                                          object-position: 50% 50%;"
+                                    src="{{ asset($photos->imgPath) }}"
                                     alt="{{ $photos->img }}">
                             </a>
                         @endforeach
                         </div>
                       @else
                       @endif
-                      <input id="prodColorImgInput" 
-                              type="file" 
-                              name="image" 
-                              onchange="displayimage(this)" 
+                      <input id="prodColorImgInput"
+                              type="file"
+                              name="image"
+                              onchange="displayimage(this)"
                               style="display: none;">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
-                  <form action="{{ Route('admin.deleteProductColor',$product_color->id) }}" 
-                        method="GET" 
+                  <form action="{{ Route('admin.deleteProductColor',$product_color->id) }}"
+                        method="GET"
                         style="margin-top: 10px">
                     @csrf
                     <button type="submit" class="btn btn-danger">Disable</button>
@@ -103,8 +104,6 @@
               </div>
             </div>
           </div>
-
-
 
           <div class="col-lg-12 d-flex align-items-stretch">
             <div class="card w-100">
@@ -120,6 +119,7 @@
                     Stocks Table List
                   -->
                   <table class="table text-nowrap mb-0 align-middle">
+                    <caption style="display: none;">Stocks List Table</caption>
                     <thead class="text-dark fs-4">
                       <tr>
                         <th class="border-bottom-0">

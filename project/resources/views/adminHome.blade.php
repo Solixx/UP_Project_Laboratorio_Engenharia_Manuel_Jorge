@@ -74,10 +74,11 @@
                 <h5 class="card-title fw-semibold mb-4">New Users</h5>
                 <div class="table-responsive">
 
-                  <!-- 
+                  <!--
                     New Users List Table
                   -->
                   <table class="table text-nowrap mb-0 align-middle">
+                    <caption style="display: none;">New Users List Table</caption>
                     <thead class="text-dark fs-4">
                       <tr>
                         <th class="border-bottom-0">
@@ -155,13 +156,6 @@
           @empty
               
           @endforelse
-        </div>
-        <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by
-            <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">
-              AdminMart.com
-            </a>
-          </p>
         </div>
       </div>
     </div>

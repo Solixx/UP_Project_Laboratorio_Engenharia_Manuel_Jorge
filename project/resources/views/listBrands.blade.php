@@ -27,7 +27,7 @@
         <h5 class="card-title fw-semibold mb-4">Brands</h5>
         <div class="table-responsive">
 
-          <!-- 
+          <!--
             Brands List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
@@ -59,7 +59,7 @@
                     <img style="width: 50px;
                           heigth: 100%;
                           object-fit: contain;
-                          bject-position: 50% 50%;" 
+                          bject-position: 50% 50%;"
                           src="{{ asset($brand->imgPath) }}" 
                           class="card-img-top rounded-0" 
                           alt="{{ $brand->img }}" />
@@ -83,7 +83,7 @@
                 </tr>
               @empty
                   
-              @endforelse        
+              @endforelse
             </tbody>
           </table>
         </div>
@@ -100,10 +100,11 @@
         <h5 class="card-title fw-semibold mb-4">Disabled Brands</h5>
         <div class="table-responsive">
 
-          <!-- 
+          <!--
             Disabled Brands List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
+            <caption style="display: none;">Disabled Brands List Table</caption>
             <thead class="text-dark fs-4">
               <tr>
                 <th class="border-bottom-0">
@@ -137,7 +138,7 @@
                                 alt="{{ $brand->img }}" />
                   </td>
                   <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-1">{{ $brand->name }}</h6>                      
+                      <h6 class="fw-semibold mb-1">{{ $brand->name }}</h6>
                   </td>
                   <td class="border-bottom-0">
                     <form action="{{ Route('admin.editBrand',$brand->id) }}" method="get">

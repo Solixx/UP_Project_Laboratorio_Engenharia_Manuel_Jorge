@@ -30,6 +30,7 @@
             Users List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
+            <caption style="display: none;">Users List Table</caption>
             <thead class="text-dark fs-4">
               <tr>
                 <th class="border-bottom-0">
@@ -136,6 +137,7 @@
             Disabled Users List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
+            <caption style="display: none;">Disabled Users List Table</caption>
             <thead class="text-dark fs-4">
               <tr>
                 <th class="border-bottom-0">

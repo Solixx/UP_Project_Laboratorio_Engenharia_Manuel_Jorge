@@ -49,6 +49,7 @@
             Products List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
+            <caption style="display: none;">Products List Table</caption>
             <thead class="text-dark fs-4">
               <tr>
                 <th class="border-bottom-0">
@@ -60,15 +61,6 @@
                 <th class="border-bottom-0">
                   <h6 class="fw-semibold mb-0">Name</h6>
                 </th>
-                {{-- <th class="border-bottom-0">
-                  <h6 class="fw-semibold mb-0">Size</h6>
-                </th>
-                <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Color</h6>
-                </th>
-                <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Stock</h6>
-                </th> --}}
                 <th class="border-bottom-0">
                   <h6 class="fw-semibold mb-0">Edit</h6>
                 </th>
@@ -143,6 +135,7 @@
             Disabled Products List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
+            <caption style="display: none;">Disabled Products List Table</caption>
             <thead class="text-dark fs-4">
               <tr>
                 <th class="border-bottom-0">

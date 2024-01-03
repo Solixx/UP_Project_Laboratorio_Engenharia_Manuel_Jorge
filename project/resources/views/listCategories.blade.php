@@ -28,6 +28,7 @@
             Categories List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
+            <caption style="display: none;">Categories List Table</caption>
             <thead class="text-dark fs-4">
               <tr>
                 <th class="border-bottom-0">
@@ -88,6 +89,7 @@
             Disabled Categories List Table
           -->
           <table class="table text-nowrap mb-0 align-middle">
+            <caption style="display: none;">Disabled Categories List Table</caption>
             <thead class="text-dark fs-4">
               <tr>
                 <th class="border-bottom-0">
