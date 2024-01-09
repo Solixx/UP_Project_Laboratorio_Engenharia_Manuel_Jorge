@@ -31,9 +31,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('/profile');
+        $response = $this->actingAs($user)->get('/profile');
 
         $response->assertStatus(200);
     }
@@ -42,9 +40,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create(['isAdmin' => true]);
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('admin/');
+        $response = $this->actingAs($user)->get('admin/');
 
         $response->assertStatus(200);
     }
@@ -53,9 +49,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create(['isAdmin' => true]);
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('admin/users');
+        $response = $this->actingAs($user)->get('admin/users');
 
         $response->assertStatus(200);
     }
@@ -64,9 +58,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create(['isAdmin' => true]);
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('admin/products');
+        $response = $this->actingAs($user)->get('admin/products');
 
         $response->assertStatus(200);
     }
@@ -75,9 +67,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create(['isAdmin' => true]);
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('admin/categories');
+        $response = $this->actingAs($user)->get('admin/categories');
 
         $response->assertStatus(200);
     }
@@ -86,9 +76,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create(['isAdmin' => true]);
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('admin/brands');
+        $response = $this->actingAs($user)->get('admin/brands');
 
         $response->assertStatus(200);
     }
@@ -97,9 +85,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create(['isAdmin' => true]);
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('admin/orders');
+        $response = $this->actingAs($user)->get('admin/orders');
 
         $response->assertStatus(200);
     }
@@ -108,9 +94,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('/settings/edit-profile');
+        $response = $this->actingAs($user)->get('/settings/edit-profile');
 
         $response->assertStatus(200);
     }
@@ -119,9 +103,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user);
-
-        $response = $this->post('/settings/edit-profile/' . $user->id, [
+        $response = $this->actingAs($user)->post('/settings/edit-profile/' . $user->id, [
             'name' => $this->faker->name,
             'image' => $this->faker->image,
         ]);
@@ -133,9 +115,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user);
-
-        $response = $this->get('/settings/account-management');
+        $response = $this->actingAs($user)->get('/settings/account-management');
 
         $response->assertStatus(200);
     }
@@ -144,9 +124,7 @@ class UserTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user);
-
-        $response = $this->post('/settings/account-management/' . $user->id);
+        $response = $this->actingAs($user)->post('/settings/account-management/' . $user->id);
 
         $response->assertStatus(302);
     }
@@ -156,9 +134,7 @@ class UserTest extends TestCase
         $user_admin = User::factory()->create(['isAdmin' => true]);
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user_admin);
-
-        $response = $this->get('admin/users/' . $user->id);
+        $response = $this->actingAs($user_admin)->get('admin/users/' . $user->id);
 
         $response->assertStatus(302);
     }

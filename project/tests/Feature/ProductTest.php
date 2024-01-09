@@ -41,9 +41,7 @@ class ProductTest extends TestCase
     {
         $user_admin = User::factory()->create(['isAdmin' => true]);
 
-        $response = $this->actingAs($user_admin);
-
-        $response = $this->post('admin/product/store', [
+        $response = $this->actingAs($user_admin)->post('admin/product/store', [
             'name' => 'test',
             'description' => 'test',
             'brands' => [1],
@@ -58,9 +56,7 @@ class ProductTest extends TestCase
     {
         $user_admin = User::factory()->create(['isAdmin' => true]);
 
-        $response = $this->actingAs($user_admin);
-
-        $response = $this->post('admin/product/1', [
+        $response = $this->actingAs($user_admin)->post('admin/product/1', [
             'name' => 'test',
             'description' => 'test',
             'brands' => [1, 2],
@@ -78,9 +74,7 @@ class ProductTest extends TestCase
         $user_admin = User::factory()->create(['isAdmin' => true]);
 
         if(!Stock::where('id', 1)->onlyTrashed()->first()){
-            $response = $this->actingAs($user_admin);
-
-            $response = $this->get('admin/product/1');
+            $response = $this->actingAs($user_admin)->get('admin/product/1');
         }
 
         if ($response) {

@@ -16,7 +16,7 @@ class Order_ItemSeeder extends Seeder
     public function run(): void
     {
         foreach(Order::all() as $order){
-            $num = random_int(1,5); //rand(1, 5);
+            $num = random_int(1,5);
             $stocks = Stock::all()->shuffle();
             for($i = 0; $i < $num; $i++){
                 $order_items = [

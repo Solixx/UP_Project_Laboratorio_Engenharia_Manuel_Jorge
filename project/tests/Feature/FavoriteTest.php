@@ -19,9 +19,7 @@ class FavoriteTest extends TestCase
         $user = User::factory()->create();
         $stock = Stock::all()->last();
 
-        $response = $this->actingAs($user);
-
-        $response = $this->post('/favorite/' . $stock->id);
+        $response = $this->actingAs($user)->post('/favorite/' . $stock->id);
 
         $response->assertStatus(302);
     }
