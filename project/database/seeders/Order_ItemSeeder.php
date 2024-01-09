@@ -16,13 +16,13 @@ class Order_ItemSeeder extends Seeder
     public function run(): void
     {
         foreach(Order::all() as $order){
-            $num = rand(1, 5);
+            $num = random_int(1,5); //rand(1, 5);
             $stocks = Stock::all()->shuffle();
             for($i = 0; $i < $num; $i++){
                 $order_items = [
                     'order_id' => $order->id,
                     'stock_id' => $stocks[$i]->id,
-                    'quantity' => rand(1, 20),
+                    'quantity' => random_int(1,20),
                     'price' => $stocks[$i]->price,
                     'created_at' => now(),
                     'updated_at' => now(),

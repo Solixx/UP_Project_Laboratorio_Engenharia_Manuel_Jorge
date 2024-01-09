@@ -17,7 +17,7 @@ class Product_ColorSeeder extends Seeder
     public function run(): void
     {
         foreach(Product::all() as $product){
-            $num = rand(1, 5);
+            $num = random_int(1,5);
             $colors = Color::all()->shuffle();
             for($i = 0; $i < $num; $i++){
                 $product_colors = [

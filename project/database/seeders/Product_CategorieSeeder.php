@@ -16,7 +16,7 @@ class Product_CategorieSeeder extends Seeder
     public function run(): void
     {
         foreach(Product::all() as $product){
-            $num = rand(1, 5);
+            $num = random_int(1,5);
             $categories = Categorie::all()->shuffle();
             for($i = 0; $i < $num; $i++){
                 $product_categories = [

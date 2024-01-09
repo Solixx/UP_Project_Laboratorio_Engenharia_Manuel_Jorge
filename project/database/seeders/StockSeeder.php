@@ -17,14 +17,14 @@ class StockSeeder extends Seeder
     public function run(): void
     {
         foreach(Product_Color::all() as $product){
-            $num = rand(1, 15);
+            $num = random_int(1,15);
             $sizes = Size::all()->shuffle();
             for($i = 0; $i < $num; $i++){
                 $stocks = [
                     'product_color_id' => $product->id,
                     'size_id' => $sizes[$i]->id,
-                    'stock' => rand(0, 100),
-                    'price' => rand(0, 100),
+                    'stock' => random_int(0,100),
+                    'price' => random_int(0,100),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];
