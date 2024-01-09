@@ -140,7 +140,7 @@ class UserTest extends TestCase
         $response->assertStatus(200);
     }
     
-    public function testUserDeletePost(): void
+    public function testUserAccountManagementPost(): void
     {
         $user = User::factory()->create();
 
