@@ -201,10 +201,10 @@ class StockController extends Controller
 
         session(['searchName' => $searchTerm]);
 
-        $stocks = Stock::whereIn(
+        $stocks = Stock::whereIn( // whereIn para receber uma lista de valores
             'product_color_id',
-            Product_Color::whereHas('product', function ($query) use ($searchTerm) {
-                $query->whereRaw('LOWER(name) like ?', ['%' . $searchTerm . '%']);
+            Product_Color::whereHas('product', function ($query) use ($searchTerm) { // whereHas para usar condições na pesquisa
+                $query->whereRaw('LOWER(name) like ?', ['%' . $searchTerm . '%']); // whereRaw para usar uma consulta customizada
             })->pluck('id')
         )->paginate(20);
 
