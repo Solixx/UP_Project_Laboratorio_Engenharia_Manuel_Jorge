@@ -50,64 +50,67 @@
                         <label for="exampleInputDescription2" class="form-label">Description</label>
                         <textarea type="text" name="description" class="form-control" id="exampleInputDescription2">{{ $product->description }}</textarea>
                     </div>
-                    <div class="mb-3">
-                        <h4 for="" class="form-label">Brands</h4>
-                        @forelse ($brands as $brand)
-                          <label for="exampleInputBrand{{ $brand->id }}" class="form-label">{{ $brand->name }}</label>
-                          <?php $have = false; ?>
-                          @forelse ($product->brands as $prodBrand)
-                            @if($prodBrand->brand_id == $brand->id)
-                                <?php $have = true; ?>
-                                <input type="checkbox" name="brands[]" id="exampleInputBrand{{ $brand->id }}" value="{{ $brand->id }}" checked>
-                                @break;
-                            @endif
-                          @empty
-                        @endforelse
-                          @if(!$have)
-                            <input type="checkbox" name="brands[]" id="exampleInputBrand{{ $brand->id }}" value="{{ $brand->id }}">
-                          @endif
-                        @empty
-                        @endforelse
-                    </div>
-                    <div class="mb-3">
-                      <h4 for="" class="form-label">Categories</h4>
-                      @forelse ($categories as $category)
-                        <label for="exampleInputCategory{{ $category->id }}" class="form-label">{{ $category->name }}</label>
-                        <?php $have = false; ?>
-                          @forelse ($product->categories as $prodCategory)
-                            @if($prodCategory->categorie_id == $category->id)
-                                <?php $have = true; ?>
-                                <input type="checkbox" name="categories[]" id="exampleInputCategory{{ $category->id }}" value="{{ $category->id }}" checked>
-                                @break;
+                    @if($enable)
+                      <div class="mb-3">
+                          <h4 for="" class="form-label">Brands</h4>
+                          @forelse ($brands as $brand)
+                            <label for="exampleInputBrand{{ $brand->id }}" class="form-label">{{ $brand->name }}</label>
+                            <?php $have = false; ?>
+                            @forelse ($product->brands as $prodBrand)
+                              @if($prodBrand->brand_id == $brand->id)
+                                  <?php $have = true; ?>
+                                  <input type="checkbox" name="brands[]" id="exampleInputBrand{{ $brand->id }}" value="{{ $brand->id }}" checked>
+                                  @break;
+                              @endif
+                            @empty
+                          @endforelse
+                            @if(!$have)
+                              <input type="checkbox" name="brands[]" id="exampleInputBrand{{ $brand->id }}" value="{{ $brand->id }}">
                             @endif
                           @empty
                           @endforelse
-                          @if(!$have)
-                            <input type="checkbox" name="categories[]" id="exampleInputCategory{{ $category->id }}" value="{{ $category->id }}">
-                          @endif
-                      @empty
-                      @endforelse
-                    </div>
-                    <div class="mb-3">
-                        <h4 for="" class="form-label">Colors</h4>
-                        @forelse ($colors as $color)
-
+                      </div>
+                      <div class="mb-3">
+                        <h4 for="" class="form-label">Categories</h4>
+                        @forelse ($categories as $category)
+                          <label for="exampleInputCategory{{ $category->id }}" class="form-label">{{ $category->name }}</label>
                           <?php $have = false; ?>
-                          @forelse ($product->colors as $prodColor)
-                            @if($prodColor->color_id == $color->id)
-                                <?php $have = true; ?>
-                                @break;
+                            @forelse ($product->categories as $prodCategory)
+                              @if($prodCategory->categorie_id == $category->id)
+                                  <?php $have = true; ?>
+                                  <input type="checkbox" name="categories[]" id="exampleInputCategory{{ $category->id }}" value="{{ $category->id }}" checked>
+                                  @break;
+                              @endif
+                            @empty
+                            @endforelse
+                            @if(!$have)
+                              <input type="checkbox" name="categories[]" id="exampleInputCategory{{ $category->id }}" value="{{ $category->id }}">
                             @endif
-                          @empty
-                          @endforelse
-                          @if(!$have)
-                            <div class="colorBox" style="background-color: {{ $color->color }};"></div>
-                            <input type="checkbox" name="colors[]" id="exampleInputColor{{ $color->id }}" value="{{ $color->id }}">
-                          @endif
-
                         @empty
                         @endforelse
-                    </div>
+                      </div>
+                      <div class="mb-3">
+                          <h4 for="" class="form-label">Colors</h4>
+                          @forelse ($colors as $color)
+
+                            <?php $have = false; ?>
+                            @forelse ($product->colors as $prodColor)
+                              @if($prodColor->color_id == $color->id)
+                                  <?php $have = true; ?>
+                                  @break;
+                              @endif
+                            @empty
+                            @endforelse
+                            @if(!$have)
+                              <div class="colorBox" style="background-color: {{ $color->color }};"></div>
+                              <input type="checkbox" name="colors[]" id="exampleInputColor{{ $color->id }}" value="{{ $color->id }}">
+                            @endif
+
+                          @empty
+                          @endforelse
+                      </div>
+                    @else
+                    @endif
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
                 </div>

@@ -99,7 +99,12 @@ class ProductController extends Controller
         $colors = Color::all(); 
         $product_color = Product_Color::where('product_id', $product->id)->get();
 
-        return view('includes.editProduct', compact('product', 'product_color', 'categories', 'brands', 'colors'));
+        $enable = true;
+        if($product && $product->trashed()){
+            $enable = false;
+        }
+
+        return view('includes.editProduct', compact('product', 'product_color', 'categories', 'brands', 'colors', 'enable'));
     }
 
     /**
@@ -110,19 +115,24 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'min:1|max:255',
             'description' => 'min:1|max:255',
-            'categories' => 'required',
-            'brands' => 'required',
+            'categories',
+            'brands',
             'colors',
         ]);
 
-        foreach(Product_Categorie::where('product_id', $product->id)->get() as $categories){
-            if(!in_array($categories->categorie_id, $request->categories)){
-                $categories->delete();
+        // Se alguma das categorias parar de estar selecionada ele procura e se não existir dá disable
+        if($request->has('categories')){
+            foreach(Product_Categorie::where('product_id', $product->id)->get() as $categories){
+                if(!in_array($categories->categorie_id, $request->categories)){
+                    $categories->delete();
+                }
             }
         }
 
+        // Vê as categorias selecioandas
         if($request->has('categories')){
             foreach($request->categories as $categories){
+                // Se já existir mas tiver disable ele dá restore se não cria
                 if(!Product_Categorie::where('product_id', $product->id)->where('categorie_id', $categories)->onlyTrashed()->get()->isEmpty()){
                     $product_categorie = Product_Categorie::where('product_id', $product->id)->where('categorie_id', $categories)->withTrashed()->first();
                     $product_categorie->restore();
@@ -135,9 +145,11 @@ class ProductController extends Controller
             }
         }
 
-        foreach(Product_Brand::where('product_id', $product->id)->get() as $brands){
-            if(!in_array($brands->brand_id, $request->brands)){
-                $brands->delete();
+        if($request->has('brands')){
+            foreach(Product_Brand::where('product_id', $product->id)->get() as $brands){
+                if(!in_array($brands->brand_id, $request->brands)){
+                    $brands->delete();
+                }
             }
         }
         
@@ -156,15 +168,17 @@ class ProductController extends Controller
         }
 
         if($request->has('colors')){
-            foreach($request->colors as $colors){
-                if(!Product_Color::where('product_id', $product->id)->where('color_id', $colors)->withTrashed()->get()->isEmpty()){
-                    $product_color = Product_Color::where('product_id', $product->id)->where('color_id', $colors)->withTrashed()->first();
-                    $product_color->restore();
-                } else{
-                    $product_color = new Product_Color();
-                    $product_color->color_id = $colors;
-                    $product_color->product_id = $product->id;
-                    $product_color->save();
+            if($request->has('colors')){
+                foreach($request->colors as $colors){
+                    if(!Product_Color::where('product_id', $product->id)->where('color_id', $colors)->withTrashed()->get()->isEmpty()){
+                        $product_color = Product_Color::where('product_id', $product->id)->where('color_id', $colors)->withTrashed()->first();
+                        $product_color->restore();
+                    } else{
+                        $product_color = new Product_Color();
+                        $product_color->color_id = $colors;
+                        $product_color->product_id = $product->id;
+                        $product_color->save();
+                    }
                 }
             }
         }
