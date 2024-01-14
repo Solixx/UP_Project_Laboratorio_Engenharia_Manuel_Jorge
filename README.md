@@ -9,6 +9,9 @@
 
 <hr>
 
+<h1>Video</h1>
+<p>https://www.youtube.com/watch?v=FY6EoK0Yc5E&t=584s&ab_channel=JorgeDaniel</p>
+
 <img src="Logo/logo.png" />
 
 <h2>Design Imgs</h2>
