@@ -1,7 +1,7 @@
 # UP_Project_Laboratorio_Engenharia
 
-<h1>Como Executar</h1>
-<p>Abrir o terminal no VSCode (ou outra ide) e executar os comandos:</p>
+<h1>How to Run</h1>
+<p>Open the terminal in VSCode (or another ide) and execute the commands:</p>
 <ul>
   <li>cd project</li>
   <li>php artisan serve</li>
@@ -19,7 +19,3 @@
 <img src="Design_Imgs/home.JPG" />
 <img src="Design_Imgs/products.JPG" />
 <img src="Design_Imgs/product.JPG" />
-
-<h1> Membros do Grupo:</h1>
-<p>Manuel Gonçalves: 43087</p>
-<p>Jorge Ferreira: 43073</p>
